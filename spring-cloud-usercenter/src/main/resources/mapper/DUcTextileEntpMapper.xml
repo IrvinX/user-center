@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.footprint.common.dao.DUcTextileEntpMapper">
+  <resultMap id="BaseResultMap" type="com.footprint.common.model.DUcTextileEntp">
+    <constructor>
+      <idArg column="ID" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="VERID" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="ARMY_LOCAL_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="SUPPLY_POWER_CONTRACT_NUM" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SIGN_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="REGIST_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="START_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="OPERATED_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="INDUSTRY_CATEGORY_FS" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INDUSTRY_CATEGORY_ZB" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INDUSTRY_CATEGORY_HX" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INDUSTRY_CATEGORY_CYYFZP" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INDUSTRY_CATEGORY_FZJJF" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MANAGEME_CATEGORY_FS" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="MANAGEME_CATEGORY_ZB" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="MANAGEME_CATEGORY_HX" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="MANAGEME_CATEGORY_NJP" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="MANAGEME_CATEGORY_WFB" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="MANAGEME_CATEGORY_FZ" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="MANAGEME_CATEGORY_DT" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="MANAGEME_CATEGORY_ST" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="MANAGEME_CATEGORY_ZW" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="MANAGEME_CATEGORY_YR" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="PLAN_EMPLOYMENT" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="CURRENT_EMPLOYMENT" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="TOTAL_INVESTMENT" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="FIXED_INVESTMENT" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="INVESTMENT_SUBJECT_P_ID" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="INVESTMENT_SUBJECT_C_ID" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="INVESTMENT_SUBJECT_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="FACTORY_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="FACTORY_AREA" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="REPORT_STATUS" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="KEY_COMPANY" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="CREATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="CREATEUSER" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="UPDATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="UPDATEUSER" javaType="java.lang.String" jdbcType="CHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, VERID, ARMY_LOCAL_TYPE, SUPPLY_POWER_CONTRACT_NUM, SIGN_TIME, REGIST_TIME, START_TIME, 
+    OPERATED_TIME, INDUSTRY_CATEGORY_FS, INDUSTRY_CATEGORY_ZB, INDUSTRY_CATEGORY_HX, 
+    INDUSTRY_CATEGORY_CYYFZP, INDUSTRY_CATEGORY_FZJJF, MANAGEME_CATEGORY_FS, MANAGEME_CATEGORY_ZB, 
+    MANAGEME_CATEGORY_HX, MANAGEME_CATEGORY_NJP, MANAGEME_CATEGORY_WFB, MANAGEME_CATEGORY_FZ, 
+    MANAGEME_CATEGORY_DT, MANAGEME_CATEGORY_ST, MANAGEME_CATEGORY_ZW, MANAGEME_CATEGORY_YR, 
+    PLAN_EMPLOYMENT, CURRENT_EMPLOYMENT, TOTAL_INVESTMENT, FIXED_INVESTMENT, INVESTMENT_SUBJECT_P_ID, 
+    INVESTMENT_SUBJECT_C_ID, INVESTMENT_SUBJECT_NAME, FACTORY_TYPE, FACTORY_AREA, REPORT_STATUS, 
+    KEY_COMPANY, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER
+  </sql>
+  <select id="selectByExample" parameterType="com.footprint.common.model.DUcTextileEntpExample" resultMap="BaseResultMap">
+    <include refid="OracleDialectPrefix" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from D_UC_TEXTILE_ENTP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="OracleDialectSuffix" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from D_UC_TEXTILE_ENTP
+    where ID = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from D_UC_TEXTILE_ENTP
+    where ID = #{id,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.footprint.common.model.DUcTextileEntpExample">
+    delete from D_UC_TEXTILE_ENTP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.footprint.common.model.DUcTextileEntp">
+    insert into D_UC_TEXTILE_ENTP (ID, VERID, ARMY_LOCAL_TYPE, SUPPLY_POWER_CONTRACT_NUM, 
+      SIGN_TIME, REGIST_TIME, START_TIME, 
+      OPERATED_TIME, INDUSTRY_CATEGORY_FS, INDUSTRY_CATEGORY_ZB, 
+      INDUSTRY_CATEGORY_HX, INDUSTRY_CATEGORY_CYYFZP, 
+      INDUSTRY_CATEGORY_FZJJF, MANAGEME_CATEGORY_FS, 
+      MANAGEME_CATEGORY_ZB, MANAGEME_CATEGORY_HX, 
+      MANAGEME_CATEGORY_NJP, MANAGEME_CATEGORY_WFB, 
+      MANAGEME_CATEGORY_FZ, MANAGEME_CATEGORY_DT, 
+      MANAGEME_CATEGORY_ST, MANAGEME_CATEGORY_ZW, 
+      MANAGEME_CATEGORY_YR, PLAN_EMPLOYMENT, CURRENT_EMPLOYMENT, 
+      TOTAL_INVESTMENT, FIXED_INVESTMENT, INVESTMENT_SUBJECT_P_ID, 
+      INVESTMENT_SUBJECT_C_ID, INVESTMENT_SUBJECT_NAME, 
+      FACTORY_TYPE, FACTORY_AREA, REPORT_STATUS, 
+      KEY_COMPANY, CREATETIME, CREATEUSER, 
+      UPDATETIME, UPDATEUSER)
+    values (#{id,jdbcType=CHAR}, 0, #{armyLocalType,jdbcType=DECIMAL}, #{supplyPowerContractNum,jdbcType=VARCHAR}, 
+      #{signTime,jdbcType=TIMESTAMP}, #{registTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{operatedTime,jdbcType=TIMESTAMP}, #{industryCategoryFs,jdbcType=VARCHAR}, #{industryCategoryZb,jdbcType=VARCHAR}, 
+      #{industryCategoryHx,jdbcType=VARCHAR}, #{industryCategoryCyyfzp,jdbcType=VARCHAR}, 
+      #{industryCategoryFzjjf,jdbcType=VARCHAR}, #{managemeCategoryFs,jdbcType=DECIMAL}, 
+      #{managemeCategoryZb,jdbcType=DECIMAL}, #{managemeCategoryHx,jdbcType=DECIMAL}, 
+      #{managemeCategoryNjp,jdbcType=DECIMAL}, #{managemeCategoryWfb,jdbcType=DECIMAL}, 
+      #{managemeCategoryFz,jdbcType=DECIMAL}, #{managemeCategoryDt,jdbcType=DECIMAL}, 
+      #{managemeCategorySt,jdbcType=DECIMAL}, #{managemeCategoryZw,jdbcType=DECIMAL}, 
+      #{managemeCategoryYr,jdbcType=DECIMAL}, #{planEmployment,jdbcType=DECIMAL}, #{currentEmployment,jdbcType=DECIMAL}, 
+      #{totalInvestment,jdbcType=DECIMAL}, #{fixedInvestment,jdbcType=DECIMAL}, #{investmentSubjectPId,jdbcType=CHAR}, 
+      #{investmentSubjectCId,jdbcType=CHAR}, #{investmentSubjectName,jdbcType=NVARCHAR}, 
+      #{factoryType,jdbcType=DECIMAL}, #{factoryArea,jdbcType=DECIMAL}, #{reportStatus,jdbcType=DECIMAL}, 
+      #{keyCompany,jdbcType=DECIMAL}, CURRENT_TIMESTAMP, #{createuser,jdbcType=CHAR}, 
+      CURRENT_TIMESTAMP, #{updateuser,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.footprint.common.model.DUcTextileEntp">
+    insert into D_UC_TEXTILE_ENTP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="verid != null">
+        VERID,
+      </if>
+      <if test="armyLocalType != null">
+        ARMY_LOCAL_TYPE,
+      </if>
+      <if test="supplyPowerContractNum != null">
+        SUPPLY_POWER_CONTRACT_NUM,
+      </if>
+      <if test="signTime != null">
+        SIGN_TIME,
+      </if>
+      <if test="registTime != null">
+        REGIST_TIME,
+      </if>
+      <if test="startTime != null">
+        START_TIME,
+      </if>
+      <if test="operatedTime != null">
+        OPERATED_TIME,
+      </if>
+      <if test="industryCategoryFs != null">
+        INDUSTRY_CATEGORY_FS,
+      </if>
+      <if test="industryCategoryZb != null">
+        INDUSTRY_CATEGORY_ZB,
+      </if>
+      <if test="industryCategoryHx != null">
+        INDUSTRY_CATEGORY_HX,
+      </if>
+      <if test="industryCategoryCyyfzp != null">
+        INDUSTRY_CATEGORY_CYYFZP,
+      </if>
+      <if test="industryCategoryFzjjf != null">
+        INDUSTRY_CATEGORY_FZJJF,
+      </if>
+      <if test="managemeCategoryFs != null">
+        MANAGEME_CATEGORY_FS,
+      </if>
+      <if test="managemeCategoryZb != null">
+        MANAGEME_CATEGORY_ZB,
+      </if>
+      <if test="managemeCategoryHx != null">
+        MANAGEME_CATEGORY_HX,
+      </if>
+      <if test="managemeCategoryNjp != null">
+        MANAGEME_CATEGORY_NJP,
+      </if>
+      <if test="managemeCategoryWfb != null">
+        MANAGEME_CATEGORY_WFB,
+      </if>
+      <if test="managemeCategoryFz != null">
+        MANAGEME_CATEGORY_FZ,
+      </if>
+      <if test="managemeCategoryDt != null">
+        MANAGEME_CATEGORY_DT,
+      </if>
+      <if test="managemeCategorySt != null">
+        MANAGEME_CATEGORY_ST,
+      </if>
+      <if test="managemeCategoryZw != null">
+        MANAGEME_CATEGORY_ZW,
+      </if>
+      <if test="managemeCategoryYr != null">
+        MANAGEME_CATEGORY_YR,
+      </if>
+      <if test="planEmployment != null">
+        PLAN_EMPLOYMENT,
+      </if>
+      <if test="currentEmployment != null">
+        CURRENT_EMPLOYMENT,
+      </if>
+      <if test="totalInvestment != null">
+        TOTAL_INVESTMENT,
+      </if>
+      <if test="fixedInvestment != null">
+        FIXED_INVESTMENT,
+      </if>
+      <if test="investmentSubjectPId != null">
+        INVESTMENT_SUBJECT_P_ID,
+      </if>
+      <if test="investmentSubjectCId != null">
+        INVESTMENT_SUBJECT_C_ID,
+      </if>
+      <if test="investmentSubjectName != null">
+        INVESTMENT_SUBJECT_NAME,
+      </if>
+      <if test="factoryType != null">
+        FACTORY_TYPE,
+      </if>
+      <if test="factoryArea != null">
+        FACTORY_AREA,
+      </if>
+      <if test="reportStatus != null">
+        REPORT_STATUS,
+      </if>
+      <if test="keyCompany != null">
+        KEY_COMPANY,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="createuser != null">
+        CREATEUSER,
+      </if>
+      <if test="updatetime != null">
+        UPDATETIME,
+      </if>
+      <if test="updateuser != null">
+        UPDATEUSER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="verid != null">
+        #{verid,jdbcType=DECIMAL},
+      </if>
+      <if test="armyLocalType != null">
+        #{armyLocalType,jdbcType=DECIMAL},
+      </if>
+      <if test="supplyPowerContractNum != null">
+        #{supplyPowerContractNum,jdbcType=VARCHAR},
+      </if>
+      <if test="signTime != null">
+        #{signTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registTime != null">
+        #{registTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatedTime != null">
+        #{operatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="industryCategoryFs != null">
+        #{industryCategoryFs,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCategoryZb != null">
+        #{industryCategoryZb,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCategoryHx != null">
+        #{industryCategoryHx,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCategoryCyyfzp != null">
+        #{industryCategoryCyyfzp,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCategoryFzjjf != null">
+        #{industryCategoryFzjjf,jdbcType=VARCHAR},
+      </if>
+      <if test="managemeCategoryFs != null">
+        #{managemeCategoryFs,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryZb != null">
+        #{managemeCategoryZb,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryHx != null">
+        #{managemeCategoryHx,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryNjp != null">
+        #{managemeCategoryNjp,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryWfb != null">
+        #{managemeCategoryWfb,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryFz != null">
+        #{managemeCategoryFz,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryDt != null">
+        #{managemeCategoryDt,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategorySt != null">
+        #{managemeCategorySt,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryZw != null">
+        #{managemeCategoryZw,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryYr != null">
+        #{managemeCategoryYr,jdbcType=DECIMAL},
+      </if>
+      <if test="planEmployment != null">
+        #{planEmployment,jdbcType=DECIMAL},
+      </if>
+      <if test="currentEmployment != null">
+        #{currentEmployment,jdbcType=DECIMAL},
+      </if>
+      <if test="totalInvestment != null">
+        #{totalInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="fixedInvestment != null">
+        #{fixedInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="investmentSubjectPId != null">
+        #{investmentSubjectPId,jdbcType=CHAR},
+      </if>
+      <if test="investmentSubjectCId != null">
+        #{investmentSubjectCId,jdbcType=CHAR},
+      </if>
+      <if test="investmentSubjectName != null">
+        #{investmentSubjectName,jdbcType=NVARCHAR},
+      </if>
+      <if test="factoryType != null">
+        #{factoryType,jdbcType=DECIMAL},
+      </if>
+      <if test="factoryArea != null">
+        #{factoryArea,jdbcType=DECIMAL},
+      </if>
+      <if test="reportStatus != null">
+        #{reportStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="keyCompany != null">
+        #{keyCompany,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=CHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuser != null">
+        #{updateuser,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.footprint.common.model.DUcTextileEntpExample" resultType="java.lang.Long">
+    select count(*) from D_UC_TEXTILE_ENTP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update D_UC_TEXTILE_ENTP
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=CHAR},
+      </if>
+      <if test=" 0 == 0">
+        VERID = NVL(VERID , 0) + 1,
+      </if>
+      <if test="record.armyLocalType != null">
+        ARMY_LOCAL_TYPE = #{record.armyLocalType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.supplyPowerContractNum != null">
+        SUPPLY_POWER_CONTRACT_NUM = #{record.supplyPowerContractNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.signTime != null">
+        SIGN_TIME = #{record.signTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.registTime != null">
+        REGIST_TIME = #{record.registTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.startTime != null">
+        START_TIME = #{record.startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.operatedTime != null">
+        OPERATED_TIME = #{record.operatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.industryCategoryFs != null">
+        INDUSTRY_CATEGORY_FS = #{record.industryCategoryFs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.industryCategoryZb != null">
+        INDUSTRY_CATEGORY_ZB = #{record.industryCategoryZb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.industryCategoryHx != null">
+        INDUSTRY_CATEGORY_HX = #{record.industryCategoryHx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.industryCategoryCyyfzp != null">
+        INDUSTRY_CATEGORY_CYYFZP = #{record.industryCategoryCyyfzp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.industryCategoryFzjjf != null">
+        INDUSTRY_CATEGORY_FZJJF = #{record.industryCategoryFzjjf,jdbcType=VARCHAR},
+      </if>
+      <if test="record.managemeCategoryFs != null">
+        MANAGEME_CATEGORY_FS = #{record.managemeCategoryFs,jdbcType=DECIMAL},
+      </if>
+      <if test="record.managemeCategoryZb != null">
+        MANAGEME_CATEGORY_ZB = #{record.managemeCategoryZb,jdbcType=DECIMAL},
+      </if>
+      <if test="record.managemeCategoryHx != null">
+        MANAGEME_CATEGORY_HX = #{record.managemeCategoryHx,jdbcType=DECIMAL},
+      </if>
+      <if test="record.managemeCategoryNjp != null">
+        MANAGEME_CATEGORY_NJP = #{record.managemeCategoryNjp,jdbcType=DECIMAL},
+      </if>
+      <if test="record.managemeCategoryWfb != null">
+        MANAGEME_CATEGORY_WFB = #{record.managemeCategoryWfb,jdbcType=DECIMAL},
+      </if>
+      <if test="record.managemeCategoryFz != null">
+        MANAGEME_CATEGORY_FZ = #{record.managemeCategoryFz,jdbcType=DECIMAL},
+      </if>
+      <if test="record.managemeCategoryDt != null">
+        MANAGEME_CATEGORY_DT = #{record.managemeCategoryDt,jdbcType=DECIMAL},
+      </if>
+      <if test="record.managemeCategorySt != null">
+        MANAGEME_CATEGORY_ST = #{record.managemeCategorySt,jdbcType=DECIMAL},
+      </if>
+      <if test="record.managemeCategoryZw != null">
+        MANAGEME_CATEGORY_ZW = #{record.managemeCategoryZw,jdbcType=DECIMAL},
+      </if>
+      <if test="record.managemeCategoryYr != null">
+        MANAGEME_CATEGORY_YR = #{record.managemeCategoryYr,jdbcType=DECIMAL},
+      </if>
+      <if test="record.planEmployment != null">
+        PLAN_EMPLOYMENT = #{record.planEmployment,jdbcType=DECIMAL},
+      </if>
+      <if test="record.currentEmployment != null">
+        CURRENT_EMPLOYMENT = #{record.currentEmployment,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalInvestment != null">
+        TOTAL_INVESTMENT = #{record.totalInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="record.fixedInvestment != null">
+        FIXED_INVESTMENT = #{record.fixedInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="record.investmentSubjectPId != null">
+        INVESTMENT_SUBJECT_P_ID = #{record.investmentSubjectPId,jdbcType=CHAR},
+      </if>
+      <if test="record.investmentSubjectCId != null">
+        INVESTMENT_SUBJECT_C_ID = #{record.investmentSubjectCId,jdbcType=CHAR},
+      </if>
+      <if test="record.investmentSubjectName != null">
+        INVESTMENT_SUBJECT_NAME = #{record.investmentSubjectName,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.factoryType != null">
+        FACTORY_TYPE = #{record.factoryType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.factoryArea != null">
+        FACTORY_AREA = #{record.factoryArea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.reportStatus != null">
+        REPORT_STATUS = #{record.reportStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="record.keyCompany != null">
+        KEY_COMPANY = #{record.keyCompany,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createtime != null">
+        CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createuser != null">
+        CREATEUSER = #{record.createuser,jdbcType=CHAR},
+      </if>
+      <if test=" 0 == 0">
+        UPDATETIME = CURRENT_TIMESTAMP,
+      </if>
+      <if test="record.updateuser != null">
+        UPDATEUSER = #{record.updateuser,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update D_UC_TEXTILE_ENTP
+    set ID = #{record.id,jdbcType=CHAR},
+    VERID = NVL(VERID , 0) + 1,
+      ARMY_LOCAL_TYPE = #{record.armyLocalType,jdbcType=DECIMAL},
+      SUPPLY_POWER_CONTRACT_NUM = #{record.supplyPowerContractNum,jdbcType=VARCHAR},
+      SIGN_TIME = #{record.signTime,jdbcType=TIMESTAMP},
+      REGIST_TIME = #{record.registTime,jdbcType=TIMESTAMP},
+      START_TIME = #{record.startTime,jdbcType=TIMESTAMP},
+      OPERATED_TIME = #{record.operatedTime,jdbcType=TIMESTAMP},
+      INDUSTRY_CATEGORY_FS = #{record.industryCategoryFs,jdbcType=VARCHAR},
+      INDUSTRY_CATEGORY_ZB = #{record.industryCategoryZb,jdbcType=VARCHAR},
+      INDUSTRY_CATEGORY_HX = #{record.industryCategoryHx,jdbcType=VARCHAR},
+      INDUSTRY_CATEGORY_CYYFZP = #{record.industryCategoryCyyfzp,jdbcType=VARCHAR},
+      INDUSTRY_CATEGORY_FZJJF = #{record.industryCategoryFzjjf,jdbcType=VARCHAR},
+      MANAGEME_CATEGORY_FS = #{record.managemeCategoryFs,jdbcType=DECIMAL},
+      MANAGEME_CATEGORY_ZB = #{record.managemeCategoryZb,jdbcType=DECIMAL},
+      MANAGEME_CATEGORY_HX = #{record.managemeCategoryHx,jdbcType=DECIMAL},
+      MANAGEME_CATEGORY_NJP = #{record.managemeCategoryNjp,jdbcType=DECIMAL},
+      MANAGEME_CATEGORY_WFB = #{record.managemeCategoryWfb,jdbcType=DECIMAL},
+      MANAGEME_CATEGORY_FZ = #{record.managemeCategoryFz,jdbcType=DECIMAL},
+      MANAGEME_CATEGORY_DT = #{record.managemeCategoryDt,jdbcType=DECIMAL},
+      MANAGEME_CATEGORY_ST = #{record.managemeCategorySt,jdbcType=DECIMAL},
+      MANAGEME_CATEGORY_ZW = #{record.managemeCategoryZw,jdbcType=DECIMAL},
+      MANAGEME_CATEGORY_YR = #{record.managemeCategoryYr,jdbcType=DECIMAL},
+      PLAN_EMPLOYMENT = #{record.planEmployment,jdbcType=DECIMAL},
+      CURRENT_EMPLOYMENT = #{record.currentEmployment,jdbcType=DECIMAL},
+      TOTAL_INVESTMENT = #{record.totalInvestment,jdbcType=DECIMAL},
+      FIXED_INVESTMENT = #{record.fixedInvestment,jdbcType=DECIMAL},
+      INVESTMENT_SUBJECT_P_ID = #{record.investmentSubjectPId,jdbcType=CHAR},
+      INVESTMENT_SUBJECT_C_ID = #{record.investmentSubjectCId,jdbcType=CHAR},
+      INVESTMENT_SUBJECT_NAME = #{record.investmentSubjectName,jdbcType=NVARCHAR},
+      FACTORY_TYPE = #{record.factoryType,jdbcType=DECIMAL},
+      FACTORY_AREA = #{record.factoryArea,jdbcType=DECIMAL},
+      REPORT_STATUS = #{record.reportStatus,jdbcType=DECIMAL},
+      KEY_COMPANY = #{record.keyCompany,jdbcType=DECIMAL},
+      CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      CREATEUSER = #{record.createuser,jdbcType=CHAR},
+    UPDATETIME = CURRENT_TIMESTAMP,
+      UPDATEUSER = #{record.updateuser,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.footprint.common.model.DUcTextileEntp">
+    update D_UC_TEXTILE_ENTP
+    <set>
+      <if test=" 0 == 0">
+        VERID = NVL(VERID , 0) + 1,
+      </if>
+      <if test="armyLocalType != null">
+        ARMY_LOCAL_TYPE = #{armyLocalType,jdbcType=DECIMAL},
+      </if>
+      <if test="supplyPowerContractNum != null">
+        SUPPLY_POWER_CONTRACT_NUM = #{supplyPowerContractNum,jdbcType=VARCHAR},
+      </if>
+      <if test="signTime != null">
+        SIGN_TIME = #{signTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registTime != null">
+        REGIST_TIME = #{registTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        START_TIME = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatedTime != null">
+        OPERATED_TIME = #{operatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="industryCategoryFs != null">
+        INDUSTRY_CATEGORY_FS = #{industryCategoryFs,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCategoryZb != null">
+        INDUSTRY_CATEGORY_ZB = #{industryCategoryZb,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCategoryHx != null">
+        INDUSTRY_CATEGORY_HX = #{industryCategoryHx,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCategoryCyyfzp != null">
+        INDUSTRY_CATEGORY_CYYFZP = #{industryCategoryCyyfzp,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCategoryFzjjf != null">
+        INDUSTRY_CATEGORY_FZJJF = #{industryCategoryFzjjf,jdbcType=VARCHAR},
+      </if>
+      <if test="managemeCategoryFs != null">
+        MANAGEME_CATEGORY_FS = #{managemeCategoryFs,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryZb != null">
+        MANAGEME_CATEGORY_ZB = #{managemeCategoryZb,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryHx != null">
+        MANAGEME_CATEGORY_HX = #{managemeCategoryHx,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryNjp != null">
+        MANAGEME_CATEGORY_NJP = #{managemeCategoryNjp,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryWfb != null">
+        MANAGEME_CATEGORY_WFB = #{managemeCategoryWfb,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryFz != null">
+        MANAGEME_CATEGORY_FZ = #{managemeCategoryFz,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryDt != null">
+        MANAGEME_CATEGORY_DT = #{managemeCategoryDt,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategorySt != null">
+        MANAGEME_CATEGORY_ST = #{managemeCategorySt,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryZw != null">
+        MANAGEME_CATEGORY_ZW = #{managemeCategoryZw,jdbcType=DECIMAL},
+      </if>
+      <if test="managemeCategoryYr != null">
+        MANAGEME_CATEGORY_YR = #{managemeCategoryYr,jdbcType=DECIMAL},
+      </if>
+      <if test="planEmployment != null">
+        PLAN_EMPLOYMENT = #{planEmployment,jdbcType=DECIMAL},
+      </if>
+      <if test="currentEmployment != null">
+        CURRENT_EMPLOYMENT = #{currentEmployment,jdbcType=DECIMAL},
+      </if>
+      <if test="totalInvestment != null">
+        TOTAL_INVESTMENT = #{totalInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="fixedInvestment != null">
+        FIXED_INVESTMENT = #{fixedInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="investmentSubjectPId != null">
+        INVESTMENT_SUBJECT_P_ID = #{investmentSubjectPId,jdbcType=CHAR},
+      </if>
+      <if test="investmentSubjectCId != null">
+        INVESTMENT_SUBJECT_C_ID = #{investmentSubjectCId,jdbcType=CHAR},
+      </if>
+      <if test="investmentSubjectName != null">
+        INVESTMENT_SUBJECT_NAME = #{investmentSubjectName,jdbcType=NVARCHAR},
+      </if>
+      <if test="factoryType != null">
+        FACTORY_TYPE = #{factoryType,jdbcType=DECIMAL},
+      </if>
+      <if test="factoryArea != null">
+        FACTORY_AREA = #{factoryArea,jdbcType=DECIMAL},
+      </if>
+      <if test="reportStatus != null">
+        REPORT_STATUS = #{reportStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="keyCompany != null">
+        KEY_COMPANY = #{keyCompany,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null">
+        CREATEUSER = #{createuser,jdbcType=CHAR},
+      </if>
+      <if test=" 0 == 0">
+        UPDATETIME = CURRENT_TIMESTAMP,
+      </if>
+      <if test="updateuser != null">
+        UPDATEUSER = #{updateuser,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.footprint.common.model.DUcTextileEntp">
+    update D_UC_TEXTILE_ENTP
+    set VERID = NVL(VERID , 0) + 1
+      ,ARMY_LOCAL_TYPE = #{armyLocalType,jdbcType=DECIMAL}
+      ,SUPPLY_POWER_CONTRACT_NUM = #{supplyPowerContractNum,jdbcType=VARCHAR}
+      ,SIGN_TIME = #{signTime,jdbcType=TIMESTAMP}
+      ,REGIST_TIME = #{registTime,jdbcType=TIMESTAMP}
+      ,START_TIME = #{startTime,jdbcType=TIMESTAMP}
+      ,OPERATED_TIME = #{operatedTime,jdbcType=TIMESTAMP}
+      ,INDUSTRY_CATEGORY_FS = #{industryCategoryFs,jdbcType=VARCHAR}
+      ,INDUSTRY_CATEGORY_ZB = #{industryCategoryZb,jdbcType=VARCHAR}
+      ,INDUSTRY_CATEGORY_HX = #{industryCategoryHx,jdbcType=VARCHAR}
+      ,INDUSTRY_CATEGORY_CYYFZP = #{industryCategoryCyyfzp,jdbcType=VARCHAR}
+      ,INDUSTRY_CATEGORY_FZJJF = #{industryCategoryFzjjf,jdbcType=VARCHAR}
+      ,MANAGEME_CATEGORY_FS = #{managemeCategoryFs,jdbcType=DECIMAL}
+      ,MANAGEME_CATEGORY_ZB = #{managemeCategoryZb,jdbcType=DECIMAL}
+      ,MANAGEME_CATEGORY_HX = #{managemeCategoryHx,jdbcType=DECIMAL}
+      ,MANAGEME_CATEGORY_NJP = #{managemeCategoryNjp,jdbcType=DECIMAL}
+      ,MANAGEME_CATEGORY_WFB = #{managemeCategoryWfb,jdbcType=DECIMAL}
+      ,MANAGEME_CATEGORY_FZ = #{managemeCategoryFz,jdbcType=DECIMAL}
+      ,MANAGEME_CATEGORY_DT = #{managemeCategoryDt,jdbcType=DECIMAL}
+      ,MANAGEME_CATEGORY_ST = #{managemeCategorySt,jdbcType=DECIMAL}
+      ,MANAGEME_CATEGORY_ZW = #{managemeCategoryZw,jdbcType=DECIMAL}
+      ,MANAGEME_CATEGORY_YR = #{managemeCategoryYr,jdbcType=DECIMAL}
+      ,PLAN_EMPLOYMENT = #{planEmployment,jdbcType=DECIMAL}
+      ,CURRENT_EMPLOYMENT = #{currentEmployment,jdbcType=DECIMAL}
+      ,TOTAL_INVESTMENT = #{totalInvestment,jdbcType=DECIMAL}
+      ,FIXED_INVESTMENT = #{fixedInvestment,jdbcType=DECIMAL}
+      ,INVESTMENT_SUBJECT_P_ID = #{investmentSubjectPId,jdbcType=CHAR}
+      ,INVESTMENT_SUBJECT_C_ID = #{investmentSubjectCId,jdbcType=CHAR}
+      ,INVESTMENT_SUBJECT_NAME = #{investmentSubjectName,jdbcType=NVARCHAR}
+      ,FACTORY_TYPE = #{factoryType,jdbcType=DECIMAL}
+      ,FACTORY_AREA = #{factoryArea,jdbcType=DECIMAL}
+      ,REPORT_STATUS = #{reportStatus,jdbcType=DECIMAL}
+      ,KEY_COMPANY = #{keyCompany,jdbcType=DECIMAL}
+      ,UPDATETIME = CURRENT_TIMESTAMP
+      ,UPDATEUSER = #{updateuser,jdbcType=CHAR}
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+  <cache />
+  <sql id="OracleDialectPrefix">
+    <if test="page != null">
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix">
+    <if test="page != null">
+      <![CDATA[ ) row_  where rownum <= #{page.end} ) where rownum_ > #{page.begin}  ]]>
+    </if>
+  </sql>
+</mapper>

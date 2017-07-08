@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.footprint.common.dao.DUcPermissionMapper">
+  <resultMap id="BaseResultMap" type="com.footprint.common.model.DUcPermission">
+    <constructor>
+      <idArg column="ID" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="VERID" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="SYS_ID" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="PID" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="P_ORDER" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="ICON" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="P_BELONE" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="P_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="ORDER_TURN" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="PERMISSION_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="EXPRESSION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="P_URL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ASSIGNMENT_FLAG" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="STATUS" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="CREATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="CREATEUSER" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="UPDATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="UPDATEUSER" javaType="java.lang.String" jdbcType="CHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, VERID, SYS_ID, PID, P_ORDER, ICON, P_BELONE, P_TYPE, ORDER_TURN, PERMISSION_NAME, 
+    EXPRESSION, P_URL, ASSIGNMENT_FLAG, STATUS, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER
+  </sql>
+  <select id="selectByExample" parameterType="com.footprint.common.model.DUcPermissionExample" resultMap="BaseResultMap">
+    <include refid="OracleDialectPrefix" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from D_UC_PERMISSION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="OracleDialectSuffix" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from D_UC_PERMISSION
+    where ID = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from D_UC_PERMISSION
+    where ID = #{id,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.footprint.common.model.DUcPermissionExample">
+    delete from D_UC_PERMISSION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.footprint.common.model.DUcPermission">
+    insert into D_UC_PERMISSION (ID, VERID, SYS_ID, PID, P_ORDER, 
+      ICON, P_BELONE, P_TYPE, 
+      ORDER_TURN, PERMISSION_NAME, EXPRESSION, 
+      P_URL, ASSIGNMENT_FLAG, STATUS, 
+      CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER
+      )
+    values (#{id,jdbcType=CHAR}, 0, #{sysId,jdbcType=CHAR}, #{pid,jdbcType=CHAR}, #{pOrder,jdbcType=DECIMAL}, 
+      #{icon,jdbcType=VARCHAR}, #{pBelone,jdbcType=DECIMAL}, #{pType,jdbcType=DECIMAL}, 
+      #{orderTurn,jdbcType=DECIMAL}, #{permissionName,jdbcType=NVARCHAR}, #{expression,jdbcType=VARCHAR}, 
+      #{pUrl,jdbcType=VARCHAR}, #{assignmentFlag,jdbcType=DECIMAL}, #{status,jdbcType=DECIMAL}, 
+      CURRENT_TIMESTAMP, #{createuser,jdbcType=CHAR}, CURRENT_TIMESTAMP, #{updateuser,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.footprint.common.model.DUcPermission">
+    insert into D_UC_PERMISSION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="verid != null">
+        VERID,
+      </if>
+      <if test="sysId != null">
+        SYS_ID,
+      </if>
+      <if test="pid != null">
+        PID,
+      </if>
+      <if test="pOrder != null">
+        P_ORDER,
+      </if>
+      <if test="icon != null">
+        ICON,
+      </if>
+      <if test="pBelone != null">
+        P_BELONE,
+      </if>
+      <if test="pType != null">
+        P_TYPE,
+      </if>
+      <if test="orderTurn != null">
+        ORDER_TURN,
+      </if>
+      <if test="permissionName != null">
+        PERMISSION_NAME,
+      </if>
+      <if test="expression != null">
+        EXPRESSION,
+      </if>
+      <if test="pUrl != null">
+        P_URL,
+      </if>
+      <if test="assignmentFlag != null">
+        ASSIGNMENT_FLAG,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="createuser != null">
+        CREATEUSER,
+      </if>
+      <if test="updatetime != null">
+        UPDATETIME,
+      </if>
+      <if test="updateuser != null">
+        UPDATEUSER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="verid != null">
+        #{verid,jdbcType=DECIMAL},
+      </if>
+      <if test="sysId != null">
+        #{sysId,jdbcType=CHAR},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=CHAR},
+      </if>
+      <if test="pOrder != null">
+        #{pOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="pBelone != null">
+        #{pBelone,jdbcType=DECIMAL},
+      </if>
+      <if test="pType != null">
+        #{pType,jdbcType=DECIMAL},
+      </if>
+      <if test="orderTurn != null">
+        #{orderTurn,jdbcType=DECIMAL},
+      </if>
+      <if test="permissionName != null">
+        #{permissionName,jdbcType=NVARCHAR},
+      </if>
+      <if test="expression != null">
+        #{expression,jdbcType=VARCHAR},
+      </if>
+      <if test="pUrl != null">
+        #{pUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentFlag != null">
+        #{assignmentFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=CHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuser != null">
+        #{updateuser,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.footprint.common.model.DUcPermissionExample" resultType="java.lang.Long">
+    select count(*) from D_UC_PERMISSION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update D_UC_PERMISSION
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=CHAR},
+      </if>
+      <if test=" 0 == 0">
+        VERID = NVL(VERID , 0) + 1,
+      </if>
+      <if test="record.sysId != null">
+        SYS_ID = #{record.sysId,jdbcType=CHAR},
+      </if>
+      <if test="record.pid != null">
+        PID = #{record.pid,jdbcType=CHAR},
+      </if>
+      <if test="record.pOrder != null">
+        P_ORDER = #{record.pOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="record.icon != null">
+        ICON = #{record.icon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pBelone != null">
+        P_BELONE = #{record.pBelone,jdbcType=DECIMAL},
+      </if>
+      <if test="record.pType != null">
+        P_TYPE = #{record.pType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.orderTurn != null">
+        ORDER_TURN = #{record.orderTurn,jdbcType=DECIMAL},
+      </if>
+      <if test="record.permissionName != null">
+        PERMISSION_NAME = #{record.permissionName,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.expression != null">
+        EXPRESSION = #{record.expression,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pUrl != null">
+        P_URL = #{record.pUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.assignmentFlag != null">
+        ASSIGNMENT_FLAG = #{record.assignmentFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createtime != null">
+        CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createuser != null">
+        CREATEUSER = #{record.createuser,jdbcType=CHAR},
+      </if>
+      <if test=" 0 == 0">
+        UPDATETIME = CURRENT_TIMESTAMP,
+      </if>
+      <if test="record.updateuser != null">
+        UPDATEUSER = #{record.updateuser,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update D_UC_PERMISSION
+    set ID = #{record.id,jdbcType=CHAR},
+    VERID = NVL(VERID , 0) + 1,
+      SYS_ID = #{record.sysId,jdbcType=CHAR},
+      PID = #{record.pid,jdbcType=CHAR},
+      P_ORDER = #{record.pOrder,jdbcType=DECIMAL},
+      ICON = #{record.icon,jdbcType=VARCHAR},
+      P_BELONE = #{record.pBelone,jdbcType=DECIMAL},
+      P_TYPE = #{record.pType,jdbcType=DECIMAL},
+      ORDER_TURN = #{record.orderTurn,jdbcType=DECIMAL},
+      PERMISSION_NAME = #{record.permissionName,jdbcType=NVARCHAR},
+      EXPRESSION = #{record.expression,jdbcType=VARCHAR},
+      P_URL = #{record.pUrl,jdbcType=VARCHAR},
+      ASSIGNMENT_FLAG = #{record.assignmentFlag,jdbcType=DECIMAL},
+      STATUS = #{record.status,jdbcType=DECIMAL},
+      CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      CREATEUSER = #{record.createuser,jdbcType=CHAR},
+    UPDATETIME = CURRENT_TIMESTAMP,
+      UPDATEUSER = #{record.updateuser,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.footprint.common.model.DUcPermission">
+    update D_UC_PERMISSION
+    <set>
+      <if test=" 0 == 0">
+        VERID = NVL(VERID , 0) + 1,
+      </if>
+      <if test="sysId != null">
+        SYS_ID = #{sysId,jdbcType=CHAR},
+      </if>
+      <if test="pid != null">
+        PID = #{pid,jdbcType=CHAR},
+      </if>
+      <if test="pOrder != null">
+        P_ORDER = #{pOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="icon != null">
+        ICON = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="pBelone != null">
+        P_BELONE = #{pBelone,jdbcType=DECIMAL},
+      </if>
+      <if test="pType != null">
+        P_TYPE = #{pType,jdbcType=DECIMAL},
+      </if>
+      <if test="orderTurn != null">
+        ORDER_TURN = #{orderTurn,jdbcType=DECIMAL},
+      </if>
+      <if test="permissionName != null">
+        PERMISSION_NAME = #{permissionName,jdbcType=NVARCHAR},
+      </if>
+      <if test="expression != null">
+        EXPRESSION = #{expression,jdbcType=VARCHAR},
+      </if>
+      <if test="pUrl != null">
+        P_URL = #{pUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentFlag != null">
+        ASSIGNMENT_FLAG = #{assignmentFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null">
+        CREATEUSER = #{createuser,jdbcType=CHAR},
+      </if>
+      <if test=" 0 == 0">
+        UPDATETIME = CURRENT_TIMESTAMP,
+      </if>
+      <if test="updateuser != null">
+        UPDATEUSER = #{updateuser,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.footprint.common.model.DUcPermission">
+    update D_UC_PERMISSION
+    set VERID = NVL(VERID , 0) + 1
+      ,SYS_ID = #{sysId,jdbcType=CHAR}
+      ,PID = #{pid,jdbcType=CHAR}
+      ,P_ORDER = #{pOrder,jdbcType=DECIMAL}
+      ,ICON = #{icon,jdbcType=VARCHAR}
+      ,P_BELONE = #{pBelone,jdbcType=DECIMAL}
+      ,P_TYPE = #{pType,jdbcType=DECIMAL}
+      ,ORDER_TURN = #{orderTurn,jdbcType=DECIMAL}
+      ,PERMISSION_NAME = #{permissionName,jdbcType=NVARCHAR}
+      ,EXPRESSION = #{expression,jdbcType=VARCHAR}
+      ,P_URL = #{pUrl,jdbcType=VARCHAR}
+      ,ASSIGNMENT_FLAG = #{assignmentFlag,jdbcType=DECIMAL}
+      ,STATUS = #{status,jdbcType=DECIMAL}
+      ,UPDATETIME = CURRENT_TIMESTAMP
+      ,UPDATEUSER = #{updateuser,jdbcType=CHAR}
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+  <cache />
+  <sql id="OracleDialectPrefix">
+    <if test="page != null">
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix">
+    <if test="page != null">
+      <![CDATA[ ) row_  where rownum <= #{page.end} ) where rownum_ > #{page.begin}  ]]>
+    </if>
+  </sql>
+</mapper>

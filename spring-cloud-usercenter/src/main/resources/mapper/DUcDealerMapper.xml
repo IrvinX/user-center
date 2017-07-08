@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.footprint.common.dao.DUcDealerMapper">
+  <resultMap id="BaseResultMap" type="com.footprint.common.model.DUcDealer">
+    <constructor>
+      <idArg column="ID" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="VERID" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="FIRM_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="ACCOUNT_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="ENTP_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="MARKET_AGR" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="FIRM_CODE" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="FIRM_SHORT_NAME" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="JOIN_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="VAT_INVOICE_PR" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="VAT_INVOICE_CITY" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="VAT_INVOICE_DIST" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="VAT_INVOICE_ADDR" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="VAT_INVOICE_TEL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="VAT_INVOICE_ENTP_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="EXPIRY_DATE_STT" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="EXPIRY_DATE_END" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="FIRM_STATUS" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="QUAL_FEE_URL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="YEAR_PROCESSING" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="YEAR_EXPEND_QTY" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="HASP_QTY" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="CUSTOM_REGION" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="CREATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="CREATEUSER" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="UPDATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="UPDATEUSER" javaType="java.lang.String" jdbcType="CHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, VERID, FIRM_TYPE, ACCOUNT_TYPE, ENTP_TYPE, MARKET_AGR, FIRM_CODE, FIRM_SHORT_NAME, 
+    JOIN_DATE, VAT_INVOICE_PR, VAT_INVOICE_CITY, VAT_INVOICE_DIST, VAT_INVOICE_ADDR, 
+    VAT_INVOICE_TEL, VAT_INVOICE_ENTP_TYPE, EXPIRY_DATE_STT, EXPIRY_DATE_END, FIRM_STATUS, 
+    QUAL_FEE_URL, YEAR_PROCESSING, YEAR_EXPEND_QTY, HASP_QTY, CUSTOM_REGION, CREATETIME, 
+    CREATEUSER, UPDATETIME, UPDATEUSER
+  </sql>
+  <select id="selectByExample" parameterType="com.footprint.common.model.DUcDealerExample" resultMap="BaseResultMap">
+    <include refid="OracleDialectPrefix" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from D_UC_DEALER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="OracleDialectSuffix" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from D_UC_DEALER
+    where ID = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from D_UC_DEALER
+    where ID = #{id,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.footprint.common.model.DUcDealerExample">
+    delete from D_UC_DEALER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.footprint.common.model.DUcDealer">
+    insert into D_UC_DEALER (ID, VERID, FIRM_TYPE, ACCOUNT_TYPE, 
+      ENTP_TYPE, MARKET_AGR, FIRM_CODE, 
+      FIRM_SHORT_NAME, JOIN_DATE, VAT_INVOICE_PR, 
+      VAT_INVOICE_CITY, VAT_INVOICE_DIST, VAT_INVOICE_ADDR, 
+      VAT_INVOICE_TEL, VAT_INVOICE_ENTP_TYPE, EXPIRY_DATE_STT, 
+      EXPIRY_DATE_END, FIRM_STATUS, QUAL_FEE_URL, 
+      YEAR_PROCESSING, YEAR_EXPEND_QTY, HASP_QTY, 
+      CUSTOM_REGION, CREATETIME, CREATEUSER, 
+      UPDATETIME, UPDATEUSER)
+    values (#{id,jdbcType=CHAR}, 0, #{firmType,jdbcType=DECIMAL}, #{accountType,jdbcType=DECIMAL}, 
+      #{entpType,jdbcType=DECIMAL}, #{marketAgr,jdbcType=DECIMAL}, #{firmCode,jdbcType=CHAR}, 
+      #{firmShortName,jdbcType=DECIMAL}, #{joinDate,jdbcType=TIMESTAMP}, #{vatInvoicePr,jdbcType=CHAR}, 
+      #{vatInvoiceCity,jdbcType=CHAR}, #{vatInvoiceDist,jdbcType=CHAR}, #{vatInvoiceAddr,jdbcType=NVARCHAR}, 
+      #{vatInvoiceTel,jdbcType=VARCHAR}, #{vatInvoiceEntpType,jdbcType=DECIMAL}, #{expiryDateStt,jdbcType=TIMESTAMP}, 
+      #{expiryDateEnd,jdbcType=TIMESTAMP}, #{firmStatus,jdbcType=DECIMAL}, #{qualFeeUrl,jdbcType=VARCHAR}, 
+      #{yearProcessing,jdbcType=DECIMAL}, #{yearExpendQty,jdbcType=DECIMAL}, #{haspQty,jdbcType=DECIMAL}, 
+      #{customRegion,jdbcType=DECIMAL}, CURRENT_TIMESTAMP, #{createuser,jdbcType=CHAR}, 
+      CURRENT_TIMESTAMP, #{updateuser,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.footprint.common.model.DUcDealer">
+    insert into D_UC_DEALER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="verid != null">
+        VERID,
+      </if>
+      <if test="firmType != null">
+        FIRM_TYPE,
+      </if>
+      <if test="accountType != null">
+        ACCOUNT_TYPE,
+      </if>
+      <if test="entpType != null">
+        ENTP_TYPE,
+      </if>
+      <if test="marketAgr != null">
+        MARKET_AGR,
+      </if>
+      <if test="firmCode != null">
+        FIRM_CODE,
+      </if>
+      <if test="firmShortName != null">
+        FIRM_SHORT_NAME,
+      </if>
+      <if test="joinDate != null">
+        JOIN_DATE,
+      </if>
+      <if test="vatInvoicePr != null">
+        VAT_INVOICE_PR,
+      </if>
+      <if test="vatInvoiceCity != null">
+        VAT_INVOICE_CITY,
+      </if>
+      <if test="vatInvoiceDist != null">
+        VAT_INVOICE_DIST,
+      </if>
+      <if test="vatInvoiceAddr != null">
+        VAT_INVOICE_ADDR,
+      </if>
+      <if test="vatInvoiceTel != null">
+        VAT_INVOICE_TEL,
+      </if>
+      <if test="vatInvoiceEntpType != null">
+        VAT_INVOICE_ENTP_TYPE,
+      </if>
+      <if test="expiryDateStt != null">
+        EXPIRY_DATE_STT,
+      </if>
+      <if test="expiryDateEnd != null">
+        EXPIRY_DATE_END,
+      </if>
+      <if test="firmStatus != null">
+        FIRM_STATUS,
+      </if>
+      <if test="qualFeeUrl != null">
+        QUAL_FEE_URL,
+      </if>
+      <if test="yearProcessing != null">
+        YEAR_PROCESSING,
+      </if>
+      <if test="yearExpendQty != null">
+        YEAR_EXPEND_QTY,
+      </if>
+      <if test="haspQty != null">
+        HASP_QTY,
+      </if>
+      <if test="customRegion != null">
+        CUSTOM_REGION,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="createuser != null">
+        CREATEUSER,
+      </if>
+      <if test="updatetime != null">
+        UPDATETIME,
+      </if>
+      <if test="updateuser != null">
+        UPDATEUSER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="verid != null">
+        #{verid,jdbcType=DECIMAL},
+      </if>
+      <if test="firmType != null">
+        #{firmType,jdbcType=DECIMAL},
+      </if>
+      <if test="accountType != null">
+        #{accountType,jdbcType=DECIMAL},
+      </if>
+      <if test="entpType != null">
+        #{entpType,jdbcType=DECIMAL},
+      </if>
+      <if test="marketAgr != null">
+        #{marketAgr,jdbcType=DECIMAL},
+      </if>
+      <if test="firmCode != null">
+        #{firmCode,jdbcType=CHAR},
+      </if>
+      <if test="firmShortName != null">
+        #{firmShortName,jdbcType=DECIMAL},
+      </if>
+      <if test="joinDate != null">
+        #{joinDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vatInvoicePr != null">
+        #{vatInvoicePr,jdbcType=CHAR},
+      </if>
+      <if test="vatInvoiceCity != null">
+        #{vatInvoiceCity,jdbcType=CHAR},
+      </if>
+      <if test="vatInvoiceDist != null">
+        #{vatInvoiceDist,jdbcType=CHAR},
+      </if>
+      <if test="vatInvoiceAddr != null">
+        #{vatInvoiceAddr,jdbcType=NVARCHAR},
+      </if>
+      <if test="vatInvoiceTel != null">
+        #{vatInvoiceTel,jdbcType=VARCHAR},
+      </if>
+      <if test="vatInvoiceEntpType != null">
+        #{vatInvoiceEntpType,jdbcType=DECIMAL},
+      </if>
+      <if test="expiryDateStt != null">
+        #{expiryDateStt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expiryDateEnd != null">
+        #{expiryDateEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firmStatus != null">
+        #{firmStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="qualFeeUrl != null">
+        #{qualFeeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="yearProcessing != null">
+        #{yearProcessing,jdbcType=DECIMAL},
+      </if>
+      <if test="yearExpendQty != null">
+        #{yearExpendQty,jdbcType=DECIMAL},
+      </if>
+      <if test="haspQty != null">
+        #{haspQty,jdbcType=DECIMAL},
+      </if>
+      <if test="customRegion != null">
+        #{customRegion,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=CHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuser != null">
+        #{updateuser,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.footprint.common.model.DUcDealerExample" resultType="java.lang.Long">
+    select count(*) from D_UC_DEALER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update D_UC_DEALER
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=CHAR},
+      </if>
+      <if test=" 0 == 0">
+        VERID = NVL(VERID , 0) + 1,
+      </if>
+      <if test="record.firmType != null">
+        FIRM_TYPE = #{record.firmType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.accountType != null">
+        ACCOUNT_TYPE = #{record.accountType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.entpType != null">
+        ENTP_TYPE = #{record.entpType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.marketAgr != null">
+        MARKET_AGR = #{record.marketAgr,jdbcType=DECIMAL},
+      </if>
+      <if test="record.firmCode != null">
+        FIRM_CODE = #{record.firmCode,jdbcType=CHAR},
+      </if>
+      <if test="record.firmShortName != null">
+        FIRM_SHORT_NAME = #{record.firmShortName,jdbcType=DECIMAL},
+      </if>
+      <if test="record.joinDate != null">
+        JOIN_DATE = #{record.joinDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.vatInvoicePr != null">
+        VAT_INVOICE_PR = #{record.vatInvoicePr,jdbcType=CHAR},
+      </if>
+      <if test="record.vatInvoiceCity != null">
+        VAT_INVOICE_CITY = #{record.vatInvoiceCity,jdbcType=CHAR},
+      </if>
+      <if test="record.vatInvoiceDist != null">
+        VAT_INVOICE_DIST = #{record.vatInvoiceDist,jdbcType=CHAR},
+      </if>
+      <if test="record.vatInvoiceAddr != null">
+        VAT_INVOICE_ADDR = #{record.vatInvoiceAddr,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.vatInvoiceTel != null">
+        VAT_INVOICE_TEL = #{record.vatInvoiceTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vatInvoiceEntpType != null">
+        VAT_INVOICE_ENTP_TYPE = #{record.vatInvoiceEntpType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.expiryDateStt != null">
+        EXPIRY_DATE_STT = #{record.expiryDateStt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.expiryDateEnd != null">
+        EXPIRY_DATE_END = #{record.expiryDateEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.firmStatus != null">
+        FIRM_STATUS = #{record.firmStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="record.qualFeeUrl != null">
+        QUAL_FEE_URL = #{record.qualFeeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yearProcessing != null">
+        YEAR_PROCESSING = #{record.yearProcessing,jdbcType=DECIMAL},
+      </if>
+      <if test="record.yearExpendQty != null">
+        YEAR_EXPEND_QTY = #{record.yearExpendQty,jdbcType=DECIMAL},
+      </if>
+      <if test="record.haspQty != null">
+        HASP_QTY = #{record.haspQty,jdbcType=DECIMAL},
+      </if>
+      <if test="record.customRegion != null">
+        CUSTOM_REGION = #{record.customRegion,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createtime != null">
+        CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createuser != null">
+        CREATEUSER = #{record.createuser,jdbcType=CHAR},
+      </if>
+      <if test=" 0 == 0">
+        UPDATETIME = CURRENT_TIMESTAMP,
+      </if>
+      <if test="record.updateuser != null">
+        UPDATEUSER = #{record.updateuser,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update D_UC_DEALER
+    set ID = #{record.id,jdbcType=CHAR},
+    VERID = NVL(VERID , 0) + 1,
+      FIRM_TYPE = #{record.firmType,jdbcType=DECIMAL},
+      ACCOUNT_TYPE = #{record.accountType,jdbcType=DECIMAL},
+      ENTP_TYPE = #{record.entpType,jdbcType=DECIMAL},
+      MARKET_AGR = #{record.marketAgr,jdbcType=DECIMAL},
+      FIRM_CODE = #{record.firmCode,jdbcType=CHAR},
+      FIRM_SHORT_NAME = #{record.firmShortName,jdbcType=DECIMAL},
+      JOIN_DATE = #{record.joinDate,jdbcType=TIMESTAMP},
+      VAT_INVOICE_PR = #{record.vatInvoicePr,jdbcType=CHAR},
+      VAT_INVOICE_CITY = #{record.vatInvoiceCity,jdbcType=CHAR},
+      VAT_INVOICE_DIST = #{record.vatInvoiceDist,jdbcType=CHAR},
+      VAT_INVOICE_ADDR = #{record.vatInvoiceAddr,jdbcType=NVARCHAR},
+      VAT_INVOICE_TEL = #{record.vatInvoiceTel,jdbcType=VARCHAR},
+      VAT_INVOICE_ENTP_TYPE = #{record.vatInvoiceEntpType,jdbcType=DECIMAL},
+      EXPIRY_DATE_STT = #{record.expiryDateStt,jdbcType=TIMESTAMP},
+      EXPIRY_DATE_END = #{record.expiryDateEnd,jdbcType=TIMESTAMP},
+      FIRM_STATUS = #{record.firmStatus,jdbcType=DECIMAL},
+      QUAL_FEE_URL = #{record.qualFeeUrl,jdbcType=VARCHAR},
+      YEAR_PROCESSING = #{record.yearProcessing,jdbcType=DECIMAL},
+      YEAR_EXPEND_QTY = #{record.yearExpendQty,jdbcType=DECIMAL},
+      HASP_QTY = #{record.haspQty,jdbcType=DECIMAL},
+      CUSTOM_REGION = #{record.customRegion,jdbcType=DECIMAL},
+      CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      CREATEUSER = #{record.createuser,jdbcType=CHAR},
+    UPDATETIME = CURRENT_TIMESTAMP,
+      UPDATEUSER = #{record.updateuser,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.footprint.common.model.DUcDealer">
+    update D_UC_DEALER
+    <set>
+      <if test=" 0 == 0">
+        VERID = NVL(VERID , 0) + 1,
+      </if>
+      <if test="firmType != null">
+        FIRM_TYPE = #{firmType,jdbcType=DECIMAL},
+      </if>
+      <if test="accountType != null">
+        ACCOUNT_TYPE = #{accountType,jdbcType=DECIMAL},
+      </if>
+      <if test="entpType != null">
+        ENTP_TYPE = #{entpType,jdbcType=DECIMAL},
+      </if>
+      <if test="marketAgr != null">
+        MARKET_AGR = #{marketAgr,jdbcType=DECIMAL},
+      </if>
+      <if test="firmCode != null">
+        FIRM_CODE = #{firmCode,jdbcType=CHAR},
+      </if>
+      <if test="firmShortName != null">
+        FIRM_SHORT_NAME = #{firmShortName,jdbcType=DECIMAL},
+      </if>
+      <if test="joinDate != null">
+        JOIN_DATE = #{joinDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vatInvoicePr != null">
+        VAT_INVOICE_PR = #{vatInvoicePr,jdbcType=CHAR},
+      </if>
+      <if test="vatInvoiceCity != null">
+        VAT_INVOICE_CITY = #{vatInvoiceCity,jdbcType=CHAR},
+      </if>
+      <if test="vatInvoiceDist != null">
+        VAT_INVOICE_DIST = #{vatInvoiceDist,jdbcType=CHAR},
+      </if>
+      <if test="vatInvoiceAddr != null">
+        VAT_INVOICE_ADDR = #{vatInvoiceAddr,jdbcType=NVARCHAR},
+      </if>
+      <if test="vatInvoiceTel != null">
+        VAT_INVOICE_TEL = #{vatInvoiceTel,jdbcType=VARCHAR},
+      </if>
+      <if test="vatInvoiceEntpType != null">
+        VAT_INVOICE_ENTP_TYPE = #{vatInvoiceEntpType,jdbcType=DECIMAL},
+      </if>
+      <if test="expiryDateStt != null">
+        EXPIRY_DATE_STT = #{expiryDateStt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expiryDateEnd != null">
+        EXPIRY_DATE_END = #{expiryDateEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firmStatus != null">
+        FIRM_STATUS = #{firmStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="qualFeeUrl != null">
+        QUAL_FEE_URL = #{qualFeeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="yearProcessing != null">
+        YEAR_PROCESSING = #{yearProcessing,jdbcType=DECIMAL},
+      </if>
+      <if test="yearExpendQty != null">
+        YEAR_EXPEND_QTY = #{yearExpendQty,jdbcType=DECIMAL},
+      </if>
+      <if test="haspQty != null">
+        HASP_QTY = #{haspQty,jdbcType=DECIMAL},
+      </if>
+      <if test="customRegion != null">
+        CUSTOM_REGION = #{customRegion,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null">
+        CREATEUSER = #{createuser,jdbcType=CHAR},
+      </if>
+      <if test=" 0 == 0">
+        UPDATETIME = CURRENT_TIMESTAMP,
+      </if>
+      <if test="updateuser != null">
+        UPDATEUSER = #{updateuser,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.footprint.common.model.DUcDealer">
+    update D_UC_DEALER
+    set VERID = NVL(VERID , 0) + 1
+      ,FIRM_TYPE = #{firmType,jdbcType=DECIMAL}
+      ,ACCOUNT_TYPE = #{accountType,jdbcType=DECIMAL}
+      ,ENTP_TYPE = #{entpType,jdbcType=DECIMAL}
+      ,MARKET_AGR = #{marketAgr,jdbcType=DECIMAL}
+      ,FIRM_CODE = #{firmCode,jdbcType=CHAR}
+      ,FIRM_SHORT_NAME = #{firmShortName,jdbcType=DECIMAL}
+      ,JOIN_DATE = #{joinDate,jdbcType=TIMESTAMP}
+      ,VAT_INVOICE_PR = #{vatInvoicePr,jdbcType=CHAR}
+      ,VAT_INVOICE_CITY = #{vatInvoiceCity,jdbcType=CHAR}
+      ,VAT_INVOICE_DIST = #{vatInvoiceDist,jdbcType=CHAR}
+      ,VAT_INVOICE_ADDR = #{vatInvoiceAddr,jdbcType=NVARCHAR}
+      ,VAT_INVOICE_TEL = #{vatInvoiceTel,jdbcType=VARCHAR}
+      ,VAT_INVOICE_ENTP_TYPE = #{vatInvoiceEntpType,jdbcType=DECIMAL}
+      ,EXPIRY_DATE_STT = #{expiryDateStt,jdbcType=TIMESTAMP}
+      ,EXPIRY_DATE_END = #{expiryDateEnd,jdbcType=TIMESTAMP}
+      ,FIRM_STATUS = #{firmStatus,jdbcType=DECIMAL}
+      ,QUAL_FEE_URL = #{qualFeeUrl,jdbcType=VARCHAR}
+      ,YEAR_PROCESSING = #{yearProcessing,jdbcType=DECIMAL}
+      ,YEAR_EXPEND_QTY = #{yearExpendQty,jdbcType=DECIMAL}
+      ,HASP_QTY = #{haspQty,jdbcType=DECIMAL}
+      ,CUSTOM_REGION = #{customRegion,jdbcType=DECIMAL}
+      ,UPDATETIME = CURRENT_TIMESTAMP
+      ,UPDATEUSER = #{updateuser,jdbcType=CHAR}
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+  <cache />
+  <sql id="OracleDialectPrefix">
+    <if test="page != null">
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix">
+    <if test="page != null">
+      <![CDATA[ ) row_  where rownum <= #{page.end} ) where rownum_ > #{page.begin}  ]]>
+    </if>
+  </sql>
+</mapper>
