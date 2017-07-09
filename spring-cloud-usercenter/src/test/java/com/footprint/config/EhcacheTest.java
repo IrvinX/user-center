@@ -1,8 +1,6 @@
 package com.footprint.config;
 
 import com.footprint.UserCenterApplication;
-import com.footprint.common.constant.EhcacheConstant;
-import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;

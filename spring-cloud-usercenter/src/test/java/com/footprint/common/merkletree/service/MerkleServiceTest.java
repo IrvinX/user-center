@@ -2,7 +2,6 @@ package com.footprint.common.merkletree.service;
 
 import com.alibaba.fastjson.JSON;
 import com.footprint.UserCenterApplication;
-import com.footprint.api.EnterpriseApiService;
 import com.footprint.common.merkletree.InsObj;
 import com.footprint.common.merkletree.Merkle;
 import com.footprint.common.merkletree.repository.MerkleRepository;

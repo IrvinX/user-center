@@ -43,12 +43,4 @@ public interface UpmsApiService {
 	 */
 	List<DUcUserPermission> selectUserPermissionByUserId(String userId);
 
-	/**
-	 * 根据username获取User
-	 *
-	 * @param username
-	 * @return
-	 */
-	DUcUser selectUserByUsername(String username);
-
 }

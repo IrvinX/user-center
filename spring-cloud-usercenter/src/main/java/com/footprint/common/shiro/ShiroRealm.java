@@ -1,19 +1,15 @@
 package com.footprint.common.shiro;
 
-import com.footprint.api.UserApiService;
-import com.footprint.common.model.DUcUser;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.AuthenticationInfo;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
-import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.Set;
 
 /**
  * Created by cdyoue on 2016/10/21.
@@ -21,11 +17,6 @@ import java.util.Set;
 
 public class ShiroRealm extends AuthorizingRealm {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-
-	@Autowired
-	private UserApiService userApiService;
-//    @Autowired
-//    private PermissionDao permissionService;
 
 	/**
 	 * 权限认证，为当前登录的Subject授予角色和权限
@@ -38,25 +29,25 @@ public class ShiroRealm extends AuthorizingRealm {
 		logger.info("##################执行Shiro权限认证##################");
 		logger.info("doGetAuthorizationInfo+" + principalCollection.toString());
 		//获取当前登录输入的用户名，等价于(String) principalCollection.fromRealm(getName()).iterator().next();
-		DUcUser dUcUser = userApiService.findUserByAccount((String) principalCollection.getPrimaryPrincipal());
-
-		Set<String> roles = userApiService.findUserRolesByAccount((String) principalCollection.getPrimaryPrincipal());
-
-		Set<String> permissions = userApiService.findUserPermissionsByAccount((String) principalCollection.getPrimaryPrincipal());
+//		DUcUser dUcUser = userApiService.findUserByAccount((String) principalCollection.getPrimaryPrincipal());
+//
+//		Set<String> roles = userApiService.findUserRolesByAccount((String) principalCollection.getPrimaryPrincipal());
+//
+//		Set<String> permissions = userApiService.findUserPermissionsByAccount((String) principalCollection.getPrimaryPrincipal());
 
 
 		//把principals放session中 key=userId value=principals
-		SecurityUtils.getSubject().getSession().setAttribute(String.valueOf(dUcUser.getId()), SecurityUtils.getSubject().getPrincipals());
+//		SecurityUtils.getSubject().getSession().setAttribute(String.valueOf(dUcUser.getId()), SecurityUtils.getSubject().getPrincipals());
 
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 		//赋予角色
-		for (String role : roles) {
-			info.addRole(role);
-		}
-		//赋予权限
-		for (String permission : permissions) {
-			info.addStringPermission(permission);
-		}
+//		for (String role : roles) {
+//			info.addRole(role);
+//		}
+//		//赋予权限
+//		for (String permission : permissions) {
+//			info.addStringPermission(permission);
+//		}
 
 		//设置登录次数、时间
 //        userService.updateUserLogin(user);
@@ -74,17 +65,17 @@ public class ShiroRealm extends AuthorizingRealm {
 		String userName = token.getUsername();
 		logger.info(userName + token.getPassword());
 
-		DUcUser dUcUser = userApiService.findUserByAccount(token.getUsername());
-		if (dUcUser != null) {
-//            byte[] salt = Encodes.decodeHex(user.getSalt());
-//            ShiroUser shiroUser=new ShiroUser(user.getId(), user.getLoginName(), user.getName());
-			//设置用户session
-			Session session = SecurityUtils.getSubject().getSession();
-			session.setAttribute("user", dUcUser);
-			return new SimpleAuthenticationInfo(userName, dUcUser.getPassword(), getName());
-		} else {
+//		DUcUser dUcUser = userApiService.findUserByAccount(token.getUsername());
+//		if (dUcUser != null) {
+////            byte[] salt = Encodes.decodeHex(user.getSalt());
+////            ShiroUser shiroUser=new ShiroUser(user.getId(), user.getLoginName(), user.getName());
+//			//设置用户session
+//			Session session = SecurityUtils.getSubject().getSession();
+//			session.setAttribute("user", dUcUser);
+//			return new SimpleAuthenticationInfo(userName, dUcUser.getPassword(), getName());
+//		} else {
 			return null;
-		}
+//		}
 //        return null;
 	}
 

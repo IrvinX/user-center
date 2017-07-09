@@ -1,7 +1,5 @@
 package com.footprint.common.dto;
 
-import com.footprint.common.constant.ErrorCodeConstant;
-
 import javax.validation.constraints.NotNull;
 
 /**
