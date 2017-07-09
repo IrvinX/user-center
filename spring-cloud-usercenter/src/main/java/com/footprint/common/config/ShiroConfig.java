@@ -1,6 +1,6 @@
 package com.footprint.common.config;
 
-import com.footprint.realm.ShiroRealm;
+import com.footprint.common.shiro.ShiroRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;

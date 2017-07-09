@@ -1,4 +1,4 @@
-package com.footprint.realm;
+package com.footprint.common.shiro;
 
 import com.footprint.api.UserApiService;
 import com.footprint.common.model.DUcUser;
