@@ -31,8 +31,6 @@ public class MerkleServiceTest {
 	@Autowired
 	MerkleRepository merkleRepository;
 	@Autowired
-	EnterpriseApiService enterpriseApiService;
-	@Autowired
 	RedisClientTemplate redisClientTemplate;
 
 	@Test
@@ -40,7 +38,7 @@ public class MerkleServiceTest {
 
 		merkleService.save(new ArrayList<Merkle>() {
 			{
-				add(new Merkle("222", new InsObj(DUcEnterprise.class.getName(), JSON.toJSONString(enterpriseApiService.findEnterprise("1c46b1916f0f4b5caab8a9e82d4d589b")))));
+//				add(new Merkle("222", new InsObj(DUcEnterprise.class.getName(), JSON.toJSONString(enterpriseApiService.findEnterprise("1c46b1916f0f4b5caab8a9e82d4d589b")))));
 			}
 		});
 		logger.info("save	==>	redis:" + redisClientTemplate.get("222"));
@@ -60,7 +58,7 @@ public class MerkleServiceTest {
 	public void persistentMerkle() throws Exception {
 		merkleService.persistentMerkle(new ArrayList<Merkle>() {
 			{
-				add(new Merkle("222", new InsObj(DUcEnterprise.class.getName(), JSON.toJSONString(enterpriseApiService.findEnterprise("1c46b1916f0f4b5caab8a9e82d4d589b")))));
+//				add(new Merkle("222", new InsObj(DUcEnterprise.class.getName(), JSON.toJSONString(enterpriseApiService.findEnterprise("1c46b1916f0f4b5caab8a9e82d4d589b")))));
 			}
 		});
 		logger.info("persistentMerkle	==>	redis:" + redisClientTemplate.get("222"));

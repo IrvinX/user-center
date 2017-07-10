@@ -24,6 +24,6 @@
         <module>spring-cloud-redis</module>
         <module>Jmerkletree</module>
         <module>spring-cloud-usercenter</module>
-        <!--<module>spring-cloud-shiro</module>-->
+        <module>spring-cloud-shiro</module>
     </modules>
 </project>
