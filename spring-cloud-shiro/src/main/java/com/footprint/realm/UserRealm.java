@@ -1,0 +1,113 @@
+package com.footprint.realm;
+
+import com.footprint.entity.IUser;
+import com.footprint.service.UserService;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.subject.PrincipalCollection;
+import org.crazycake.shiro.SerializableSimpleByteSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class UserRealm extends AuthorizingRealm {
+
+	private static final Logger logger = LoggerFactory.getLogger(UserRealm.class.getName());
+
+	private static final String OR_OPERATOR = " or ";
+	private static final String AND_OPERATOR = " and ";
+	private static final String NOT_OPERATOR = "not ";
+
+	@Autowired
+	private UserService userService;
+
+	public void setService(UserService userService) {
+		this.userService = userService;
+	}
+
+	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+
+		IUser user = (IUser) principals.getPrimaryPrincipal();
+
+		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+		authorizationInfo.setRoles(userService.findRoles(user.unique()));
+		logger.info("登录成功，用户 {} 的角色是 {}" + user.getUserName() + StringUtils.join(authorizationInfo.getRoles(), ","));
+		authorizationInfo.setStringPermissions(userService.findPermissions(user.unique()));
+
+		return authorizationInfo;
+	}
+
+	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+
+		IUser user = userService.findByPrincipal(token.getPrincipal());
+
+		if (user == null) {
+			throw new UnknownAccountException();// 没找到帐号
+		}
+
+		if (user.isLocked()) {
+			throw new LockedAccountException();
+		}
+
+		// 交给AuthenticatingRealm使用CredentialsMatcher进行密码匹配
+		SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
+				user,
+				user.getPassword(), // 密码
+				//                ByteSource.Util.bytes(user.getCredentialsSalt()), // salt
+				new SerializableSimpleByteSource(user.getCredentialsSalt()),
+				getName() // realm name
+		);
+
+		return authenticationInfo;
+	}
+
+	@Override
+	public boolean isPermitted(PrincipalCollection principals, String permission) {
+		if (permission.contains(OR_OPERATOR)) {
+			String[] permissions = permission.split(OR_OPERATOR);
+			for (String orPermission : permissions) {
+				if (isPermittedWithNotOperator(principals, orPermission)) {
+					return true;
+				}
+			}
+			return false;
+		} else if (permission.contains(AND_OPERATOR)) {
+			String[] permissions = permission.split(AND_OPERATOR);
+			for (String orPermission : permissions) {
+				if (!isPermittedWithNotOperator(principals, orPermission)) {
+					return false;
+				}
+			}
+			return true;
+		} else {
+			return isPermittedWithNotOperator(principals, permission);
+		}
+	}
+
+	private boolean isPermittedWithNotOperator(PrincipalCollection principals, String permission) {
+		if (permission.startsWith(NOT_OPERATOR)) {
+			return !super.isPermitted(principals, permission.substring(NOT_OPERATOR.length()));
+		} else {
+			return super.isPermitted(principals, permission);
+		}
+	}
+
+	@Override
+	protected Object getAuthorizationCacheKey(PrincipalCollection principals) {
+		IUser user = (IUser) principals.getPrimaryPrincipal();
+		return user.unique();
+	}
+
+	/**
+	 * 还有一个重写的方法，参数是Token
+	 * 当使用token里边的登录名没有查找到对应的authencation信息时，才会走这个方法。
+	 */
+	@Override
+	protected Object getAuthenticationCacheKey(PrincipalCollection principals) {
+		IUser user = (IUser) principals.getPrimaryPrincipal();
+		return user.unique();
+	}
+}
