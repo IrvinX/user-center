@@ -15,6 +15,11 @@ public class DUcWf implements Serializable {
     private Short verid;
 
     /**
+     * 审核来源
+     */
+    private Short auditSrc;
+
+    /**
      * 账户转换类型
      */
     private Short changeType;
@@ -49,9 +54,10 @@ public class DUcWf implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
-    public DUcWf(String id, Short verid, Short changeType, Short wfStatus, Date createtime, String createuser, Date updatetime, String updateuser) {
+    public DUcWf(String id, Short verid, Short auditSrc, Short changeType, Short wfStatus, Date createtime, String createuser, Date updatetime, String updateuser) {
         this.id = id;
         this.verid = verid;
+        this.auditSrc = auditSrc;
         this.changeType = changeType;
         this.wfStatus = wfStatus;
         this.createtime = createtime;
@@ -94,6 +100,22 @@ public class DUcWf implements Serializable {
      */
     public void setVerid(Short verid) {
         this.verid = verid;
+    }
+
+    /**
+     * 审核来源
+     * @return AUDIT_SRC 审核来源
+     */
+    public Short getAuditSrc() {
+        return auditSrc;
+    }
+
+    /**
+     * 审核来源
+     * @param auditSrc 审核来源
+     */
+    public void setAuditSrc(Short auditSrc) {
+        this.auditSrc = auditSrc;
     }
 
     /**
@@ -200,6 +222,7 @@ public class DUcWf implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", verid=").append(verid);
+        sb.append(", auditSrc=").append(auditSrc);
         sb.append(", changeType=").append(changeType);
         sb.append(", wfStatus=").append(wfStatus);
         sb.append(", createtime=").append(createtime);

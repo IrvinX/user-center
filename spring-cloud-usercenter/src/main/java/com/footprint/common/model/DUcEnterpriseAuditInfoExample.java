@@ -961,123 +961,123 @@ public class DUcEnterpriseAuditInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepOldIsNull() {
-            addCriterion("IDENTITY_TYEP_OLD is null");
+        public Criteria andIdentityTypeOldIsNull() {
+            addCriterion("IDENTITY_TYPE_OLD is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepOldIsNotNull() {
-            addCriterion("IDENTITY_TYEP_OLD is not null");
+        public Criteria andIdentityTypeOldIsNotNull() {
+            addCriterion("IDENTITY_TYPE_OLD is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepOldEqualTo(Short value) {
-            addCriterion("IDENTITY_TYEP_OLD =", value, "identityTyepOld");
+        public Criteria andIdentityTypeOldEqualTo(Short value) {
+            addCriterion("IDENTITY_TYPE_OLD =", value, "identityTypeOld");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepOldNotEqualTo(Short value) {
-            addCriterion("IDENTITY_TYEP_OLD <>", value, "identityTyepOld");
+        public Criteria andIdentityTypeOldNotEqualTo(Short value) {
+            addCriterion("IDENTITY_TYPE_OLD <>", value, "identityTypeOld");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepOldGreaterThan(Short value) {
-            addCriterion("IDENTITY_TYEP_OLD >", value, "identityTyepOld");
+        public Criteria andIdentityTypeOldGreaterThan(Short value) {
+            addCriterion("IDENTITY_TYPE_OLD >", value, "identityTypeOld");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepOldGreaterThanOrEqualTo(Short value) {
-            addCriterion("IDENTITY_TYEP_OLD >=", value, "identityTyepOld");
+        public Criteria andIdentityTypeOldGreaterThanOrEqualTo(Short value) {
+            addCriterion("IDENTITY_TYPE_OLD >=", value, "identityTypeOld");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepOldLessThan(Short value) {
-            addCriterion("IDENTITY_TYEP_OLD <", value, "identityTyepOld");
+        public Criteria andIdentityTypeOldLessThan(Short value) {
+            addCriterion("IDENTITY_TYPE_OLD <", value, "identityTypeOld");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepOldLessThanOrEqualTo(Short value) {
-            addCriterion("IDENTITY_TYEP_OLD <=", value, "identityTyepOld");
+        public Criteria andIdentityTypeOldLessThanOrEqualTo(Short value) {
+            addCriterion("IDENTITY_TYPE_OLD <=", value, "identityTypeOld");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepOldIn(List<Short> values) {
-            addCriterion("IDENTITY_TYEP_OLD in", values, "identityTyepOld");
+        public Criteria andIdentityTypeOldIn(List<Short> values) {
+            addCriterion("IDENTITY_TYPE_OLD in", values, "identityTypeOld");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepOldNotIn(List<Short> values) {
-            addCriterion("IDENTITY_TYEP_OLD not in", values, "identityTyepOld");
+        public Criteria andIdentityTypeOldNotIn(List<Short> values) {
+            addCriterion("IDENTITY_TYPE_OLD not in", values, "identityTypeOld");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepOldBetween(Short value1, Short value2) {
-            addCriterion("IDENTITY_TYEP_OLD between", value1, value2, "identityTyepOld");
+        public Criteria andIdentityTypeOldBetween(Short value1, Short value2) {
+            addCriterion("IDENTITY_TYPE_OLD between", value1, value2, "identityTypeOld");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepOldNotBetween(Short value1, Short value2) {
-            addCriterion("IDENTITY_TYEP_OLD not between", value1, value2, "identityTyepOld");
+        public Criteria andIdentityTypeOldNotBetween(Short value1, Short value2) {
+            addCriterion("IDENTITY_TYPE_OLD not between", value1, value2, "identityTypeOld");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepIsNull() {
-            addCriterion("IDENTITY_TYEP is null");
+        public Criteria andIdentityTypeIsNull() {
+            addCriterion("IDENTITY_TYPE is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepIsNotNull() {
-            addCriterion("IDENTITY_TYEP is not null");
+        public Criteria andIdentityTypeIsNotNull() {
+            addCriterion("IDENTITY_TYPE is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepEqualTo(Short value) {
-            addCriterion("IDENTITY_TYEP =", value, "identityTyep");
+        public Criteria andIdentityTypeEqualTo(Short value) {
+            addCriterion("IDENTITY_TYPE =", value, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepNotEqualTo(Short value) {
-            addCriterion("IDENTITY_TYEP <>", value, "identityTyep");
+        public Criteria andIdentityTypeNotEqualTo(Short value) {
+            addCriterion("IDENTITY_TYPE <>", value, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepGreaterThan(Short value) {
-            addCriterion("IDENTITY_TYEP >", value, "identityTyep");
+        public Criteria andIdentityTypeGreaterThan(Short value) {
+            addCriterion("IDENTITY_TYPE >", value, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepGreaterThanOrEqualTo(Short value) {
-            addCriterion("IDENTITY_TYEP >=", value, "identityTyep");
+        public Criteria andIdentityTypeGreaterThanOrEqualTo(Short value) {
+            addCriterion("IDENTITY_TYPE >=", value, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepLessThan(Short value) {
-            addCriterion("IDENTITY_TYEP <", value, "identityTyep");
+        public Criteria andIdentityTypeLessThan(Short value) {
+            addCriterion("IDENTITY_TYPE <", value, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepLessThanOrEqualTo(Short value) {
-            addCriterion("IDENTITY_TYEP <=", value, "identityTyep");
+        public Criteria andIdentityTypeLessThanOrEqualTo(Short value) {
+            addCriterion("IDENTITY_TYPE <=", value, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepIn(List<Short> values) {
-            addCriterion("IDENTITY_TYEP in", values, "identityTyep");
+        public Criteria andIdentityTypeIn(List<Short> values) {
+            addCriterion("IDENTITY_TYPE in", values, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepNotIn(List<Short> values) {
-            addCriterion("IDENTITY_TYEP not in", values, "identityTyep");
+        public Criteria andIdentityTypeNotIn(List<Short> values) {
+            addCriterion("IDENTITY_TYPE not in", values, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepBetween(Short value1, Short value2) {
-            addCriterion("IDENTITY_TYEP between", value1, value2, "identityTyep");
+        public Criteria andIdentityTypeBetween(Short value1, Short value2) {
+            addCriterion("IDENTITY_TYPE between", value1, value2, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTyepNotBetween(Short value1, Short value2) {
-            addCriterion("IDENTITY_TYEP not between", value1, value2, "identityTyep");
+        public Criteria andIdentityTypeNotBetween(Short value1, Short value2) {
+            addCriterion("IDENTITY_TYPE not between", value1, value2, "identityType");
             return (Criteria) this;
         }
 

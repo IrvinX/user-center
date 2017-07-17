@@ -22,7 +22,7 @@ public class DUcDealer implements Serializable {
     /**
      * 账户缴费类型
      */
-    private Short accountType;
+    private Short accountPaymentType;
 
     /**
      * 交易商企业类型
@@ -144,11 +144,11 @@ public class DUcDealer implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
-    public DUcDealer(String id, Short verid, Short firmType, Short accountType, Short entpType, Short marketAgr, String firmCode, Short firmShortName, Date joinDate, String vatInvoicePr, String vatInvoiceCity, String vatInvoiceDist, String vatInvoiceAddr, String vatInvoiceTel, Short vatInvoiceEntpType, Date expiryDateStt, Date expiryDateEnd, Short firmStatus, String qualFeeUrl, Long yearProcessing, Long yearExpendQty, Long haspQty, Short customRegion, Date createtime, String createuser, Date updatetime, String updateuser) {
+    public DUcDealer(String id, Short verid, Short firmType, Short accountPaymentType, Short entpType, Short marketAgr, String firmCode, Short firmShortName, Date joinDate, String vatInvoicePr, String vatInvoiceCity, String vatInvoiceDist, String vatInvoiceAddr, String vatInvoiceTel, Short vatInvoiceEntpType, Date expiryDateStt, Date expiryDateEnd, Short firmStatus, String qualFeeUrl, Long yearProcessing, Long yearExpendQty, Long haspQty, Short customRegion, Date createtime, String createuser, Date updatetime, String updateuser) {
         this.id = id;
         this.verid = verid;
         this.firmType = firmType;
-        this.accountType = accountType;
+        this.accountPaymentType = accountPaymentType;
         this.entpType = entpType;
         this.marketAgr = marketAgr;
         this.firmCode = firmCode;
@@ -228,18 +228,18 @@ public class DUcDealer implements Serializable {
 
     /**
      * 账户缴费类型
-     * @return ACCOUNT_TYPE 账户缴费类型
+     * @return ACCOUNT_PAYMENT_TYPE 账户缴费类型
      */
-    public Short getAccountType() {
-        return accountType;
+    public Short getAccountPaymentType() {
+        return accountPaymentType;
     }
 
     /**
      * 账户缴费类型
-     * @param accountType 账户缴费类型
+     * @param accountPaymentType 账户缴费类型
      */
-    public void setAccountType(Short accountType) {
-        this.accountType = accountType;
+    public void setAccountPaymentType(Short accountPaymentType) {
+        this.accountPaymentType = accountPaymentType;
     }
 
     /**
@@ -619,7 +619,7 @@ public class DUcDealer implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", verid=").append(verid);
         sb.append(", firmType=").append(firmType);
-        sb.append(", accountType=").append(accountType);
+        sb.append(", accountPaymentType=").append(accountPaymentType);
         sb.append(", entpType=").append(entpType);
         sb.append(", marketAgr=").append(marketAgr);
         sb.append(", firmCode=").append(firmCode);

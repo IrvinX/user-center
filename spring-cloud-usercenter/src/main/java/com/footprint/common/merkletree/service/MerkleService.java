@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * 
  *
- * @author:Irvin
+ * @author:gaoyu
  * @time:2017年7月4日 下午3:43:36
  */
 @Service
@@ -40,7 +40,7 @@ public class MerkleService {
 	 * @param merkles
 	 *            void
 	 * @exception:
-	 * @author: Irvin
+	 * @author: gaoyu
 	 * @time:2017年7月4日 下午2:03:51
 	 */
 	public ArrayList<Merkle> save(ArrayList<Merkle> merkles) {
@@ -65,13 +65,23 @@ public class MerkleService {
 	}
 
 	/**
+	 * 根据pId查询merkle
+	 *
+	 * @param pId
+	 * @return
+	 */
+	public List<Merkle> findByPId(String pId) {
+		return merkleRepository.findByPId(pId,new PageRequest(0, 5000)).getContent();
+	}
+
+	/**
 	 * merkle变更比对
 	 *
 	 * @Description:
 	 * @param Merkles
 	 * @return List<String>
 	 * @exception:
-	 * @author: Irvin
+	 * @author: gaoyu
 	 * @time:2017年7月4日 下午2:05:05
 	 */
 	private List<String> merkleCompare(ArrayList<Merkle> Merkles) {
@@ -84,7 +94,7 @@ public class MerkleService {
 
 					/**
 					 *
-					 * @author:Irvin
+					 * @author:gaoyu
 					 * @time:2017年7月4日 下午3:36:39
 					 */
 					private static final long serialVersionUID = 969953512891328802L;
@@ -97,7 +107,7 @@ public class MerkleService {
 
 					/**
 					 *
-					 * @author:Irvin
+					 * @author:gaoyu
 					 * @time:2017年7月4日 下午3:36:47
 					 */
 					private static final long serialVersionUID = -5605102800966094955L;
@@ -116,7 +126,7 @@ public class MerkleService {
 	 * @param merkles
 	 *            void
 	 * @exception:
-	 * @author: Irvin
+	 * @author: gaoyu
 	 * @time:2017年7月4日 下午2:14:02
 	 */
 	public List<String> persistentMerkle(ArrayList<Merkle> merkles) {

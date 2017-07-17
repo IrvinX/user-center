@@ -37,12 +37,12 @@ public class DUcDealerAuditInfo implements Serializable {
     /**
      * 账户缴费类型原
      */
-    private Short accountTypeOld;
+    private Short accountPaymentTypeOld;
 
     /**
      * 账户缴费类型
      */
-    private Short accountType;
+    private Short accountPaymentType;
 
     /**
      * 交易商企业类型原
@@ -149,15 +149,15 @@ public class DUcDealerAuditInfo implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
-    public DUcDealerAuditInfo(String id, Short verid, String auditId, String dealerId, Short firmTypeOld, Short firmType, Short accountTypeOld, Short accountType, Short entpTypeOld, Short entpType, Short marketAgrOld, Short marketAgr, String firmCodeOld, String firmCode, Short firmShortNameOld, Short firmShortName, Date joinDateOld, Date joinDate, Short vatInvoiceEntpTypeOld, Short vatInvoiceEntpType, String qualFeeUrlOld, String qualFeeUrl, Short customRegionOld, Short customRegion, Date createtime, String createuser, Date updatetime, String updateuser) {
+    public DUcDealerAuditInfo(String id, Short verid, String auditId, String dealerId, Short firmTypeOld, Short firmType, Short accountPaymentTypeOld, Short accountPaymentType, Short entpTypeOld, Short entpType, Short marketAgrOld, Short marketAgr, String firmCodeOld, String firmCode, Short firmShortNameOld, Short firmShortName, Date joinDateOld, Date joinDate, Short vatInvoiceEntpTypeOld, Short vatInvoiceEntpType, String qualFeeUrlOld, String qualFeeUrl, Short customRegionOld, Short customRegion, Date createtime, String createuser, Date updatetime, String updateuser) {
         this.id = id;
         this.verid = verid;
         this.auditId = auditId;
         this.dealerId = dealerId;
         this.firmTypeOld = firmTypeOld;
         this.firmType = firmType;
-        this.accountTypeOld = accountTypeOld;
-        this.accountType = accountType;
+        this.accountPaymentTypeOld = accountPaymentTypeOld;
+        this.accountPaymentType = accountPaymentType;
         this.entpTypeOld = entpTypeOld;
         this.entpType = entpType;
         this.marketAgrOld = marketAgrOld;
@@ -282,34 +282,34 @@ public class DUcDealerAuditInfo implements Serializable {
 
     /**
      * 账户缴费类型原
-     * @return ACCOUNT_TYPE_OLD 账户缴费类型原
+     * @return ACCOUNT_PAYMENT_TYPE_OLD 账户缴费类型原
      */
-    public Short getAccountTypeOld() {
-        return accountTypeOld;
+    public Short getAccountPaymentTypeOld() {
+        return accountPaymentTypeOld;
     }
 
     /**
      * 账户缴费类型原
-     * @param accountTypeOld 账户缴费类型原
+     * @param accountPaymentTypeOld 账户缴费类型原
      */
-    public void setAccountTypeOld(Short accountTypeOld) {
-        this.accountTypeOld = accountTypeOld;
+    public void setAccountPaymentTypeOld(Short accountPaymentTypeOld) {
+        this.accountPaymentTypeOld = accountPaymentTypeOld;
     }
 
     /**
      * 账户缴费类型
-     * @return ACCOUNT_TYPE 账户缴费类型
+     * @return ACCOUNT_PAYMENT_TYPE 账户缴费类型
      */
-    public Short getAccountType() {
-        return accountType;
+    public Short getAccountPaymentType() {
+        return accountPaymentType;
     }
 
     /**
      * 账户缴费类型
-     * @param accountType 账户缴费类型
+     * @param accountPaymentType 账户缴费类型
      */
-    public void setAccountType(Short accountType) {
-        this.accountType = accountType;
+    public void setAccountPaymentType(Short accountPaymentType) {
+        this.accountPaymentType = accountPaymentType;
     }
 
     /**
@@ -644,8 +644,8 @@ public class DUcDealerAuditInfo implements Serializable {
         sb.append(", dealerId=").append(dealerId);
         sb.append(", firmTypeOld=").append(firmTypeOld);
         sb.append(", firmType=").append(firmType);
-        sb.append(", accountTypeOld=").append(accountTypeOld);
-        sb.append(", accountType=").append(accountType);
+        sb.append(", accountPaymentTypeOld=").append(accountPaymentTypeOld);
+        sb.append(", accountPaymentType=").append(accountPaymentType);
         sb.append(", entpTypeOld=").append(entpTypeOld);
         sb.append(", entpType=").append(entpType);
         sb.append(", marketAgrOld=").append(marketAgrOld);

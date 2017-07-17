@@ -1,6 +1,7 @@
 package com.footprint.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.footprint.api.UserApiService;
 import com.footprint.common.dto.BaseResult;
 import com.footprint.common.dto.ResultConstant;
 import io.swagger.annotations.Api;
@@ -27,6 +28,9 @@ public class LoginController {
 
 	private static Logger logger = LoggerFactory.getLogger(LoginController.class);
 
+	@Autowired
+	UserApiService userApiService;
+
 	@ApiOperation(value = "登录验证", notes = "用户帐号密码验证,参数Map的key为 account & password")
 	@RequestMapping(value = "/check", method = RequestMethod.POST, produces = {"application/json; charset=utf-8"})
 	public BaseResult check(@RequestBody Map<String, String> userInfo) {
@@ -38,10 +42,10 @@ public class LoginController {
 		 * 以下代码临时使用,当需要密码校验时,删除以下代码,启用注视掉的代码
 		 */
 		//该方法是用来校验用户名是否可用的,若BaseResult值为false,说明用户名存在
-//		BaseResult temp = userApiService.checkUserNameUsable(userInfo.get("account"));
-//		Boolean bool = (Boolean) temp.getData();
-//		if (bool)
-//			return new BaseResult(ResultConstant.SUCCESS, false);
+		BaseResult temp = userApiService.checkUserNameUsable(userInfo.get("account"));
+		Boolean bool = (Boolean) temp.getData();
+		if (bool)
+			return new BaseResult(ResultConstant.SUCCESS, false);
 		return new BaseResult(ResultConstant.SUCCESS, true);
 
 //暂时先不用密码校验

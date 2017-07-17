@@ -321,63 +321,63 @@ public class DUcDealerExample {
             return (Criteria) this;
         }
 
-        public Criteria andAccountTypeIsNull() {
-            addCriterion("ACCOUNT_TYPE is null");
+        public Criteria andAccountPaymentTypeIsNull() {
+            addCriterion("ACCOUNT_PAYMENT_TYPE is null");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTypeIsNotNull() {
-            addCriterion("ACCOUNT_TYPE is not null");
+        public Criteria andAccountPaymentTypeIsNotNull() {
+            addCriterion("ACCOUNT_PAYMENT_TYPE is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTypeEqualTo(Short value) {
-            addCriterion("ACCOUNT_TYPE =", value, "accountType");
+        public Criteria andAccountPaymentTypeEqualTo(Short value) {
+            addCriterion("ACCOUNT_PAYMENT_TYPE =", value, "accountPaymentType");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTypeNotEqualTo(Short value) {
-            addCriterion("ACCOUNT_TYPE <>", value, "accountType");
+        public Criteria andAccountPaymentTypeNotEqualTo(Short value) {
+            addCriterion("ACCOUNT_PAYMENT_TYPE <>", value, "accountPaymentType");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTypeGreaterThan(Short value) {
-            addCriterion("ACCOUNT_TYPE >", value, "accountType");
+        public Criteria andAccountPaymentTypeGreaterThan(Short value) {
+            addCriterion("ACCOUNT_PAYMENT_TYPE >", value, "accountPaymentType");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTypeGreaterThanOrEqualTo(Short value) {
-            addCriterion("ACCOUNT_TYPE >=", value, "accountType");
+        public Criteria andAccountPaymentTypeGreaterThanOrEqualTo(Short value) {
+            addCriterion("ACCOUNT_PAYMENT_TYPE >=", value, "accountPaymentType");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTypeLessThan(Short value) {
-            addCriterion("ACCOUNT_TYPE <", value, "accountType");
+        public Criteria andAccountPaymentTypeLessThan(Short value) {
+            addCriterion("ACCOUNT_PAYMENT_TYPE <", value, "accountPaymentType");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTypeLessThanOrEqualTo(Short value) {
-            addCriterion("ACCOUNT_TYPE <=", value, "accountType");
+        public Criteria andAccountPaymentTypeLessThanOrEqualTo(Short value) {
+            addCriterion("ACCOUNT_PAYMENT_TYPE <=", value, "accountPaymentType");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTypeIn(List<Short> values) {
-            addCriterion("ACCOUNT_TYPE in", values, "accountType");
+        public Criteria andAccountPaymentTypeIn(List<Short> values) {
+            addCriterion("ACCOUNT_PAYMENT_TYPE in", values, "accountPaymentType");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTypeNotIn(List<Short> values) {
-            addCriterion("ACCOUNT_TYPE not in", values, "accountType");
+        public Criteria andAccountPaymentTypeNotIn(List<Short> values) {
+            addCriterion("ACCOUNT_PAYMENT_TYPE not in", values, "accountPaymentType");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTypeBetween(Short value1, Short value2) {
-            addCriterion("ACCOUNT_TYPE between", value1, value2, "accountType");
+        public Criteria andAccountPaymentTypeBetween(Short value1, Short value2) {
+            addCriterion("ACCOUNT_PAYMENT_TYPE between", value1, value2, "accountPaymentType");
             return (Criteria) this;
         }
 
-        public Criteria andAccountTypeNotBetween(Short value1, Short value2) {
-            addCriterion("ACCOUNT_TYPE not between", value1, value2, "accountType");
+        public Criteria andAccountPaymentTypeNotBetween(Short value1, Short value2) {
+            addCriterion("ACCOUNT_PAYMENT_TYPE not between", value1, value2, "accountPaymentType");
             return (Criteria) this;
         }
 

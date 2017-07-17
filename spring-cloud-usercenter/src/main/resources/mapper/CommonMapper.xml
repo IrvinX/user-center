@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.footprint.common.dao.CommonMapper">
+
+    <!-- 取待审核企业信息 -->
+    <select id="getPendingJobs" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT
+        ENTP_ID,ENTP_TYPE,
+        AUDIT_SRC,AUDIT_ID,
+        CUSTOM_REGION,FULLNAME,
+        SHORTNAME,LP_NAME,
+        IDENTITY_TYPE,IDENTITY_ID,
+        LP_MBPHONE,TEL,MAIL,NAME,MOBILE
+        FROM (
+        SELECT t1.ENTP_ID,t1.AUDIT_SRC,t1.AUDIT_ID,t1.CREATETIME
+        ,t2.CUSTOM_REGION,t3.FULLNAME,t3.ENTP_TYPE,T3.SHORTNAME,
+        T3.LP_NAME,t3.IDENTITY_TYPE,t3.IDENTITY_ID,t3.LP_MBPHONE,
+        t6.TEL,t6.MAIL,t6.NAME,t6.MOBILE
+        FROM (
+        SELECT t8.ENTP_ID,t8.AUDIT_ID,tb.AUDIT_SRC,t7.CREATETIME
+        FROM D_UC_ENTP_AUDIT t7
+        LEFT JOIN D_UC_ENTERPRISE_AUDIT_INFO t8
+        ON t7.ID=t8.AUDIT_ID
+        LEFT JOIN D_UC_WF tb
+        ON t7.WF_ID=tb.ID
+        WHERE t7.AUDIT_STATUS=1
+        AND t7.AUDIT_STAGE=#{auditStage}) t1
+        LEFT JOIN D_UC_DEALER t2
+        ON t1.ENTP_ID=t2.ID
+        LEFT JOIN (SELECT DISTINCT t9.ID,MAX(t0.ENTP_TYPE) ENTP_TYPE,
+        MAX(t9.FULLNAME) FULLNAME,
+        MAX(T9.SHORTNAME) SHORTNAME,
+        MAX(T9.LP_NAME) LP_NAME,
+        MAX(t9.IDENTITY_TYPE) IDENTITY_TYPE,
+        MAX(t9.IDENTITY_ID) IDENTITY_ID,
+        MAX(t9.LP_MBPHONE) LP_MBPHONE
+        FROM D_UC_ENTERPRISE t9
+        LEFT JOIN D_UC_ENTP_TYPE_MAP t0
+        ON t9.ID=t0.ENTP_ID GROUP BY t9.ID) t3
+        ON t1.ENTP_ID=t3.ID
+        LEFT JOIN (
+        SELECT t4.TEL,t4.MOBILE,t4.MAIL,t4.ORG_ID,t5.NAME
+        FROM D_UC_ORG_PERSON t4
+        LEFT JOIN D_UC_PERSON t5
+        ON t4.PERSON_ID=t5.ID
+        WHERE t4.ENTP_PERSON_TYPE=1) t6
+        ON t3.ID=t6.ORG_ID
+        )
+        WHERE 1=1
+
+        <if test="entpType != null">
+            AND ENTP_TYPE=#{entpType}
+        </if>
+        <if test="customRegion != null">
+            AND CUSTOM_REGION=#{customRegion}
+        </if>
+        <if test="auditSrc != null">
+            AND AUDIT_SRC=#{auditSrc}
+        </if>
+        <if test="entpName != null">
+            AND FULLNAME LIKE '%'||#{entpName}||'%'
+        </if>
+        ORDER BY CREATETIME ASC
+    </select>
+
+    <!-- 取联系人信息 -->
+    <select id="getContacts" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT t2.ID,t1.ENTP_PERSON_TYPE,t1.TEL,t1.MOBILE,t1.MAIL,t2.NAME,t2.IDENTITY_ID,t2.FAX
+        FROM D_UC_ORG_PERSON t1
+        LEFT JOIN D_UC_PERSON t2
+        ON t1.PERSON_ID=t2.ID
+        WHERE 1=1
+        <if test="entpPersonType != null">
+            AND t1.ENTP_PERSON_TYPE=#{entpPersonType}
+        </if>
+        AND t1.ORG_ID=#{entpId}
+    </select>
+
+    <!-- 根据审核状态取审核信息一览 -->
+    <select id="getInfoByAuditStatus" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT
+        ENTP_ID,
+        ENTP_TYPE,
+        AUDIT_SRC,
+        AUDIT_ID,
+        CUSTOM_REGION,
+        to_char(AUDIT_DATE,'yyyy-MM-dd hh24:mm:ss') AUDIT_DATE,
+        AUDIT_MAN,
+        AUDIT_MEMO,
+        AUDIT_STAGE,
+        FULLNAME,
+        SHORTNAME,
+        LP_NAME,
+        IDENTITY_TYPE,
+        IDENTITY_ID,
+        LP_MBPHONE,
+        TEL,
+        MAIL,
+        NAME,
+        MOBILE
+        FROM (
+        SELECT
+        t1.ENTP_ID,
+        t1.AUDIT_SRC,
+        t1.AUDIT_ID,
+        t1.CREATETIME,
+        t2.CUSTOM_REGION,
+        t1.AUDIT_DATE,
+        t1.AUDIT_MAN,
+        t1.AUDIT_MEMO,
+        t1.AUDIT_STAGE,
+        t3.FULLNAME,
+        t3.ENTP_TYPE,
+        T3.SHORTNAME,
+        T3.LP_NAME,
+        t3.IDENTITY_TYPE,
+        t3.IDENTITY_ID,
+        t3.LP_MBPHONE,
+        t6.TEL,
+        t6.MAIL,
+        t6.NAME,
+        t6.MOBILE
+        FROM (
+        SELECT
+        t8.ENTP_ID,
+        t8.AUDIT_ID,
+        tb.AUDIT_SRC,
+        t7.AUDIT_DATE,
+        t7.AUDIT_MAN,
+        t7.AUDIT_MEMO,
+        t7.AUDIT_STAGE,
+        t7.CREATETIME
+        FROM D_UC_ENTP_AUDIT t7
+        LEFT JOIN D_UC_ENTERPRISE_AUDIT_INFO t8
+        ON t7.ID = t8.AUDIT_ID
+        LEFT JOIN D_UC_WF tb
+        ON t7.WF_ID = tb.ID
+        WHERE t8.AUDIT_ID IN (SELECT ID
+        FROM D_UC_ENTP_AUDIT
+        WHERE AUDIT_STATUS = #{auditStatus})) t1
+        LEFT JOIN D_UC_DEALER t2
+        ON t1.ENTP_ID = t2.ID
+        LEFT JOIN (SELECT DISTINCT
+        t9.ID,
+        MAX(t0.ENTP_TYPE) ENTP_TYPE,
+        MAX(t9.FULLNAME) FULLNAME,
+        MAX(T9.SHORTNAME) SHORTNAME,
+        MAX(T9.LP_NAME) LP_NAME,
+        MAX(t9.IDENTITY_TYPE) IDENTITY_TYPE,
+        MAX(t9.IDENTITY_ID) IDENTITY_ID,
+        MAX(t9.LP_MBPHONE) LP_MBPHONE
+        FROM D_UC_ENTERPRISE t9
+        LEFT JOIN D_UC_ENTP_TYPE_MAP t0
+        ON t9.ID = t0.ENTP_ID
+        GROUP BY t9.ID) t3
+        ON t1.ENTP_ID = t3.ID
+        LEFT JOIN (
+        SELECT
+        t4.TEL,
+        t4.MOBILE,
+        t4.MAIL,
+        t4.ORG_ID,
+        t5.NAME
+        FROM D_UC_ORG_PERSON t4
+        LEFT JOIN D_UC_PERSON t5
+        ON t4.PERSON_ID = t5.ID
+        WHERE t4.ENTP_PERSON_TYPE = 1) t6
+        ON t3.ID = t6.ORG_ID
+        )
+        WHERE 1=1
+        <if test="entpType != null">
+            AND ENTP_TYPE=#{entpType}
+        </if>
+        <if test="customRegion != null">
+            AND CUSTOM_REGION=#{customRegion}
+        </if>
+        <if test="auditSrc != null">
+            AND AUDIT_SRC=#{auditSrc}
+        </if>
+        <if test="entpName != null">
+            AND FULLNAME LIKE '%'||#{entpName}||'%'
+        </if>
+        <if test="auditStage != null">
+            AND AUDIT_STAGE=#{auditStage}
+        </if>
+        ORDER BY CREATETIME ASC
+    </select>
+
+    <!-- 取企业信息审核状态 -->
+    <select id="getAuditStatus" parameterType="java.lang.String" resultType="java.util.HashMap">
+        SELECT
+          t3.ENTP_ID,
+          t3.ENTP_INFO_ID,
+          t3.DEALER_INFO_ID,
+          t3.WF_ID,
+          t3.CREATETIME,
+          t3.AUDIT_STATUS,
+          t4.WF_STATUS
+        FROM (
+               SELECT
+                 t1.ENTP_ID,
+                 t1.ID ENTP_INFO_ID,
+                 t5.ID DEALER_INFO_ID,
+                 t2.WF_ID,
+                 t2.CREATETIME,
+                 t2.AUDIT_STATUS
+               FROM D_UC_ENTERPRISE_AUDIT_INFO t1
+                 LEFT JOIN D_UC_ENTP_AUDIT t2
+                   ON t1.AUDIT_ID = t2.ID
+                 LEFT JOIN D_UC_DEALER_AUDIT_INFO t5
+                   ON t5.AUDIT_ID = t2.ID
+             ) t3
+          LEFT JOIN D_UC_WF t4
+            ON t3.WF_ID = t4.ID
+        WHERE t3.ENTP_ID = #{entpId}
+        ORDER BY t3.CREATETIME DESC
+    </select>
+
+</mapper>

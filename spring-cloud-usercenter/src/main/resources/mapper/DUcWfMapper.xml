@@ -5,6 +5,7 @@
     <constructor>
       <idArg column="ID" javaType="java.lang.String" jdbcType="CHAR" />
       <arg column="VERID" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="AUDIT_SRC" javaType="java.lang.Short" jdbcType="DECIMAL" />
       <arg column="CHANGE_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
       <arg column="WF_STATUS" javaType="java.lang.Short" jdbcType="DECIMAL" />
       <arg column="CREATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
@@ -72,7 +73,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, VERID, CHANGE_TYPE, WF_STATUS, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER
+    ID, VERID, AUDIT_SRC, CHANGE_TYPE, WF_STATUS, CREATETIME, CREATEUSER, UPDATETIME, 
+    UPDATEUSER
   </sql>
   <select id="selectByExample" parameterType="com.footprint.common.model.DUcWfExample" resultMap="BaseResultMap">
     <include refid="OracleDialectPrefix" />
@@ -107,12 +109,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.footprint.common.model.DUcWf">
-    insert into D_UC_WF (ID, VERID, CHANGE_TYPE, WF_STATUS, 
-      CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER
-      )
-    values (#{id,jdbcType=CHAR}, 0, #{changeType,jdbcType=DECIMAL}, #{wfStatus,jdbcType=DECIMAL}, 
-      CURRENT_TIMESTAMP, #{createuser,jdbcType=CHAR}, CURRENT_TIMESTAMP, #{updateuser,jdbcType=CHAR}
-      )
+    insert into D_UC_WF (ID, VERID, AUDIT_SRC, CHANGE_TYPE, 
+      WF_STATUS, CREATETIME, CREATEUSER, UPDATETIME, 
+      UPDATEUSER)
+    values (#{id,jdbcType=CHAR}, 0, #{auditSrc,jdbcType=DECIMAL}, #{changeType,jdbcType=DECIMAL}, 
+      #{wfStatus,jdbcType=DECIMAL}, CURRENT_TIMESTAMP, #{createuser,jdbcType=CHAR}, CURRENT_TIMESTAMP, 
+      #{updateuser,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.footprint.common.model.DUcWf">
     insert into D_UC_WF
@@ -122,6 +124,9 @@
       </if>
       <if test="verid != null">
         VERID,
+      </if>
+      <if test="auditSrc != null">
+        AUDIT_SRC,
       </if>
       <if test="changeType != null">
         CHANGE_TYPE,
@@ -148,6 +153,9 @@
       </if>
       <if test="verid != null">
         #{verid,jdbcType=DECIMAL},
+      </if>
+      <if test="auditSrc != null">
+        #{auditSrc,jdbcType=DECIMAL},
       </if>
       <if test="changeType != null">
         #{changeType,jdbcType=DECIMAL},
@@ -184,6 +192,9 @@
       <if test=" 0 == 0">
         VERID = NVL(VERID , 0) + 1,
       </if>
+      <if test="record.auditSrc != null">
+        AUDIT_SRC = #{record.auditSrc,jdbcType=DECIMAL},
+      </if>
       <if test="record.changeType != null">
         CHANGE_TYPE = #{record.changeType,jdbcType=DECIMAL},
       </if>
@@ -211,6 +222,7 @@
     update D_UC_WF
     set ID = #{record.id,jdbcType=CHAR},
     VERID = NVL(VERID , 0) + 1,
+      AUDIT_SRC = #{record.auditSrc,jdbcType=DECIMAL},
       CHANGE_TYPE = #{record.changeType,jdbcType=DECIMAL},
       WF_STATUS = #{record.wfStatus,jdbcType=DECIMAL},
       CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
@@ -226,6 +238,9 @@
     <set>
       <if test=" 0 == 0">
         VERID = NVL(VERID , 0) + 1,
+      </if>
+      <if test="auditSrc != null">
+        AUDIT_SRC = #{auditSrc,jdbcType=DECIMAL},
       </if>
       <if test="changeType != null">
         CHANGE_TYPE = #{changeType,jdbcType=DECIMAL},
@@ -251,6 +266,7 @@
   <update id="updateByPrimaryKey" parameterType="com.footprint.common.model.DUcWf">
     update D_UC_WF
     set VERID = NVL(VERID , 0) + 1
+      ,AUDIT_SRC = #{auditSrc,jdbcType=DECIMAL}
       ,CHANGE_TYPE = #{changeType,jdbcType=DECIMAL}
       ,WF_STATUS = #{wfStatus,jdbcType=DECIMAL}
       ,UPDATETIME = CURRENT_TIMESTAMP

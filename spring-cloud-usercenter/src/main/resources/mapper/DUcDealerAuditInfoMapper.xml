@@ -3,14 +3,14 @@
 <mapper namespace="com.footprint.common.dao.DUcDealerAuditInfoMapper">
   <resultMap id="BaseResultMap" type="com.footprint.common.model.DUcDealerAuditInfo">
     <constructor>
-      <arg column="ID" javaType="java.lang.String" jdbcType="CHAR" />
+      <idArg column="ID" javaType="java.lang.String" jdbcType="CHAR" />
       <arg column="VERID" javaType="java.lang.Short" jdbcType="DECIMAL" />
       <arg column="AUDIT_ID" javaType="java.lang.String" jdbcType="CHAR" />
       <arg column="DEALER_ID" javaType="java.lang.String" jdbcType="CHAR" />
       <arg column="FIRM_TYPE_OLD" javaType="java.lang.Short" jdbcType="DECIMAL" />
       <arg column="FIRM_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
-      <arg column="ACCOUNT_TYPE_OLD" javaType="java.lang.Short" jdbcType="DECIMAL" />
-      <arg column="ACCOUNT_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="ACCOUNT_PAYMENT_TYPE_OLD" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="ACCOUNT_PAYMENT_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
       <arg column="ENTP_TYPE_OLD" javaType="java.lang.Short" jdbcType="DECIMAL" />
       <arg column="ENTP_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
       <arg column="MARKET_AGR_OLD" javaType="java.lang.Short" jdbcType="DECIMAL" />
@@ -92,11 +92,11 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, VERID, AUDIT_ID, DEALER_ID, FIRM_TYPE_OLD, FIRM_TYPE, ACCOUNT_TYPE_OLD, ACCOUNT_TYPE, 
-    ENTP_TYPE_OLD, ENTP_TYPE, MARKET_AGR_OLD, MARKET_AGR, FIRM_CODE_OLD, FIRM_CODE, FIRM_SHORT_NAME_OLD, 
-    FIRM_SHORT_NAME, JOIN_DATE_OLD, JOIN_DATE, VAT_INVOICE_ENTP_TYPE_OLD, VAT_INVOICE_ENTP_TYPE, 
-    QUAL_FEE_URL_OLD, QUAL_FEE_URL, CUSTOM_REGION_OLD, CUSTOM_REGION, CREATETIME, CREATEUSER, 
-    UPDATETIME, UPDATEUSER
+    ID, VERID, AUDIT_ID, DEALER_ID, FIRM_TYPE_OLD, FIRM_TYPE, ACCOUNT_PAYMENT_TYPE_OLD, 
+    ACCOUNT_PAYMENT_TYPE, ENTP_TYPE_OLD, ENTP_TYPE, MARKET_AGR_OLD, MARKET_AGR, FIRM_CODE_OLD, 
+    FIRM_CODE, FIRM_SHORT_NAME_OLD, FIRM_SHORT_NAME, JOIN_DATE_OLD, JOIN_DATE, VAT_INVOICE_ENTP_TYPE_OLD, 
+    VAT_INVOICE_ENTP_TYPE, QUAL_FEE_URL_OLD, QUAL_FEE_URL, CUSTOM_REGION_OLD, CUSTOM_REGION, 
+    CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER
   </sql>
   <select id="selectByExample" parameterType="com.footprint.common.model.DUcDealerAuditInfoExample" resultMap="BaseResultMap">
     <include refid="OracleDialectPrefix" />
@@ -114,6 +114,16 @@
     </if>
     <include refid="OracleDialectSuffix" />
   </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from D_UC_DEALER_AUDIT_INFO
+    where ID = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from D_UC_DEALER_AUDIT_INFO
+    where ID = #{id,jdbcType=CHAR}
+  </delete>
   <delete id="deleteByExample" parameterType="com.footprint.common.model.DUcDealerAuditInfoExample">
     delete from D_UC_DEALER_AUDIT_INFO
     <if test="_parameter != null">
@@ -122,8 +132,8 @@
   </delete>
   <insert id="insert" parameterType="com.footprint.common.model.DUcDealerAuditInfo">
     insert into D_UC_DEALER_AUDIT_INFO (ID, VERID, AUDIT_ID, DEALER_ID, 
-      FIRM_TYPE_OLD, FIRM_TYPE, ACCOUNT_TYPE_OLD, 
-      ACCOUNT_TYPE, ENTP_TYPE_OLD, ENTP_TYPE, 
+      FIRM_TYPE_OLD, FIRM_TYPE, ACCOUNT_PAYMENT_TYPE_OLD, 
+      ACCOUNT_PAYMENT_TYPE, ENTP_TYPE_OLD, ENTP_TYPE, 
       MARKET_AGR_OLD, MARKET_AGR, FIRM_CODE_OLD, 
       FIRM_CODE, FIRM_SHORT_NAME_OLD, FIRM_SHORT_NAME, 
       JOIN_DATE_OLD, JOIN_DATE, VAT_INVOICE_ENTP_TYPE_OLD, 
@@ -131,8 +141,8 @@
       CUSTOM_REGION_OLD, CUSTOM_REGION, CREATETIME, 
       CREATEUSER, UPDATETIME, UPDATEUSER)
     values (#{id,jdbcType=CHAR}, 0, #{auditId,jdbcType=CHAR}, #{dealerId,jdbcType=CHAR}, 
-      #{firmTypeOld,jdbcType=DECIMAL}, #{firmType,jdbcType=DECIMAL}, #{accountTypeOld,jdbcType=DECIMAL}, 
-      #{accountType,jdbcType=DECIMAL}, #{entpTypeOld,jdbcType=DECIMAL}, #{entpType,jdbcType=DECIMAL}, 
+      #{firmTypeOld,jdbcType=DECIMAL}, #{firmType,jdbcType=DECIMAL}, #{accountPaymentTypeOld,jdbcType=DECIMAL}, 
+      #{accountPaymentType,jdbcType=DECIMAL}, #{entpTypeOld,jdbcType=DECIMAL}, #{entpType,jdbcType=DECIMAL}, 
       #{marketAgrOld,jdbcType=DECIMAL}, #{marketAgr,jdbcType=DECIMAL}, #{firmCodeOld,jdbcType=CHAR}, 
       #{firmCode,jdbcType=CHAR}, #{firmShortNameOld,jdbcType=DECIMAL}, #{firmShortName,jdbcType=DECIMAL}, 
       #{joinDateOld,jdbcType=TIMESTAMP}, #{joinDate,jdbcType=TIMESTAMP}, #{vatInvoiceEntpTypeOld,jdbcType=DECIMAL}, 
@@ -161,11 +171,11 @@
       <if test="firmType != null">
         FIRM_TYPE,
       </if>
-      <if test="accountTypeOld != null">
-        ACCOUNT_TYPE_OLD,
+      <if test="accountPaymentTypeOld != null">
+        ACCOUNT_PAYMENT_TYPE_OLD,
       </if>
-      <if test="accountType != null">
-        ACCOUNT_TYPE,
+      <if test="accountPaymentType != null">
+        ACCOUNT_PAYMENT_TYPE,
       </if>
       <if test="entpTypeOld != null">
         ENTP_TYPE_OLD,
@@ -247,11 +257,11 @@
       <if test="firmType != null">
         #{firmType,jdbcType=DECIMAL},
       </if>
-      <if test="accountTypeOld != null">
-        #{accountTypeOld,jdbcType=DECIMAL},
+      <if test="accountPaymentTypeOld != null">
+        #{accountPaymentTypeOld,jdbcType=DECIMAL},
       </if>
-      <if test="accountType != null">
-        #{accountType,jdbcType=DECIMAL},
+      <if test="accountPaymentType != null">
+        #{accountPaymentType,jdbcType=DECIMAL},
       </if>
       <if test="entpTypeOld != null">
         #{entpTypeOld,jdbcType=DECIMAL},
@@ -342,11 +352,11 @@
       <if test="record.firmType != null">
         FIRM_TYPE = #{record.firmType,jdbcType=DECIMAL},
       </if>
-      <if test="record.accountTypeOld != null">
-        ACCOUNT_TYPE_OLD = #{record.accountTypeOld,jdbcType=DECIMAL},
+      <if test="record.accountPaymentTypeOld != null">
+        ACCOUNT_PAYMENT_TYPE_OLD = #{record.accountPaymentTypeOld,jdbcType=DECIMAL},
       </if>
-      <if test="record.accountType != null">
-        ACCOUNT_TYPE = #{record.accountType,jdbcType=DECIMAL},
+      <if test="record.accountPaymentType != null">
+        ACCOUNT_PAYMENT_TYPE = #{record.accountPaymentType,jdbcType=DECIMAL},
       </if>
       <if test="record.entpTypeOld != null">
         ENTP_TYPE_OLD = #{record.entpTypeOld,jdbcType=DECIMAL},
@@ -421,8 +431,8 @@
       DEALER_ID = #{record.dealerId,jdbcType=CHAR},
       FIRM_TYPE_OLD = #{record.firmTypeOld,jdbcType=DECIMAL},
       FIRM_TYPE = #{record.firmType,jdbcType=DECIMAL},
-      ACCOUNT_TYPE_OLD = #{record.accountTypeOld,jdbcType=DECIMAL},
-      ACCOUNT_TYPE = #{record.accountType,jdbcType=DECIMAL},
+      ACCOUNT_PAYMENT_TYPE_OLD = #{record.accountPaymentTypeOld,jdbcType=DECIMAL},
+      ACCOUNT_PAYMENT_TYPE = #{record.accountPaymentType,jdbcType=DECIMAL},
       ENTP_TYPE_OLD = #{record.entpTypeOld,jdbcType=DECIMAL},
       ENTP_TYPE = #{record.entpType,jdbcType=DECIMAL},
       MARKET_AGR_OLD = #{record.marketAgrOld,jdbcType=DECIMAL},
@@ -446,6 +456,122 @@
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.footprint.common.model.DUcDealerAuditInfo">
+    update D_UC_DEALER_AUDIT_INFO
+    <set>
+      <if test=" 0 == 0">
+        VERID = NVL(VERID , 0) + 1,
+      </if>
+      <if test="auditId != null">
+        AUDIT_ID = #{auditId,jdbcType=CHAR},
+      </if>
+      <if test="dealerId != null">
+        DEALER_ID = #{dealerId,jdbcType=CHAR},
+      </if>
+      <if test="firmTypeOld != null">
+        FIRM_TYPE_OLD = #{firmTypeOld,jdbcType=DECIMAL},
+      </if>
+      <if test="firmType != null">
+        FIRM_TYPE = #{firmType,jdbcType=DECIMAL},
+      </if>
+      <if test="accountPaymentTypeOld != null">
+        ACCOUNT_PAYMENT_TYPE_OLD = #{accountPaymentTypeOld,jdbcType=DECIMAL},
+      </if>
+      <if test="accountPaymentType != null">
+        ACCOUNT_PAYMENT_TYPE = #{accountPaymentType,jdbcType=DECIMAL},
+      </if>
+      <if test="entpTypeOld != null">
+        ENTP_TYPE_OLD = #{entpTypeOld,jdbcType=DECIMAL},
+      </if>
+      <if test="entpType != null">
+        ENTP_TYPE = #{entpType,jdbcType=DECIMAL},
+      </if>
+      <if test="marketAgrOld != null">
+        MARKET_AGR_OLD = #{marketAgrOld,jdbcType=DECIMAL},
+      </if>
+      <if test="marketAgr != null">
+        MARKET_AGR = #{marketAgr,jdbcType=DECIMAL},
+      </if>
+      <if test="firmCodeOld != null">
+        FIRM_CODE_OLD = #{firmCodeOld,jdbcType=CHAR},
+      </if>
+      <if test="firmCode != null">
+        FIRM_CODE = #{firmCode,jdbcType=CHAR},
+      </if>
+      <if test="firmShortNameOld != null">
+        FIRM_SHORT_NAME_OLD = #{firmShortNameOld,jdbcType=DECIMAL},
+      </if>
+      <if test="firmShortName != null">
+        FIRM_SHORT_NAME = #{firmShortName,jdbcType=DECIMAL},
+      </if>
+      <if test="joinDateOld != null">
+        JOIN_DATE_OLD = #{joinDateOld,jdbcType=TIMESTAMP},
+      </if>
+      <if test="joinDate != null">
+        JOIN_DATE = #{joinDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vatInvoiceEntpTypeOld != null">
+        VAT_INVOICE_ENTP_TYPE_OLD = #{vatInvoiceEntpTypeOld,jdbcType=DECIMAL},
+      </if>
+      <if test="vatInvoiceEntpType != null">
+        VAT_INVOICE_ENTP_TYPE = #{vatInvoiceEntpType,jdbcType=DECIMAL},
+      </if>
+      <if test="qualFeeUrlOld != null">
+        QUAL_FEE_URL_OLD = #{qualFeeUrlOld,jdbcType=VARCHAR},
+      </if>
+      <if test="qualFeeUrl != null">
+        QUAL_FEE_URL = #{qualFeeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="customRegionOld != null">
+        CUSTOM_REGION_OLD = #{customRegionOld,jdbcType=DECIMAL},
+      </if>
+      <if test="customRegion != null">
+        CUSTOM_REGION = #{customRegion,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null">
+        CREATEUSER = #{createuser,jdbcType=CHAR},
+      </if>
+      <if test=" 0 == 0">
+        UPDATETIME = CURRENT_TIMESTAMP,
+      </if>
+      <if test="updateuser != null">
+        UPDATEUSER = #{updateuser,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.footprint.common.model.DUcDealerAuditInfo">
+    update D_UC_DEALER_AUDIT_INFO
+    set VERID = NVL(VERID , 0) + 1
+      ,AUDIT_ID = #{auditId,jdbcType=CHAR}
+      ,DEALER_ID = #{dealerId,jdbcType=CHAR}
+      ,FIRM_TYPE_OLD = #{firmTypeOld,jdbcType=DECIMAL}
+      ,FIRM_TYPE = #{firmType,jdbcType=DECIMAL}
+      ,ACCOUNT_PAYMENT_TYPE_OLD = #{accountPaymentTypeOld,jdbcType=DECIMAL}
+      ,ACCOUNT_PAYMENT_TYPE = #{accountPaymentType,jdbcType=DECIMAL}
+      ,ENTP_TYPE_OLD = #{entpTypeOld,jdbcType=DECIMAL}
+      ,ENTP_TYPE = #{entpType,jdbcType=DECIMAL}
+      ,MARKET_AGR_OLD = #{marketAgrOld,jdbcType=DECIMAL}
+      ,MARKET_AGR = #{marketAgr,jdbcType=DECIMAL}
+      ,FIRM_CODE_OLD = #{firmCodeOld,jdbcType=CHAR}
+      ,FIRM_CODE = #{firmCode,jdbcType=CHAR}
+      ,FIRM_SHORT_NAME_OLD = #{firmShortNameOld,jdbcType=DECIMAL}
+      ,FIRM_SHORT_NAME = #{firmShortName,jdbcType=DECIMAL}
+      ,JOIN_DATE_OLD = #{joinDateOld,jdbcType=TIMESTAMP}
+      ,JOIN_DATE = #{joinDate,jdbcType=TIMESTAMP}
+      ,VAT_INVOICE_ENTP_TYPE_OLD = #{vatInvoiceEntpTypeOld,jdbcType=DECIMAL}
+      ,VAT_INVOICE_ENTP_TYPE = #{vatInvoiceEntpType,jdbcType=DECIMAL}
+      ,QUAL_FEE_URL_OLD = #{qualFeeUrlOld,jdbcType=VARCHAR}
+      ,QUAL_FEE_URL = #{qualFeeUrl,jdbcType=VARCHAR}
+      ,CUSTOM_REGION_OLD = #{customRegionOld,jdbcType=DECIMAL}
+      ,CUSTOM_REGION = #{customRegion,jdbcType=DECIMAL}
+      ,UPDATETIME = CURRENT_TIMESTAMP
+      ,UPDATEUSER = #{updateuser,jdbcType=CHAR}
+    where ID = #{id,jdbcType=CHAR}
   </update>
   <cache />
   <sql id="OracleDialectPrefix">

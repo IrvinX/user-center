@@ -2,6 +2,7 @@ package com.footprint.common.merkletree.service;
 
 import com.alibaba.fastjson.JSON;
 import com.footprint.UserCenterApplication;
+import com.footprint.api.EnterpriseApiService;
 import com.footprint.common.merkletree.InsObj;
 import com.footprint.common.merkletree.Merkle;
 import com.footprint.common.merkletree.repository.MerkleRepository;
@@ -16,6 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by gaofang on 2017/7/6.
@@ -31,6 +33,8 @@ public class MerkleServiceTest {
 	@Autowired
 	MerkleRepository merkleRepository;
 	@Autowired
+	EnterpriseApiService enterpriseApiService;
+	@Autowired
 	RedisClientTemplate redisClientTemplate;
 
 	@Test
@@ -38,7 +42,7 @@ public class MerkleServiceTest {
 
 		merkleService.save(new ArrayList<Merkle>() {
 			{
-//				add(new Merkle("222", new InsObj(DUcEnterprise.class.getName(), JSON.toJSONString(enterpriseApiService.findEnterprise("1c46b1916f0f4b5caab8a9e82d4d589b")))));
+				add(new Merkle("222", new InsObj(DUcEnterprise.class.getName(), JSON.toJSONString(enterpriseApiService.findEnterprise("1c46b1916f0f4b5caab8a9e82d4d589b")))));
 			}
 		});
 		logger.info("save	==>	redis:" + redisClientTemplate.get("222"));
@@ -55,10 +59,16 @@ public class MerkleServiceTest {
 	}
 
 	@Test
+	public void findByPId() throws Exception {
+		List<Merkle> merkles = merkleService.findByPId("af1946305c694a21b81ddb537e7c2259");
+		logger.info("findByPId	==>	result:" + JSON.toJSONString(merkles));
+	}
+
+	@Test
 	public void persistentMerkle() throws Exception {
 		merkleService.persistentMerkle(new ArrayList<Merkle>() {
 			{
-//				add(new Merkle("222", new InsObj(DUcEnterprise.class.getName(), JSON.toJSONString(enterpriseApiService.findEnterprise("1c46b1916f0f4b5caab8a9e82d4d589b")))));
+				add(new Merkle("222", new InsObj(DUcEnterprise.class.getName(), JSON.toJSONString(enterpriseApiService.findEnterprise("1c46b1916f0f4b5caab8a9e82d4d589b")))));
 			}
 		});
 		logger.info("persistentMerkle	==>	redis:" + redisClientTemplate.get("222"));

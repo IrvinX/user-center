@@ -33,7 +33,7 @@ public class MerkleAspect {
 	/**
 	 * merkle对比后更新es
 	 *
-	 * @author Irvin
+	 * @author gaoyu
 	 **/
 	@AfterReturning(pointcut = "execution( * com.footprint.common.merkletree.service.MerkleService.persistentMerkle(..))", returning = "retVal")
 	public void sendUpdateMerkleES(JoinPoint point, Object retVal)
@@ -56,7 +56,7 @@ public class MerkleAspect {
 	/**
 	 * merkle对比后更新es
 	 *
-	 * @author Irvin
+	 * @author gaoyu
 	 **/
 	@AfterReturning(pointcut = "execution( * com.footprint.common.merkletree.service.MerkleService.save(..))", returning = "retVal")
 	public void sendSaveMerkleES(JoinPoint point, Object retVal)
@@ -72,7 +72,7 @@ public class MerkleAspect {
 	/**
 	 * 回滚处理
 	 *
-	 * @author Irvin
+	 * @author gaoyu
 	 **/
 	@AfterThrowing(throwing = "ex", pointcut = "execution( * com.footprint.common.merkletree.service.MerkleService.persistentMerkle(..))")
 	public void rollBackUpdateMerkleES(Exception ex) throws Throwable {

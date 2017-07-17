@@ -261,6 +261,66 @@ public class DUcWfExample {
             return (Criteria) this;
         }
 
+        public Criteria andAuditSrcIsNull() {
+            addCriterion("AUDIT_SRC is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuditSrcIsNotNull() {
+            addCriterion("AUDIT_SRC is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuditSrcEqualTo(Short value) {
+            addCriterion("AUDIT_SRC =", value, "auditSrc");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuditSrcNotEqualTo(Short value) {
+            addCriterion("AUDIT_SRC <>", value, "auditSrc");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuditSrcGreaterThan(Short value) {
+            addCriterion("AUDIT_SRC >", value, "auditSrc");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuditSrcGreaterThanOrEqualTo(Short value) {
+            addCriterion("AUDIT_SRC >=", value, "auditSrc");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuditSrcLessThan(Short value) {
+            addCriterion("AUDIT_SRC <", value, "auditSrc");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuditSrcLessThanOrEqualTo(Short value) {
+            addCriterion("AUDIT_SRC <=", value, "auditSrc");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuditSrcIn(List<Short> values) {
+            addCriterion("AUDIT_SRC in", values, "auditSrc");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuditSrcNotIn(List<Short> values) {
+            addCriterion("AUDIT_SRC not in", values, "auditSrc");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuditSrcBetween(Short value1, Short value2) {
+            addCriterion("AUDIT_SRC between", value1, value2, "auditSrc");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuditSrcNotBetween(Short value1, Short value2) {
+            addCriterion("AUDIT_SRC not between", value1, value2, "auditSrc");
+            return (Criteria) this;
+        }
+
         public Criteria andChangeTypeIsNull() {
             addCriterion("CHANGE_TYPE is null");
             return (Criteria) this;

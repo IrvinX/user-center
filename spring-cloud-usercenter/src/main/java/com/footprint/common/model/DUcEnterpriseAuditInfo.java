@@ -67,12 +67,12 @@ public class DUcEnterpriseAuditInfo implements Serializable {
     /**
      * 法人身份证类型原
      */
-    private Short identityTyepOld;
+    private Short identityTypeOld;
 
     /**
      * 法人身份证类型
      */
-    private Short identityTyep;
+    private Short identityType;
 
     /**
      * 法人身份证号原
@@ -199,7 +199,7 @@ public class DUcEnterpriseAuditInfo implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
-    public DUcEnterpriseAuditInfo(String id, Short verid, String auditId, String entpId, String fullnameOld, String fullname, String shortnameOld, String shortname, String fullnamePinyinOld, String fullnamePinyin, String lpNameOld, String lpName, Short identityTyepOld, Short identityTyep, String identityIdOld, String identityId, String identityUrlOld, String identityUrl, Short orgTypeOld, Short orgType, String compOrgnNumOld, String compOrgnNum, Short compTypeOld, Short compType, String compProvinceOld, String compProvince, String compCityOld, String compCity, String compDistrictOld, String compDistrict, String compAddrOld, String compAddr, String businessLicenseUrlOld, String businessLicenseUrl, Date createtime, String createuser, Date updatetime, String updateuser) {
+    public DUcEnterpriseAuditInfo(String id, Short verid, String auditId, String entpId, String fullnameOld, String fullname, String shortnameOld, String shortname, String fullnamePinyinOld, String fullnamePinyin, String lpNameOld, String lpName, Short identityTypeOld, Short identityType, String identityIdOld, String identityId, String identityUrlOld, String identityUrl, Short orgTypeOld, Short orgType, String compOrgnNumOld, String compOrgnNum, Short compTypeOld, Short compType, String compProvinceOld, String compProvince, String compCityOld, String compCity, String compDistrictOld, String compDistrict, String compAddrOld, String compAddr, String businessLicenseUrlOld, String businessLicenseUrl, Date createtime, String createuser, Date updatetime, String updateuser) {
         this.id = id;
         this.verid = verid;
         this.auditId = auditId;
@@ -212,8 +212,8 @@ public class DUcEnterpriseAuditInfo implements Serializable {
         this.fullnamePinyin = fullnamePinyin;
         this.lpNameOld = lpNameOld;
         this.lpName = lpName;
-        this.identityTyepOld = identityTyepOld;
-        this.identityTyep = identityTyep;
+        this.identityTypeOld = identityTypeOld;
+        this.identityType = identityType;
         this.identityIdOld = identityIdOld;
         this.identityId = identityId;
         this.identityUrlOld = identityUrlOld;
@@ -438,34 +438,34 @@ public class DUcEnterpriseAuditInfo implements Serializable {
 
     /**
      * 法人身份证类型原
-     * @return IDENTITY_TYEP_OLD 法人身份证类型原
+     * @return IDENTITY_TYPE_OLD 法人身份证类型原
      */
-    public Short getIdentityTyepOld() {
-        return identityTyepOld;
+    public Short getIdentityTypeOld() {
+        return identityTypeOld;
     }
 
     /**
      * 法人身份证类型原
-     * @param identityTyepOld 法人身份证类型原
+     * @param identityTypeOld 法人身份证类型原
      */
-    public void setIdentityTyepOld(Short identityTyepOld) {
-        this.identityTyepOld = identityTyepOld;
+    public void setIdentityTypeOld(Short identityTypeOld) {
+        this.identityTypeOld = identityTypeOld;
     }
 
     /**
      * 法人身份证类型
-     * @return IDENTITY_TYEP 法人身份证类型
+     * @return IDENTITY_TYPE 法人身份证类型
      */
-    public Short getIdentityTyep() {
-        return identityTyep;
+    public Short getIdentityType() {
+        return identityType;
     }
 
     /**
      * 法人身份证类型
-     * @param identityTyep 法人身份证类型
+     * @param identityType 法人身份证类型
      */
-    public void setIdentityTyep(Short identityTyep) {
-        this.identityTyep = identityTyep;
+    public void setIdentityType(Short identityType) {
+        this.identityType = identityType;
     }
 
     /**
@@ -870,8 +870,8 @@ public class DUcEnterpriseAuditInfo implements Serializable {
         sb.append(", fullnamePinyin=").append(fullnamePinyin);
         sb.append(", lpNameOld=").append(lpNameOld);
         sb.append(", lpName=").append(lpName);
-        sb.append(", identityTyepOld=").append(identityTyepOld);
-        sb.append(", identityTyep=").append(identityTyep);
+        sb.append(", identityTypeOld=").append(identityTypeOld);
+        sb.append(", identityType=").append(identityType);
         sb.append(", identityIdOld=").append(identityIdOld);
         sb.append(", identityId=").append(identityId);
         sb.append(", identityUrlOld=").append(identityUrlOld);

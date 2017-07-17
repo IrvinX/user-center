@@ -15,8 +15,8 @@
       <arg column="FULLNAME_PINYIN" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="LP_NAME_OLD" javaType="java.lang.String" jdbcType="NVARCHAR" />
       <arg column="LP_NAME" javaType="java.lang.String" jdbcType="NVARCHAR" />
-      <arg column="IDENTITY_TYEP_OLD" javaType="java.lang.Short" jdbcType="DECIMAL" />
-      <arg column="IDENTITY_TYEP" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="IDENTITY_TYPE_OLD" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="IDENTITY_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
       <arg column="IDENTITY_ID_OLD" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="IDENTITY_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="IDENTITY_URL_OLD" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -103,7 +103,7 @@
   </sql>
   <sql id="Base_Column_List">
     ID, VERID, AUDIT_ID, ENTP_ID, FULLNAME_OLD, FULLNAME, SHORTNAME_OLD, SHORTNAME, FULLNAME_PINYIN_OLD, 
-    FULLNAME_PINYIN, LP_NAME_OLD, LP_NAME, IDENTITY_TYEP_OLD, IDENTITY_TYEP, IDENTITY_ID_OLD, 
+    FULLNAME_PINYIN, LP_NAME_OLD, LP_NAME, IDENTITY_TYPE_OLD, IDENTITY_TYPE, IDENTITY_ID_OLD, 
     IDENTITY_ID, IDENTITY_URL_OLD, IDENTITY_URL, ORG_TYPE_OLD, ORG_TYPE, COMP_ORGN_NUM_OLD, 
     COMP_ORGN_NUM, COMP_TYPE_OLD, COMP_TYPE, COMP_PROVINCE_OLD, COMP_PROVINCE, COMP_CITY_OLD, 
     COMP_CITY, COMP_DISTRICT_OLD, COMP_DISTRICT, COMP_ADDR_OLD, COMP_ADDR, BUSINESS_LICENSE_URL_OLD, 
@@ -145,8 +145,8 @@
     insert into D_UC_ENTERPRISE_AUDIT_INFO (ID, VERID, AUDIT_ID, ENTP_ID, 
       FULLNAME_OLD, FULLNAME, SHORTNAME_OLD, 
       SHORTNAME, FULLNAME_PINYIN_OLD, FULLNAME_PINYIN, 
-      LP_NAME_OLD, LP_NAME, IDENTITY_TYEP_OLD, 
-      IDENTITY_TYEP, IDENTITY_ID_OLD, IDENTITY_ID, 
+      LP_NAME_OLD, LP_NAME, IDENTITY_TYPE_OLD, 
+      IDENTITY_TYPE, IDENTITY_ID_OLD, IDENTITY_ID, 
       IDENTITY_URL_OLD, IDENTITY_URL, ORG_TYPE_OLD, 
       ORG_TYPE, COMP_ORGN_NUM_OLD, COMP_ORGN_NUM, 
       COMP_TYPE_OLD, COMP_TYPE, COMP_PROVINCE_OLD, 
@@ -158,8 +158,8 @@
     values (#{id,jdbcType=CHAR}, 0, #{auditId,jdbcType=CHAR}, #{entpId,jdbcType=CHAR}, 
       #{fullnameOld,jdbcType=NVARCHAR}, #{fullname,jdbcType=NVARCHAR}, #{shortnameOld,jdbcType=NVARCHAR}, 
       #{shortname,jdbcType=NVARCHAR}, #{fullnamePinyinOld,jdbcType=VARCHAR}, #{fullnamePinyin,jdbcType=VARCHAR}, 
-      #{lpNameOld,jdbcType=NVARCHAR}, #{lpName,jdbcType=NVARCHAR}, #{identityTyepOld,jdbcType=DECIMAL}, 
-      #{identityTyep,jdbcType=DECIMAL}, #{identityIdOld,jdbcType=VARCHAR}, #{identityId,jdbcType=VARCHAR}, 
+      #{lpNameOld,jdbcType=NVARCHAR}, #{lpName,jdbcType=NVARCHAR}, #{identityTypeOld,jdbcType=DECIMAL}, 
+      #{identityType,jdbcType=DECIMAL}, #{identityIdOld,jdbcType=VARCHAR}, #{identityId,jdbcType=VARCHAR}, 
       #{identityUrlOld,jdbcType=VARCHAR}, #{identityUrl,jdbcType=VARCHAR}, #{orgTypeOld,jdbcType=DECIMAL}, 
       #{orgType,jdbcType=DECIMAL}, #{compOrgnNumOld,jdbcType=VARCHAR}, #{compOrgnNum,jdbcType=VARCHAR}, 
       #{compTypeOld,jdbcType=DECIMAL}, #{compType,jdbcType=DECIMAL}, #{compProvinceOld,jdbcType=CHAR}, 
@@ -208,11 +208,11 @@
       <if test="lpName != null">
         LP_NAME,
       </if>
-      <if test="identityTyepOld != null">
-        IDENTITY_TYEP_OLD,
+      <if test="identityTypeOld != null">
+        IDENTITY_TYPE_OLD,
       </if>
-      <if test="identityTyep != null">
-        IDENTITY_TYEP,
+      <if test="identityType != null">
+        IDENTITY_TYPE,
       </if>
       <if test="identityIdOld != null">
         IDENTITY_ID_OLD,
@@ -324,11 +324,11 @@
       <if test="lpName != null">
         #{lpName,jdbcType=NVARCHAR},
       </if>
-      <if test="identityTyepOld != null">
-        #{identityTyepOld,jdbcType=DECIMAL},
+      <if test="identityTypeOld != null">
+        #{identityTypeOld,jdbcType=DECIMAL},
       </if>
-      <if test="identityTyep != null">
-        #{identityTyep,jdbcType=DECIMAL},
+      <if test="identityType != null">
+        #{identityType,jdbcType=DECIMAL},
       </if>
       <if test="identityIdOld != null">
         #{identityIdOld,jdbcType=VARCHAR},
@@ -449,11 +449,11 @@
       <if test="record.lpName != null">
         LP_NAME = #{record.lpName,jdbcType=NVARCHAR},
       </if>
-      <if test="record.identityTyepOld != null">
-        IDENTITY_TYEP_OLD = #{record.identityTyepOld,jdbcType=DECIMAL},
+      <if test="record.identityTypeOld != null">
+        IDENTITY_TYPE_OLD = #{record.identityTypeOld,jdbcType=DECIMAL},
       </if>
-      <if test="record.identityTyep != null">
-        IDENTITY_TYEP = #{record.identityTyep,jdbcType=DECIMAL},
+      <if test="record.identityType != null">
+        IDENTITY_TYPE = #{record.identityType,jdbcType=DECIMAL},
       </if>
       <if test="record.identityIdOld != null">
         IDENTITY_ID_OLD = #{record.identityIdOld,jdbcType=VARCHAR},
@@ -546,8 +546,8 @@
       FULLNAME_PINYIN = #{record.fullnamePinyin,jdbcType=VARCHAR},
       LP_NAME_OLD = #{record.lpNameOld,jdbcType=NVARCHAR},
       LP_NAME = #{record.lpName,jdbcType=NVARCHAR},
-      IDENTITY_TYEP_OLD = #{record.identityTyepOld,jdbcType=DECIMAL},
-      IDENTITY_TYEP = #{record.identityTyep,jdbcType=DECIMAL},
+      IDENTITY_TYPE_OLD = #{record.identityTypeOld,jdbcType=DECIMAL},
+      IDENTITY_TYPE = #{record.identityType,jdbcType=DECIMAL},
       IDENTITY_ID_OLD = #{record.identityIdOld,jdbcType=VARCHAR},
       IDENTITY_ID = #{record.identityId,jdbcType=VARCHAR},
       IDENTITY_URL_OLD = #{record.identityUrlOld,jdbcType=VARCHAR},
@@ -612,11 +612,11 @@
       <if test="lpName != null">
         LP_NAME = #{lpName,jdbcType=NVARCHAR},
       </if>
-      <if test="identityTyepOld != null">
-        IDENTITY_TYEP_OLD = #{identityTyepOld,jdbcType=DECIMAL},
+      <if test="identityTypeOld != null">
+        IDENTITY_TYPE_OLD = #{identityTypeOld,jdbcType=DECIMAL},
       </if>
-      <if test="identityTyep != null">
-        IDENTITY_TYEP = #{identityTyep,jdbcType=DECIMAL},
+      <if test="identityType != null">
+        IDENTITY_TYPE = #{identityType,jdbcType=DECIMAL},
       </if>
       <if test="identityIdOld != null">
         IDENTITY_ID_OLD = #{identityIdOld,jdbcType=VARCHAR},
@@ -706,8 +706,8 @@
       ,FULLNAME_PINYIN = #{fullnamePinyin,jdbcType=VARCHAR}
       ,LP_NAME_OLD = #{lpNameOld,jdbcType=NVARCHAR}
       ,LP_NAME = #{lpName,jdbcType=NVARCHAR}
-      ,IDENTITY_TYEP_OLD = #{identityTyepOld,jdbcType=DECIMAL}
-      ,IDENTITY_TYEP = #{identityTyep,jdbcType=DECIMAL}
+      ,IDENTITY_TYPE_OLD = #{identityTypeOld,jdbcType=DECIMAL}
+      ,IDENTITY_TYPE = #{identityType,jdbcType=DECIMAL}
       ,IDENTITY_ID_OLD = #{identityIdOld,jdbcType=VARCHAR}
       ,IDENTITY_ID = #{identityId,jdbcType=VARCHAR}
       ,IDENTITY_URL_OLD = #{identityUrlOld,jdbcType=VARCHAR}

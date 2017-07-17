@@ -4,6 +4,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * Created by gaofang on 2017/7/6.
+ * 统一返回值
  */
 public class BaseResult {
 

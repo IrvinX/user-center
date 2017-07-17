@@ -6,7 +6,7 @@
       <idArg column="ID" javaType="java.lang.String" jdbcType="CHAR" />
       <arg column="VERID" javaType="java.lang.Short" jdbcType="DECIMAL" />
       <arg column="FIRM_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
-      <arg column="ACCOUNT_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="ACCOUNT_PAYMENT_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
       <arg column="ENTP_TYPE" javaType="java.lang.Short" jdbcType="DECIMAL" />
       <arg column="MARKET_AGR" javaType="java.lang.Short" jdbcType="DECIMAL" />
       <arg column="FIRM_CODE" javaType="java.lang.String" jdbcType="CHAR" />
@@ -91,7 +91,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, VERID, FIRM_TYPE, ACCOUNT_TYPE, ENTP_TYPE, MARKET_AGR, FIRM_CODE, FIRM_SHORT_NAME, 
+    ID, VERID, FIRM_TYPE, ACCOUNT_PAYMENT_TYPE, ENTP_TYPE, MARKET_AGR, FIRM_CODE, FIRM_SHORT_NAME, 
     JOIN_DATE, VAT_INVOICE_PR, VAT_INVOICE_CITY, VAT_INVOICE_DIST, VAT_INVOICE_ADDR, 
     VAT_INVOICE_TEL, VAT_INVOICE_ENTP_TYPE, EXPIRY_DATE_STT, EXPIRY_DATE_END, FIRM_STATUS, 
     QUAL_FEE_URL, YEAR_PROCESSING, YEAR_EXPEND_QTY, HASP_QTY, CUSTOM_REGION, CREATETIME, 
@@ -130,7 +130,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.footprint.common.model.DUcDealer">
-    insert into D_UC_DEALER (ID, VERID, FIRM_TYPE, ACCOUNT_TYPE, 
+    insert into D_UC_DEALER (ID, VERID, FIRM_TYPE, ACCOUNT_PAYMENT_TYPE, 
       ENTP_TYPE, MARKET_AGR, FIRM_CODE, 
       FIRM_SHORT_NAME, JOIN_DATE, VAT_INVOICE_PR, 
       VAT_INVOICE_CITY, VAT_INVOICE_DIST, VAT_INVOICE_ADDR, 
@@ -139,7 +139,7 @@
       YEAR_PROCESSING, YEAR_EXPEND_QTY, HASP_QTY, 
       CUSTOM_REGION, CREATETIME, CREATEUSER, 
       UPDATETIME, UPDATEUSER)
-    values (#{id,jdbcType=CHAR}, 0, #{firmType,jdbcType=DECIMAL}, #{accountType,jdbcType=DECIMAL}, 
+    values (#{id,jdbcType=CHAR}, 0, #{firmType,jdbcType=DECIMAL}, #{accountPaymentType,jdbcType=DECIMAL}, 
       #{entpType,jdbcType=DECIMAL}, #{marketAgr,jdbcType=DECIMAL}, #{firmCode,jdbcType=CHAR}, 
       #{firmShortName,jdbcType=DECIMAL}, #{joinDate,jdbcType=TIMESTAMP}, #{vatInvoicePr,jdbcType=CHAR}, 
       #{vatInvoiceCity,jdbcType=CHAR}, #{vatInvoiceDist,jdbcType=CHAR}, #{vatInvoiceAddr,jdbcType=NVARCHAR}, 
@@ -161,8 +161,8 @@
       <if test="firmType != null">
         FIRM_TYPE,
       </if>
-      <if test="accountType != null">
-        ACCOUNT_TYPE,
+      <if test="accountPaymentType != null">
+        ACCOUNT_PAYMENT_TYPE,
       </if>
       <if test="entpType != null">
         ENTP_TYPE,
@@ -244,8 +244,8 @@
       <if test="firmType != null">
         #{firmType,jdbcType=DECIMAL},
       </if>
-      <if test="accountType != null">
-        #{accountType,jdbcType=DECIMAL},
+      <if test="accountPaymentType != null">
+        #{accountPaymentType,jdbcType=DECIMAL},
       </if>
       <if test="entpType != null">
         #{entpType,jdbcType=DECIMAL},
@@ -336,8 +336,8 @@
       <if test="record.firmType != null">
         FIRM_TYPE = #{record.firmType,jdbcType=DECIMAL},
       </if>
-      <if test="record.accountType != null">
-        ACCOUNT_TYPE = #{record.accountType,jdbcType=DECIMAL},
+      <if test="record.accountPaymentType != null">
+        ACCOUNT_PAYMENT_TYPE = #{record.accountPaymentType,jdbcType=DECIMAL},
       </if>
       <if test="record.entpType != null">
         ENTP_TYPE = #{record.entpType,jdbcType=DECIMAL},
@@ -418,7 +418,7 @@
     set ID = #{record.id,jdbcType=CHAR},
     VERID = NVL(VERID , 0) + 1,
       FIRM_TYPE = #{record.firmType,jdbcType=DECIMAL},
-      ACCOUNT_TYPE = #{record.accountType,jdbcType=DECIMAL},
+      ACCOUNT_PAYMENT_TYPE = #{record.accountPaymentType,jdbcType=DECIMAL},
       ENTP_TYPE = #{record.entpType,jdbcType=DECIMAL},
       MARKET_AGR = #{record.marketAgr,jdbcType=DECIMAL},
       FIRM_CODE = #{record.firmCode,jdbcType=CHAR},
@@ -455,8 +455,8 @@
       <if test="firmType != null">
         FIRM_TYPE = #{firmType,jdbcType=DECIMAL},
       </if>
-      <if test="accountType != null">
-        ACCOUNT_TYPE = #{accountType,jdbcType=DECIMAL},
+      <if test="accountPaymentType != null">
+        ACCOUNT_PAYMENT_TYPE = #{accountPaymentType,jdbcType=DECIMAL},
       </if>
       <if test="entpType != null">
         ENTP_TYPE = #{entpType,jdbcType=DECIMAL},
@@ -534,7 +534,7 @@
     update D_UC_DEALER
     set VERID = NVL(VERID , 0) + 1
       ,FIRM_TYPE = #{firmType,jdbcType=DECIMAL}
-      ,ACCOUNT_TYPE = #{accountType,jdbcType=DECIMAL}
+      ,ACCOUNT_PAYMENT_TYPE = #{accountPaymentType,jdbcType=DECIMAL}
       ,ENTP_TYPE = #{entpType,jdbcType=DECIMAL}
       ,MARKET_AGR = #{marketAgr,jdbcType=DECIMAL}
       ,FIRM_CODE = #{firmCode,jdbcType=CHAR}

@@ -1,6 +1,7 @@
 package com.footprint.service;
 
 import com.footprint.api.UpmsApiService;
+import com.footprint.api.UserApiService;
 import com.footprint.common.dao.*;
 import com.footprint.common.model.*;
 import org.slf4j.Logger;
@@ -23,6 +24,8 @@ public class UpmsApiServiceImpl implements UpmsApiService {
 
 	private static Logger logger = LoggerFactory.getLogger(UpmsApiServiceImpl.class);
 
+	@Autowired
+	UserApiService userApiService;
 	@Autowired
 	DUcUserPermissionMapper dUcUserPermissionMapper;//用户-权限
 	@Autowired
@@ -108,4 +111,24 @@ public class UpmsApiServiceImpl implements UpmsApiService {
 		return rtn;
 	}
 
+	@Override
+	public DUcUser selectUserByUsername(String username) {
+		logger.info("UpmsApiServiceImpl	==>	selectUserByUsername");
+		logger.info("params	==>	username:" + username);
+
+		DUcUserExample dUcUserExample = new DUcUserExample();
+		dUcUserExample.createCriteria().andUserNmEqualTo(username);
+		List<DUcUser> dUcUsers = userApiService.selectByExample(dUcUserExample);
+		if (null == dUcUsers || 0 == dUcUsers.size())
+			return null;
+		return dUcUsers.get(0);
+	}
+
+	@Override
+	public List<DUcPermission> getAll() {
+		logger.info("UpmsApiServiceImpl	==>	getAll");
+		DUcPermissionExample dUcPermissionExample = new DUcPermissionExample();
+		dUcPermissionExample.createCriteria().andVeridIsNotNull();
+		return dUcPermissionMapper.selectByExample(dUcPermissionExample);
+	}
 }
