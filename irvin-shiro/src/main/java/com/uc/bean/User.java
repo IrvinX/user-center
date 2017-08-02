@@ -1,4 +1,4 @@
-package com.us.bean;
+package com.uc.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

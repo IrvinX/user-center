@@ -1,6 +1,6 @@
-package com.us.api;
+package com.uc.api;
 
-import com.us.bean.User;
+import com.uc.bean.User;
 
 import java.util.List;
 import java.util.Map;

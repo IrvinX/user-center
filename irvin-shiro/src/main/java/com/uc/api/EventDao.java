@@ -1,6 +1,6 @@
-package com.us.api;
+package com.uc.api;
 
-import com.us.bean.Event;
+import com.uc.bean.Event;
 
 import java.util.List;
 import java.util.Map;

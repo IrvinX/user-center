@@ -1,10 +1,10 @@
-package com.us.shiro;
+package com.uc.shiro;
 
-import com.us.bean.Permission;
-import com.us.bean.Role;
-import com.us.bean.User;
-import com.us.api.PermissionDao;
-import com.us.api.UserDao;
+import com.uc.bean.Permission;
+import com.uc.bean.Role;
+import com.uc.bean.User;
+import com.uc.api.PermissionDao;
+import com.uc.api.UserDao;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;

@@ -1,7 +1,7 @@
-package com.us.api;
+package com.uc.api;
 
 
-import com.us.bean.Role;
+import com.uc.bean.Role;
 
 import java.util.List;
 import java.util.Map;
