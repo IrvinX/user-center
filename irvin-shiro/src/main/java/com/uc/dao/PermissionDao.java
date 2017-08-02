@@ -1,4 +1,4 @@
-package com.uc.api;
+package com.uc.dao;
 
 import com.uc.bean.Permission;
 
