@@ -19,9 +19,9 @@ public class CommonService {
     @Autowired
     CommonDao commonDao;
 
-    public User findUserByAccount(String account) {
-        logger.debug("[findUserByAccount]\t param : {}", account);
-        return commonDao.findUserByAccount(account);
+    public User findUserByAccount(String username) {
+        logger.debug("[findUserByAccount]\t param : {}", username);
+        return commonDao.findUserByAccount(username);
     }
 
     public List<Role> findRolesByUserId(Integer uid) {

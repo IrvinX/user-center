@@ -6,18 +6,13 @@
     <title>登录页面</title>
 </head>
 <body>
-<div th:if="${param.error}">
-    无效的账号和密码
-</div>
-<div th:if="${param.logout}">
-    你已注销
-</div>
-<form th:action="@{/usercenter/login}" method="post">
-    <form action="${pageContext.request.contextPath }/loginUser" method="post">
-        <input type="text" name="username"><br>
-        <input type="password" name="password"><br>
-        <input type="submit" value="登录">
+<div>
+
+    <form action="/loginUser" method="post">
+        <input type="text" name="username"/><br/>
+        <input type="password" name="password"/><br/>
+        <input type="submit" value="登录"/>
     </form>
-</form>
+</div>
 </body>
 </html>
