@@ -1,7 +1,7 @@
-package com.uc.service;
+package com.dbt.service;
 
-import com.uc.bean.Event;
-import com.uc.dao.EventDao;
+import com.dbt.bean.Event;
+import com.dbt.dao.EventDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

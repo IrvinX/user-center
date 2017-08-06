@@ -1,10 +1,10 @@
-package com.uc.shiro;
+package com.dbt.config.shiro;
 
-import com.uc.bean.Permission;
-import com.uc.bean.Role;
-import com.uc.bean.User;
-import com.uc.dao.PermissionDao;
-import com.uc.dao.UserDao;
+import com.dbt.bean.Permission;
+import com.dbt.bean.Role;
+import com.dbt.bean.User;
+import com.dbt.dao.PermissionDao;
+import com.dbt.dao.UserDao;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -34,13 +34,13 @@ public class ShiroRealm extends AuthorizingRealm {
 
 
         //把principals放session中 key=userId value=principals
-        SecurityUtils.getSubject().getSession().setAttribute(String.valueOf(user.getId()),SecurityUtils.getSubject().getPrincipals());
+        SecurityUtils.getSubject().getSession().setAttribute(String.valueOf(user.getId()), SecurityUtils.getSubject().getPrincipals());
 
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        //赋予角色
-        for(Role userRole:user.getRoles()){
-            info.addRole(userRole.getName());
-        }
+        //赋予角色 TODO
+//        for(Role userRole:user.getRoles()){
+//            info.addRole(userRole.getName());
+//        }
         //赋予权限
         for(Permission permission:permissionService.getByUserId(user.getId())){
 //            if(StringUtils.isNotBlank(permission.getPermCode()))

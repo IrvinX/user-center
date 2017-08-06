@@ -1,8 +1,8 @@
-package com.uc.service;
+package com.dbt.service;
 
 
-import com.uc.bean.Role;
-import com.uc.dao.RoleDao;
+import com.dbt.bean.Role;
+import com.dbt.dao.RoleDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

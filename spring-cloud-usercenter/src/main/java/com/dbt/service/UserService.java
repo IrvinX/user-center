@@ -1,7 +1,7 @@
-package com.uc.service;
+package com.dbt.service;
 
-import com.uc.bean.User;
-import com.uc.dao.UserDao;
+import com.dbt.bean.User;
+import com.dbt.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.uc.shiro;
+package com.dbt.config.shiro;
 
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
@@ -18,11 +18,13 @@ import java.util.Map;
 
 
 /**
- * shiro配置类
- * Created by cdyoue on 2016/10/21.
+ *@author irvin
+ *
+ *@description
+ *
  */
 @Configuration
-public class ShiroConfiguration {
+public class ShiroConfig {
     /**
      * LifecycleBeanPostProcessor，这是个DestructionAwareBeanPostProcessor的子类，
      * 负责org.apache.shiro.util.Initializable类型bean的生命周期的，初始化和销毁。
@@ -59,10 +61,19 @@ public class ShiroConfiguration {
         return realm;
     }
 
+//    /**
+//     * EhCacheManager，缓存管理，用户登陆成功后，把用户信息和权限信息缓存起来，
+//     * 然后每次用户请求时，放入用户的session中，如果不设置这个bean，每个请求都会查询一次数据库。
+//     */
+//    @Bean(name = "ehCacheManager")
+//    @DependsOn("lifecycleBeanPostProcessor")
+//    public EhCacheManager ehCacheManager() {
+//        return new EhCacheManager();
+//    }
 
     /**
      * SecurityManager，权限管理，这个类组合了登陆，登出，权限，session的处理，是个比较重要的类。
-     *
+     * //
      */
     @Bean(name = "securityManager")
     public DefaultWebSecurityManager securityManager() {

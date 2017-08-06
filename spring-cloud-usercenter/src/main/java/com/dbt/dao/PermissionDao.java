@@ -1,6 +1,7 @@
-package com.uc.dao;
+package com.dbt.dao;
 
-import com.uc.bean.Permission;
+
+import com.dbt.bean.Permission;
 
 import java.util.List;
 import java.util.Map;

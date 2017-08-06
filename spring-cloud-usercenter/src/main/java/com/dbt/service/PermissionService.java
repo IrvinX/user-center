@@ -1,7 +1,7 @@
-package com.uc.service;
+package com.dbt.service;
 
-import com.uc.bean.Permission;
-import com.uc.dao.PermissionDao;
+import com.dbt.bean.Permission;
+import com.dbt.dao.PermissionDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

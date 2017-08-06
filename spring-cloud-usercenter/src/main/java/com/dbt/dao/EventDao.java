@@ -1,6 +1,7 @@
-package com.uc.dao;
+package com.dbt.dao;
 
-import com.uc.bean.Event;
+
+import com.dbt.bean.Event;
 
 import java.util.List;
 import java.util.Map;
