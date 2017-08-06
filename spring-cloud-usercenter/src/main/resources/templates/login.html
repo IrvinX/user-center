@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <head>
-    <title>登陆页面</title>
+    <title>登录页面</title>
 </head>
 <body>
 <div th:if="${param.error}">
@@ -13,9 +13,11 @@
     你已注销
 </div>
 <form th:action="@{/usercenter/login}" method="post">
-    <div><label> 账号 : <input type="text" name="username"/> </label></div>
-    <div><label> 密码: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="登陆"/></div>
+    <form action="${pageContext.request.contextPath }/loginUser" method="post">
+        <input type="text" name="username"><br>
+        <input type="password" name="password"><br>
+        <input type="submit" value="登录">
+    </form>
 </form>
 </body>
 </html>

@@ -17,8 +17,8 @@ public class UserService {
 	    return userDao.getByMap(map);
 	}
 	
-	public User getById(Integer id) {
-		return userDao.getById(id);
+	public User getByAccount(String account) {
+		return userDao.getByAccount(account);
 	}
 
 }
