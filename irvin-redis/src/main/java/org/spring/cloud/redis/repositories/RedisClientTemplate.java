@@ -24,7 +24,7 @@ import redis.clients.jedis.Tuple;
 /**
  * 原生redis操作
  * 
- * @author Irvin
+ * @author irvin
  *
  */
 @Repository("redisClientTemplate")
@@ -134,7 +134,7 @@ public class RedisClientTemplate {
 	 * 在某段时间后实现
 	 * 
 	 * @param key
-	 * @param unixTime
+	 * @param seconds
 	 * @return
 	 */
 	public Long expire(String key, int seconds) {

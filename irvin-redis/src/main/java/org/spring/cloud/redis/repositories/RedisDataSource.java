@@ -6,7 +6,7 @@ package org.spring.cloud.redis.repositories;
 import redis.clients.jedis.ShardedJedis;
 
 /**
- * @author Irvin
+ * @author irvin
  *
  */
 

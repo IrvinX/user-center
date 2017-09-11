@@ -64,7 +64,7 @@ public class RedisSyncLock {
 	/**
 	 * 释放锁,并释放所有数据
 	 * 
-	 * @param lock
+	 * @param transactionId
 	 */
 	public void releaseLock(String transactionId) {
 		// long current = System.currentTimeMillis();

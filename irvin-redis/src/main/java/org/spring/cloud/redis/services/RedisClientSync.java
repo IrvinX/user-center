@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 /**
  * redis事务策略
  * 
- * @author Irvin
+ * @author irvin
  */
 @Service
 public class RedisClientSync {
@@ -31,7 +31,7 @@ public class RedisClientSync {
 	 * setnx(lock, String.valueOf(System.currentTimeMillis() + expired + 1)<br>
 	 * lock为data id +前缀<br>
 	 * 
-	 * @param lock
+	 * @param dataId
 	 * @return
 	 */
 	private boolean acquireTransactionLock(String dataId) {
@@ -210,7 +210,7 @@ public class RedisClientSync {
 	 * 结构2::{DataID，DataContent(Hash)}<brupdateTransactionDataByStep_GetLock>
 	 * SETNX数据<br>
 	 *
-	 * @param lock
+	 * @param transactionId
 	 */
 	public void releaseLock(String transactionId) {
 		// long current = System.currentTimeMillis();
@@ -229,18 +229,14 @@ public class RedisClientSync {
 
 	/**
 	 * 检查重复数据
-	 * 
-	 * @author jp
-	 * **/
+	 **/
 	public Boolean sismember(String transactionId, String key) {
 		return redisClientTemplate.sismember(transactionId, key);
 	}
 
 	/**
 	 * 清洗数据，避免覆盖redis中Id相同的数据
-	 * 
-	 * @author jp
-	 * **/
+	 **/
 	private void cleanData(String transactionId, Map<String, String> contentMap) {
 		for (String key : contentMap.keySet()) {
 			if (redisClientTemplate.sismember(transactionId, key)) {

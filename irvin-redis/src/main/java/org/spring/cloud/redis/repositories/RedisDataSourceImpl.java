@@ -12,7 +12,7 @@ import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
 
 /**
- * @author Irvin
+ * @author irvin
  *
  */
 @Repository("redisDataSource")
