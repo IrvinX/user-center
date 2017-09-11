@@ -22,7 +22,7 @@ public interface UserService {
 	 * @param userId
 	 * @param newPassword
 	 */
-	public void changePassword(Long userId, String newPassword);
+	void changePassword(Long userId, String newPassword);
 
 	/**
 	 * 添加用户-角色关系
@@ -30,7 +30,7 @@ public interface UserService {
 	 * @param userId
 	 * @param roleIds
 	 */
-	public void correlationRoles(Long userId, Long... roleIds);
+	void correlationRoles(Long userId, Long... roleIds);
 
 
 	/**
@@ -39,7 +39,7 @@ public interface UserService {
 	 * @param userId
 	 * @param roleIds
 	 */
-	public void uncorrelationRoles(Long userId, Long... roleIds);
+	void uncorrelationRoles(Long userId, Long... roleIds);
 
 	/**
 	 * 根据用户名查找用户
@@ -47,7 +47,7 @@ public interface UserService {
 	 * @param username
 	 * @return
 	 */
-	public AuthUser findByUsername(String username);
+	AuthUser findByUsername(String username);
 
 	/**
 	 * 根据用户名查找其角色
@@ -55,7 +55,7 @@ public interface UserService {
 	 * @param username
 	 * @return
 	 */
-	public Set<String> findRoles(String username);
+	Set<String> findRoles(String username);
 
 	/**
 	 * 根据用户名查找其权限
@@ -63,7 +63,7 @@ public interface UserService {
 	 * @param username
 	 * @return
 	 */
-	public Set<String> findPermissions(String username);
+	Set<String> findPermissions(String username);
 
 	AuthUser findByToken(AuthenticationToken token);
 

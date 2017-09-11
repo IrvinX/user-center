@@ -11,7 +11,7 @@
         <version>1.5.4.RELEASE</version>
     </parent>
 
-    <groupId>top.toptimus</groupId>
+    <groupId>irvin-usercenter</groupId>
     <artifactId>usercenter</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -24,6 +24,7 @@
         <!--<module>spring-cloud-redis</module>-->
         <!--<module>Jmerkletree</module>-->
         <module>spring-cloud-usercenter</module>
+        <module>irvin-uc</module>
         <!--<module>spring-cloud-shiro</module>-->
     </modules>
 </project>
