@@ -11,13 +11,11 @@
         <version>1.5.4.RELEASE</version>
     </parent>
 
-    <artifactId>spring-cloud-usercenter</artifactId>
+    <artifactId>irvin-uc-front</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <java.version>1.8</java.version>
-        <mybatis-spring-boot>1.2.0</mybatis-spring-boot>
-        <mysql-connector>5.1.39</mysql-connector>
     </properties>
 
     <dependencies>
@@ -75,20 +73,6 @@
             <version>1.2.2.RELEASE</version>
         </dependency>
 
-        <!-- Spring Boot Mybatis 依赖 -->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis-spring-boot}</version>
-        </dependency>
-
-        <!-- MySQL 连接驱动依赖 -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector}</version>
-        </dependency>
-
         <dependency>
             <groupId>irvin-shiro</groupId>
             <artifactId>irvin-shiro</artifactId>
@@ -104,10 +88,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!-- common model -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.16</version>
+            <groupId>irvin-common</groupId>
+            <artifactId>irvin-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <dependencyManagement>

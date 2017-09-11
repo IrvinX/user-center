@@ -1,36 +1,47 @@
 package com.dbt.service;
 
-import com.dbt.bean.Module;
-import com.dbt.bean.Role;
-import com.dbt.bean.User;
-import com.dbt.dao.CommonDao;
+import irvin.common.domain.Module;
+import irvin.common.domain.Role;
+import irvin.common.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class CommonService {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
-    CommonDao commonDao;
+	public User findUserByAccount(String username) {
+		return new User(
+				1,
+				"admin",
+				"admin"
+		);
+	}
 
-    public User findUserByAccount(String username) {
-        logger.debug("[findUserByAccount]\t param : {}", username);
-        return commonDao.findUserByAccount(username);
-    }
+	public List<Role> findRolesByUserId(Integer uid) {
+		return new ArrayList<Role>() {
+			{
+				add(new Role(
+						1,
+						"管理员"
+				));
+			}
+		};
+	}
 
-    public List<Role> findRolesByUserId(Integer uid) {
-        logger.debug("[findRolesByUserId]\t param : {}", uid);
-        return commonDao.findRolesByUserId(uid);
-    }
-
-    public List<Module> findModulesByRoleId(Integer rid) {
-        logger.debug("[findModulesByRoleId]\t param : {}", rid);
-        return commonDao.findModulesByRoleId(rid);
-    }
+	public List<Module> findModulesByRoleId(Integer rid) {
+		return new ArrayList<Module>() {
+			{
+				add(new Module(
+						1,
+						"admin"
+				));
+			}
+		};
+	}
 }

@@ -1,7 +1,7 @@
 package com.dbt.controller;
 
 
-import com.dbt.bean.User;
+import irvin.common.domain.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -9,7 +9,6 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 
@@ -22,45 +21,45 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class LoginController {
 
-    //    @ApiOperation(value = "登录", notes = "登录")
-    @GetMapping(value = "/login")
-    public String login() {
-        return "login";
-    }
+	//    @ApiOperation(value = "登录", notes = "登录")
+	@GetMapping(value = "/login")
+	public String login() {
+		return "login";
+	}
 
-    //    @ApiOperation(value = "登录", notes = "登录")
-    @PostMapping("/loginUser")
-    public String loginUser(String username, String password, HttpSession session) {
-        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
-        Subject subject = SecurityUtils.getSubject();
-        try {
-            subject.login(usernamePasswordToken);   //完成登录
-            User user = (User) subject.getPrincipal();
-            session.setAttribute("user", user);
-            return "index";
-        } catch (Exception e) {
-            return "login";//返回登录页面
-        }
+	//    @ApiOperation(value = "登录", notes = "登录")
+	@PostMapping("/loginUser")
+	public String loginUser(String username, String password, HttpSession session) {
+		UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
+		Subject subject = SecurityUtils.getSubject();
+		try {
+			subject.login(usernamePasswordToken);   //完成登录
+			User user = (User) subject.getPrincipal();
+			session.setAttribute("user", user);
+			return "index";
+		} catch (Exception e) {
+			return "login";//返回登录页面
+		}
 
-    }
+	}
 
-    //    @ApiOperation(value = "登出", notes = "登出")
-    @GetMapping("/logOut")
-    public String logOut(HttpSession session) {
-        Subject subject = SecurityUtils.getSubject();
-        subject.logout();
+	//    @ApiOperation(value = "登出", notes = "登出")
+	@GetMapping("/logOut")
+	public String logOut(HttpSession session) {
+		Subject subject = SecurityUtils.getSubject();
+		subject.logout();
 //        session.removeAttribute("user");
-        return "login";
-    }
+		return "login";
+	}
 
-    @RequiresPermissions("delete")//随便写的
-    @GetMapping("/success")
-    public String test() {
-        return "success";
-    }
+	@RequiresPermissions("delete")//随便写的
+	@GetMapping("/success")
+	public String test() {
+		return "success";
+	}
 
-    @GetMapping("/index")
-    public String index() {
-        return "index";
-    }
+	@GetMapping("/index")
+	public String index() {
+		return "index";
+	}
 }

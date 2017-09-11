@@ -1,7 +1,7 @@
 package com.dbt.config.shiro;
 
-import com.dbt.bean.User;
 import com.dbt.service.CommonService;
+import irvin.common.domain.User;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
