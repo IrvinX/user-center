@@ -1,14 +1,18 @@
-server.port=5500
-spring.application.name=eureka-server
-##################
-eureka.client.register-with-eureka=false
-eureka.client.fetch-registry=false
-eureka.client.serviceUrl.defaultZone=http://localhost:${server.port}/eureka/
-#security.user.name=top
-#security.user.password=top
+server:
+  port: 7777
+spring:
+  application:
+    name: irvin-eureka-server
 
-##############################
-# logging
-##############################
-logging.level.root=INFO
-log.kafka.url=192.168.1.133:9092
+eureka:
+  instance:
+    hostname: localhost # 设置主机名
+  client:
+    registerWithEureka: false # 是否向 Eureka 注册服务。该应用为服务注册中心，不需要自注册，设置为 false
+    fetchRegistry: false      # 是否检索服务。该应用为服务注册中心，职责为注册和发现服务，无需检索服务，设置为 false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0 # 设置同步为空时的等待时间。默认 5 * MINUTES
+
+logging:
+  level:
+    root: INFO

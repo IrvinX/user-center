@@ -11,10 +11,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-public class IrvinUCApplication {
+public class UCApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(IrvinUCApplication.class, args);
+		SpringApplication.run(UCApplication.class, args);
 	}
 
 }

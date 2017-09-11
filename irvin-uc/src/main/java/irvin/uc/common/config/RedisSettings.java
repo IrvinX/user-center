@@ -1,10 +1,12 @@
-//package top.toptimus.sso.config.ConfigurationProperties;
-//
+package irvin.uc.common.config;
+
 //import org.springframework.boot.context.properties.ConfigurationProperties;
 //import org.springframework.context.annotation.Configuration;
 //
 ///**
-// * Created by gaofang on 2017/7/17.
+// * @author irvin
+// * @date Create in 下午14:36 2017/9/11
+// * @description Swagger config
 // */
 //@Deprecated
 //@Configuration

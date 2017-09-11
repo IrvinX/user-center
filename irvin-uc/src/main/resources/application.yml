@@ -1,11 +1,16 @@
 # server
 server:
-  port: 7777
+  port: 7000
 
 # spring
 spring:
   application:
     name: irvin-uc-server
+  datasource:
+      url: jdbc:mysql://localhost:3306/irvin?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
   # redis
   redis:
     host: localhost
@@ -19,7 +24,11 @@ spring:
     timeout: 1000
 # logger
 logging:
-  level: debug
-
+  level:
+   root: debug
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7777/eureka/ # 服务注册中心地址
 
 

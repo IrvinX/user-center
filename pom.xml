@@ -25,6 +25,7 @@
         <!--<module>Jmerkletree</module>-->
         <module>irvin-uc-front</module>
         <module>irvin-uc</module>
+        <module>irvin-eureka</module>
         <!--<module>spring-cloud-shiro</module>-->
     </modules>
 </project>
