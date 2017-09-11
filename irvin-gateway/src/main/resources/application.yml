@@ -1,3 +1,21 @@
+server:
+  port: 7777
+spring:
+  application:
+    name: gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7770/eureka/
+
+management:
+  security:
+    enabled: false
+
+logging:
+  level:
+    root: INFO
+
 hystrix:
   command:
     default:
@@ -21,26 +39,6 @@ zuul:
   host:
     socket-timeout-millis: 60000
     connect-timeout-millis: 60000
-
-server:
-  port: 7777
-spring:
-  application:
-    name: gateway
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:7770/eureka/
-
-management:
-  security:
-    enabled: false
-
-logging:
-  level:
-    root: INFO
-
-zuul:
   routes:
     usercenter:
       path: /usercenter/**
