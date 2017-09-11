@@ -23,7 +23,7 @@
     <modules>
         <!--<module>spring-cloud-redis</module>-->
         <!--<module>Jmerkletree</module>-->
-        <module>spring-cloud-usercenter</module>
+        <module>irvin-uc-front</module>
         <module>irvin-uc</module>
         <!--<module>spring-cloud-shiro</module>-->
     </modules>
