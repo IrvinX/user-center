@@ -76,6 +76,14 @@
             <artifactId>lombok</artifactId>
             <version>1.16.16</version>
         </dependency>
+
+        <!-- common model -->
+        <dependency>
+            <groupId>irvin-common</groupId>
+            <artifactId>irvin-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
     <build>
