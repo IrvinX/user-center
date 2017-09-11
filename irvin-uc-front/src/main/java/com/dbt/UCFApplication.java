@@ -6,9 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.dbt")
-public class UCApplication {
+public class UCFApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UCApplication.class, args);
+        SpringApplication.run(UCFApplication.class, args);
     }
+
 }
