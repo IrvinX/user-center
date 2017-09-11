@@ -1,0 +1,26 @@
+# server
+server:
+  port: 7700
+
+# spring
+spring:
+  application:
+    name: irvin-uc-front
+  datasource:
+    url: jdbc:mysql://localhost:3306/irvin?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+# logger
+logging:
+  level:
+   root: debug
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7777/eureka/ # 服务注册中心地址
+
+
+
+

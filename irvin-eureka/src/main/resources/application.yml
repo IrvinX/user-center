@@ -1,0 +1,14 @@
+server.port=5500
+spring.application.name=eureka-server
+##################
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+eureka.client.serviceUrl.defaultZone=http://localhost:${server.port}/eureka/
+#security.user.name=top
+#security.user.password=top
+
+##############################
+# logging
+##############################
+logging.level.root=INFO
+log.kafka.url=192.168.1.133:9092
