@@ -29,6 +29,6 @@ logging:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7777/eureka/ # 服务注册中心地址
+      defaultZone: http://localhost:7770/eureka/ # 服务注册中心地址
 
 
