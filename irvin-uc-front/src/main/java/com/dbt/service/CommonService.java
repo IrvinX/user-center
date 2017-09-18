@@ -1,8 +1,8 @@
 package com.dbt.service;
 
-import irvin.common.domain.Module;
-import irvin.common.domain.Role;
-import irvin.common.domain.User;
+import irvin.api.domain.Module;
+import irvin.api.domain.Role;
+import irvin.api.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

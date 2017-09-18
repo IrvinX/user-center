@@ -1,7 +1,6 @@
 package com.dbt.controller;
 
-
-import irvin.common.domain.User;
+import irvin.api.domain.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
