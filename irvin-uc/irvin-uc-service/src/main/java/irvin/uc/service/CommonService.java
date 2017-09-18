@@ -1,8 +1,8 @@
 package irvin.uc.service;
 
-import irvin.common.domain.Module;
-import irvin.common.domain.Role;
-import irvin.common.domain.User;
+import irvin.api.domain.Module;
+import irvin.api.domain.Role;
+import irvin.api.domain.User;
 import irvin.uc.dao.CommonDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
