@@ -1,4 +1,4 @@
-package irvin.common.domain;
+package irvin.api.domain;
 
 import lombok.*;
 

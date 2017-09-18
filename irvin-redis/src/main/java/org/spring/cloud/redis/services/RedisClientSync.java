@@ -11,8 +11,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * redis事务策略
- * 
- * @author irvin
  */
 @Service
 public class RedisClientSync {

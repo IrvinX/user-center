@@ -23,9 +23,6 @@ import redis.clients.jedis.Tuple;
 
 /**
  * 原生redis操作
- * 
- * @author irvin
- *
  */
 @Repository("redisClientTemplate")
 public class RedisClientTemplate {

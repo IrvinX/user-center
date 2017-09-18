@@ -1,6 +1,3 @@
-/**
- * 
- */
 package org.spring.cloud.redis.repositories;
 
 import java.util.List;
@@ -11,9 +8,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * stringRedisTemplate ListOps
- * 
- * @author irvin
- *
  */
 @Component
 public class ListOps {
