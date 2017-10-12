@@ -7,9 +7,10 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Uc_role {
+public class UCUserOauth {
     private String id;
-    private String name;
-    private String expression;
+    private String user_basic_id;
+    private Long account_type;
+    private String account;
     private Long status;
 }

@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Uc_user_basic {
+public class UCUserBasic {
     private String id;
     private String name;
     private Long age;

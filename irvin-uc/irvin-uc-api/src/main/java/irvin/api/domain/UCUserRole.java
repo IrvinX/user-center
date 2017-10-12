@@ -7,8 +7,9 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Uc_user_internal {
+public class UCUserRole {
     private String id;
     private String user_basic_id;
+    private String role_id;
     private Long status;
 }

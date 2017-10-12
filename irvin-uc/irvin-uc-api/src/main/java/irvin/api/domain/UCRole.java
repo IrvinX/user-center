@@ -7,10 +7,9 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Uc_permission {
+public class UCRole {
     private String id;
     private String name;
     private String expression;
     private Long status;
-    private String url;
 }

@@ -7,10 +7,8 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Uc_user_extens {
+public class UCUserExternal {
     private String id;
-    private String password;
-    private String salt;
     private String user_basic_id;
-    private Long type;
+    private Long status;
 }
