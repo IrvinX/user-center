@@ -1,0 +1,97 @@
+package irvin.api.domain;
+
+import java.io.Serializable;
+
+public class UcUserInternal implements Serializable {
+    /**
+     * 主键
+     */
+    private String id;
+
+    /**
+     * 用户基础信息 ID
+     */
+    private String userBasicId;
+
+    /**
+     * 状态
+     */
+    private Integer status;
+
+    /**
+     * uc_user_internal
+     */
+    private static final long serialVersionUID = 1L;
+
+    public UcUserInternal(String id, String userBasicId, Integer status) {
+        this.id = id;
+        this.userBasicId = userBasicId;
+        this.status = status;
+    }
+
+    public UcUserInternal() {
+        super();
+    }
+
+    /**
+     * 主键
+     * @return id 主键
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * 主键
+     * @param id 主键
+     */
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
+
+    /**
+     * 用户基础信息 ID
+     * @return user_basic_id 用户基础信息 ID
+     */
+    public String getUserBasicId() {
+        return userBasicId;
+    }
+
+    /**
+     * 用户基础信息 ID
+     * @param userBasicId 用户基础信息 ID
+     */
+    public void setUserBasicId(String userBasicId) {
+        this.userBasicId = userBasicId == null ? null : userBasicId.trim();
+    }
+
+    /**
+     * 状态
+     * @return status 状态
+     */
+    public Integer getStatus() {
+        return status;
+    }
+
+    /**
+     * 状态
+     * @param status 状态
+     */
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", userBasicId=").append(userBasicId);
+        sb.append(", status=").append(status);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
+    }
+}
