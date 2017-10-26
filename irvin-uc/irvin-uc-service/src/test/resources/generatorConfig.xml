@@ -8,7 +8,7 @@
 
     <!--指定特定数据库的jdbc驱动jar包的位置 -->
     <classPathEntry
-            location="src\test\mysql-connector-java-5.1.44-bin.jar" />
+            location="src\test\mysql-connector-java-5.1.44-bin.jar"/>
 
     <context id="oracle" targetRuntime="MyBatis3">
 
@@ -21,40 +21,40 @@
         <!-- optional，旨在创建class时，对注释进行控制 -->
         <commentGenerator
                 type="generator.common.MyBatisCommentGenerator">
-            <property name="suppressDate" value="true" />
-            <property name="suppressAllComments" value="false" />
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="false"/>
         </commentGenerator>
 
         <!--jdbc的数据库连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/user_center"
+                        connectionURL="jdbc:mysql://localhost:3306/user_center"
                         userId="root" password="****">
             <property name="remarksReporting" value="true"></property>
         </jdbcConnection>
 
         <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制 -->
         <javaTypeResolver>
-            <property name="forceBigDecimals" value="false" />
+            <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-        <!-- Model模型生成器,用来生成含有主键key的类，记录类 以及查询Example类 targetPackage 指定生成的model生成所在的包名 targetProject 指定在该项目下所在的路径 -->
+        <!-- Model模型生成器,用来生成含有主键key的类，记录类 以及查询Example类 targetPackage 指定生成的model生成所在的包名targetProject 指定在该项目下所在的路径 -->
         <javaModelGenerator targetPackage="irvin.uc.common.domain"
                             targetProject="src/main/java">
             <!-- 是否对model添加 构造函数 -->
             <property name="constructorBased" value="true"/>
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
-            <property name="enableSubPackages" value="false" />
+            <property name="enableSubPackages" value="false"/>
 
             <!-- 给Model添加一个父类 -->
             <!--<property name="rootClass" value="usercenter.upms.dao.model.BaseMode" />-->
             <!-- 是否对类CHAR类型的列的数据进行trim操作 -->
-            <property name="trimStrings" value="true" />
+            <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!--Mapper映射文件生成所在的目录 为每一个数据库的表生成对应的SqlMap文件 -->
         <sqlMapGenerator targetPackage="mapper"
                          targetProject="src/main/resources">
-            <property name="enableSubPackages" value="false" />
+            <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!-- 客户端代码，生成易于使用的针对Model对象和XML配置文件 的代码 type="ANNOTATEDMAPPER",生成Java Model
@@ -62,7 +62,7 @@
             XML文件和独立的Mapper接口 -->
         <javaClientGenerator targetPackage="irvin.uc.dao"
                              targetProject="src/main/java" type="ANNOTATEDMAPPER">
-            <property name="enableSubPackages" value="" />
+            <property name="enableSubPackages" value=""/>
             <!-- 定义Maper.java 源代码中的ByExample() 方法的可视性，可选的值有： public; private; protected;
                 default 注意：如果 targetRuntime="MyBatis3",此参数被忽略 -->
             <!--<property name="exampleMethodVisibility" value=""/> -->
@@ -70,12 +70,27 @@
                 is MyBatis3. -->
             <!--<property name="methodNameCalculator" value=""/> -->
 
-            <property name="enableSubPackages" value="true" />
+            <property name="enableSubPackages" value="true"/>
             <!-- 为生成的接口添加父接口 -->
             <!--<property name="rootInterface" value=""/> -->
         </javaClientGenerator>
-
-        <table tableName="uc_role" />
+        <!-- tables -->
+        <table tableName="uc_permission">
+            <!-- text 类型的字段按如下方式单独处理(否则生成XXXWithBlob 类) -->
+            <columnOverride column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <columnOverride column="url" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        </table>
+        <table tableName="uc_role"/>
+        <table tableName="uc_role_permission"/>
+        <table tableName="uc_user_basic">
+            <columnOverride column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <columnOverride column="englishName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        </table>
+        <table tableName="uc_user_extens"/>
+        <table tableName="uc_user_external"/>
+        <table tableName="uc_user_internal"/>
+        <table tableName="uc_user_oauth"/>
+        <table tableName="uc_user_role"/>
 
     </context>
 </generatorConfiguration>
