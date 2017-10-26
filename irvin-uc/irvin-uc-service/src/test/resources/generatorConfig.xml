@@ -37,9 +37,8 @@
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
 
-        <!-- Model模型生成器,用来生成含有主键key的类，记录类 以及查询Example类 targetPackage 指定生成的model生成所在的包名
-            targetProject 指定在该项目下所在的路径 -->
-        <javaModelGenerator targetPackage="irvin.api.domain"
+        <!-- Model模型生成器,用来生成含有主键key的类，记录类 以及查询Example类 targetPackage 指定生成的model生成所在的包名 targetProject 指定在该项目下所在的路径 -->
+        <javaModelGenerator targetPackage="irvin.uc.common.domain"
                             targetProject="src/main/java">
             <!-- 是否对model添加 构造函数 -->
             <property name="constructorBased" value="true"/>
