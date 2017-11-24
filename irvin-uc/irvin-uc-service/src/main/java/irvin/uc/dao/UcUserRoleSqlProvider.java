@@ -1,12 +1,13 @@
 package irvin.uc.dao;
 
 import irvin.api.domain.UcUserRole;
+import irvin.uc.common.domain.UcUserRoleExample;
 import irvin.uc.common.domain.UcUserRoleExample.Criteria;
 import irvin.uc.common.domain.UcUserRoleExample.Criterion;
-import irvin.uc.common.domain.UcUserRoleExample;
+import org.apache.ibatis.jdbc.SQL;
+
 import java.util.List;
 import java.util.Map;
-import org.apache.ibatis.jdbc.SQL;
 
 public class UcUserRoleSqlProvider {
 
@@ -27,23 +28,27 @@ public class UcUserRoleSqlProvider {
     public String insertSelective(UcUserRole record) {
         SQL sql = new SQL();
         sql.INSERT_INTO("uc_user_role");
-        
+
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getUserBasicId() != null) {
             sql.VALUES("user_basic_id", "#{userBasicId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getRoleId() != null) {
             sql.VALUES("role_id", "#{roleId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getStatus() != null) {
             sql.VALUES("status", "#{status,jdbcType=INTEGER}");
         }
-        
+
+        if (record.getVersion() != null) {
+            sql.VALUES("version", "#{version,jdbcType=INTEGER}");
+        }
+
         return sql.toString();
     }
 
@@ -57,39 +62,44 @@ public class UcUserRoleSqlProvider {
         sql.SELECT("user_basic_id");
         sql.SELECT("role_id");
         sql.SELECT("status");
+        sql.SELECT("version");
         sql.FROM("uc_user_role");
         applyWhere(sql, example, false);
-        
+
         if (example != null && example.getOrderByClause() != null) {
             sql.ORDER_BY(example.getOrderByClause());
         }
-        
+
         return sql.toString();
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
         UcUserRole record = (UcUserRole) parameter.get("record");
         UcUserRoleExample example = (UcUserRoleExample) parameter.get("example");
-        
+
         SQL sql = new SQL();
         sql.UPDATE("uc_user_role");
-        
+
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getUserBasicId() != null) {
             sql.SET("user_basic_id = #{record.userBasicId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getRoleId() != null) {
             sql.SET("role_id = #{record.roleId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getStatus() != null) {
             sql.SET("status = #{record.status,jdbcType=INTEGER}");
         }
-        
+
+        if (record.getVersion() != null) {
+            sql.SET("version = #{record.version,jdbcType=INTEGER}");
+        }
+
         applyWhere(sql, example, true);
         return sql.toString();
     }
@@ -97,12 +107,13 @@ public class UcUserRoleSqlProvider {
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
         sql.UPDATE("uc_user_role");
-        
+
         sql.SET("id = #{record.id,jdbcType=VARCHAR}");
         sql.SET("user_basic_id = #{record.userBasicId,jdbcType=VARCHAR}");
         sql.SET("role_id = #{record.roleId,jdbcType=VARCHAR}");
         sql.SET("status = #{record.status,jdbcType=INTEGER}");
-        
+        sql.SET("version = #{record.version,jdbcType=INTEGER}");
+
         UcUserRoleExample example = (UcUserRoleExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
@@ -111,21 +122,25 @@ public class UcUserRoleSqlProvider {
     public String updateByPrimaryKeySelective(UcUserRole record) {
         SQL sql = new SQL();
         sql.UPDATE("uc_user_role");
-        
+
         if (record.getUserBasicId() != null) {
             sql.SET("user_basic_id = #{userBasicId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getRoleId() != null) {
             sql.SET("role_id = #{roleId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getStatus() != null) {
             sql.SET("status = #{status,jdbcType=INTEGER}");
         }
-        
+
+        if (record.getVersion() != null) {
+            sql.SET("version = #{version,jdbcType=INTEGER}");
+        }
+
         sql.WHERE("id = #{id,jdbcType=VARCHAR}");
-        
+
         return sql.toString();
     }
 
@@ -133,7 +148,7 @@ public class UcUserRoleSqlProvider {
         if (example == null) {
             return;
         }
-        
+
         String parmPhrase1;
         String parmPhrase1_th;
         String parmPhrase2;
@@ -155,7 +170,7 @@ public class UcUserRoleSqlProvider {
             parmPhrase3 = "#{oredCriteria[%d].allCriteria[%d].value[%d]}";
             parmPhrase3_th = "#{oredCriteria[%d].allCriteria[%d].value[%d],typeHandler=%s}";
         }
-        
+
         StringBuilder sb = new StringBuilder();
         List<Criteria> oredCriteria = example.getOredCriteria();
         boolean firstCriteria = true;
@@ -167,7 +182,7 @@ public class UcUserRoleSqlProvider {
                 } else {
                     sb.append(" or ");
                 }
-                
+
                 sb.append('(');
                 List<Criterion> criterions = criteria.getAllCriteria();
                 boolean firstCriterion = true;
@@ -178,14 +193,14 @@ public class UcUserRoleSqlProvider {
                     } else {
                         sb.append(" and ");
                     }
-                    
+
                     if (criterion.isNoValue()) {
                         sb.append(criterion.getCondition());
                     } else if (criterion.isSingleValue()) {
                         if (criterion.getTypeHandler() == null) {
                             sb.append(String.format(parmPhrase1, criterion.getCondition(), i, j));
                         } else {
-                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j,criterion.getTypeHandler()));
+                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j, criterion.getTypeHandler()));
                         }
                     } else if (criterion.isBetweenValue()) {
                         if (criterion.getTypeHandler() == null) {
@@ -216,7 +231,7 @@ public class UcUserRoleSqlProvider {
                 sb.append(')');
             }
         }
-        
+
         if (sb.length() > 0) {
             sql.WHERE(sb.toString());
         }

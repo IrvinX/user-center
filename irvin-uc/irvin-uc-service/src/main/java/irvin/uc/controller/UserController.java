@@ -2,9 +2,15 @@ package irvin.uc.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import irvin.api.bussiness.domain.ResponseResult;
+import irvin.api.domain.UcUserBasic;
+import irvin.uc.service.basic.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author irvin
@@ -16,29 +22,33 @@ import org.springframework.web.bind.annotation.*;
 @Api(value = "User Management", description = "User Management CRUD")
 public class UserController {
 
-	private static Logger logger = LoggerFactory.getLogger(UserController.class);
+    private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
-	@ApiOperation(value = "Create user")
-	@PostMapping(value = "/user-info")
-	public void createUser() {
-		logger.debug("Create user ...");
-	}
+    @Autowired
+    UserService userService;
 
-	@ApiOperation(value = "Update user")
-	@PutMapping(value = "/user-info")
-	public void updateUser() {
-		logger.debug("Update user ...");
-	}
+    @ApiOperation(value = "Create user basic info")
+    @PostMapping(value = "/user-basic")
+    public void createUserBasic(@RequestBody UcUserBasic ucUserBasic) {
+        userService.createUserBasic(ucUserBasic);
+    }
 
-	@ApiOperation(value = "Find user")
-	@GetMapping(value = "/user-info")
-	public void getUser() {
-		logger.debug("Find user ...");
-	}
+    @ApiOperation(value = "Update user basic info")
+    @PutMapping(value = "/user-basic")
+    public void updateUserBasic(@RequestBody UcUserBasic ucUserBasic) {
+        userService.updateUserBasic(ucUserBasic);
+    }
 
-	@ApiOperation(value = "Delete user")
-	@DeleteMapping(value = "/user-info")
-	public void deleteUser() {
-		logger.debug("Delete user ...");
-	}
+    @ApiOperation(value = "Find user basic info")
+    @GetMapping(value = "/user-basic")
+    public ResponseResult<List<UcUserBasic>> getUserBasic(@RequestParam(value = "pageNo", required = false) Integer pageNo,
+                                                          @RequestParam(value = "pageSize", required = false) Integer pageSize) {
+        return userService.getUserBasic(pageNo, pageSize);
+    }
+
+    @ApiOperation(value = "Delete user basic info")
+    @DeleteMapping(value = "/user-basic")
+    public void deleteUserBasic(@RequestParam(value = "id") String id) {
+        userService.deleteUserBasic(id);
+    }
 }

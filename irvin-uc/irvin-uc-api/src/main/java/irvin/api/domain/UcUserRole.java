@@ -24,15 +24,21 @@ public class UcUserRole implements Serializable {
     private Integer status;
 
     /**
+     * 
+     */
+    private Integer version;
+
+    /**
      * uc_user_role
      */
     private static final long serialVersionUID = 1L;
 
-    public UcUserRole(String id, String userBasicId, String roleId, Integer status) {
+    public UcUserRole(String id, String userBasicId, String roleId, Integer status, Integer version) {
         this.id = id;
         this.userBasicId = userBasicId;
         this.roleId = roleId;
         this.status = status;
+        this.version = version;
     }
 
     public UcUserRole() {
@@ -103,6 +109,22 @@ public class UcUserRole implements Serializable {
         this.status = status;
     }
 
+    /**
+     * 
+     * @return version 
+     */
+    public Integer getVersion() {
+        return version;
+    }
+
+    /**
+     * 
+     * @param version 
+     */
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -113,6 +135,7 @@ public class UcUserRole implements Serializable {
         sb.append(", userBasicId=").append(userBasicId);
         sb.append(", roleId=").append(roleId);
         sb.append(", status=").append(status);
+        sb.append(", version=").append(version);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

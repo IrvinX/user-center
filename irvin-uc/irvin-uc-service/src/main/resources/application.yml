@@ -1,3 +1,6 @@
+servers:
+  jd-server: localhost
+
 # server
 server:
   port: 7000
@@ -7,25 +10,49 @@ spring:
   application:
     name: irvin-uc-server
   datasource:
-      url: jdbc:mysql://localhost:3306/irvin?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+      url: jdbc:mysql://${servers.jd-server}:3306/user_center?useSSL=false&useUnicode=true&characterEncoding=UTF-8
       username: root
       password: root
       driver-class-name: com.mysql.jdbc.Driver
   # redis
   redis:
     host: localhost
+#    host: ${servers.jd-server}
     database: 7
     port: 6379
     pool:
-      max-active: 8
+      max-active: 300
       max-wait: -1
-      max-idle: 8
+      max-idle: 100
       min-idle: 0
     timeout: 1000
+    password:
+
+  # mongodb
+  data:
+      mongodb:
+        host: ${servers.jd-server}
+        port: 27017
+        username: irvin
+        password: irvin
+        authentication-database: user_center
+        database: user_center
+
+  # rabbitmq
+  rabbitmq:
+    host: ${servers.jd-server}
+    port: 5672
+    username: irvin
+    password: irvin
+    connection-timeout: 5000
+    virtual-host: irvin
+
 # logger
 logging:
   level:
    root: debug
+
+# eureka
 eureka:
   client:
     service-url:

@@ -29,16 +29,22 @@ public class UcPermission implements Serializable {
     private String url;
 
     /**
+     * 版本号
+     */
+    private Integer version;
+
+    /**
      * uc_permission
      */
     private static final long serialVersionUID = 1L;
 
-    public UcPermission(String id, String name, String expression, Integer status, String url) {
+    public UcPermission(String id, String name, String expression, Integer status, String url, Integer version) {
         this.id = id;
         this.name = name;
         this.expression = expression;
         this.status = status;
         this.url = url;
+        this.version = version;
     }
 
     public UcPermission() {
@@ -125,6 +131,22 @@ public class UcPermission implements Serializable {
         this.url = url == null ? null : url.trim();
     }
 
+    /**
+     * 版本号
+     * @return version 版本号
+     */
+    public Integer getVersion() {
+        return version;
+    }
+
+    /**
+     * 版本号
+     * @param version 版本号
+     */
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -136,6 +158,7 @@ public class UcPermission implements Serializable {
         sb.append(", expression=").append(expression);
         sb.append(", status=").append(status);
         sb.append(", url=").append(url);
+        sb.append(", version=").append(version);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

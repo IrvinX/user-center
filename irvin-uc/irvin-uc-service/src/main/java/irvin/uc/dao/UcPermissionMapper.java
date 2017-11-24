@@ -2,19 +2,10 @@ package irvin.uc.dao;
 
 import irvin.api.domain.UcPermission;
 import irvin.uc.common.domain.UcPermissionExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Arg;
-import org.apache.ibatis.annotations.ConstructorArgs;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.Update;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
+
+import java.util.List;
 
 public interface UcPermissionMapper {
     @SelectProvider(type=UcPermissionSqlProvider.class, method="countByExample")
@@ -32,10 +23,10 @@ public interface UcPermissionMapper {
     @Insert({
         "insert into uc_permission (id, name, ",
         "expression, status, ",
-        "url)",
+        "url, version)",
         "values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, ",
         "#{expression,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, ",
-        "#{url,jdbcType=VARCHAR})"
+        "#{url,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER})"
     })
     int insert(UcPermission record);
 
@@ -48,13 +39,14 @@ public interface UcPermissionMapper {
         @Arg(column="name", javaType=String.class, jdbcType=JdbcType.VARCHAR),
         @Arg(column="expression", javaType=String.class, jdbcType=JdbcType.VARCHAR),
         @Arg(column="status", javaType=Integer.class, jdbcType=JdbcType.INTEGER),
-        @Arg(column="url", javaType=String.class, jdbcType=JdbcType.VARCHAR)
+        @Arg(column="url", javaType=String.class, jdbcType=JdbcType.VARCHAR),
+        @Arg(column="version", javaType=Integer.class, jdbcType=JdbcType.INTEGER)
     })
     List<UcPermission> selectByExample(UcPermissionExample example);
 
     @Select({
         "select",
-        "id, name, expression, status, url",
+        "id, name, expression, status, url, version",
         "from uc_permission",
         "where id = #{id,jdbcType=VARCHAR}"
     })
@@ -63,7 +55,8 @@ public interface UcPermissionMapper {
         @Arg(column="name", javaType=String.class, jdbcType=JdbcType.VARCHAR),
         @Arg(column="expression", javaType=String.class, jdbcType=JdbcType.VARCHAR),
         @Arg(column="status", javaType=Integer.class, jdbcType=JdbcType.INTEGER),
-        @Arg(column="url", javaType=String.class, jdbcType=JdbcType.VARCHAR)
+        @Arg(column="url", javaType=String.class, jdbcType=JdbcType.VARCHAR),
+        @Arg(column="version", javaType=Integer.class, jdbcType=JdbcType.INTEGER)
     })
     UcPermission selectByPrimaryKey(String id);
 
@@ -81,7 +74,8 @@ public interface UcPermissionMapper {
         "set name = #{name,jdbcType=VARCHAR},",
           "expression = #{expression,jdbcType=VARCHAR},",
           "status = #{status,jdbcType=INTEGER},",
-          "url = #{url,jdbcType=VARCHAR}",
+          "url = #{url,jdbcType=VARCHAR},",
+          "version = #{version,jdbcType=INTEGER}",
         "where id = #{id,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(UcPermission record);

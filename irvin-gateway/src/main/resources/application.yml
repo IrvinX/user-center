@@ -44,3 +44,7 @@ zuul:
       path: /usercenter/**
       serviceId: irvin-uc-server
       retryable: true
+#    stock:
+#      path: /stock/**
+#      serviceId: irvin-stock-server
+#      retryable: true

@@ -544,6 +544,76 @@ public class UcUserBasicExample {
             return (Criteria) this;
         }
 
+        public Criteria andEnglishNameIsNull() {
+            addCriterion("english_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameIsNotNull() {
+            addCriterion("english_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameEqualTo(String value) {
+            addCriterion("english_name =", value, "englishName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameNotEqualTo(String value) {
+            addCriterion("english_name <>", value, "englishName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameGreaterThan(String value) {
+            addCriterion("english_name >", value, "englishName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameGreaterThanOrEqualTo(String value) {
+            addCriterion("english_name >=", value, "englishName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameLessThan(String value) {
+            addCriterion("english_name <", value, "englishName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameLessThanOrEqualTo(String value) {
+            addCriterion("english_name <=", value, "englishName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameLike(String value) {
+            addCriterion("english_name like", value, "englishName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameNotLike(String value) {
+            addCriterion("english_name not like", value, "englishName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameIn(List<String> values) {
+            addCriterion("english_name in", values, "englishName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameNotIn(List<String> values) {
+            addCriterion("english_name not in", values, "englishName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameBetween(String value1, String value2) {
+            addCriterion("english_name between", value1, value2, "englishName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameNotBetween(String value1, String value2) {
+            addCriterion("english_name not between", value1, value2, "englishName");
+            return (Criteria) this;
+        }
+
         public Criteria andGenderIsNull() {
             addCriterion("gender is null");
             return (Criteria) this;
@@ -664,6 +734,66 @@ public class UcUserBasicExample {
             return (Criteria) this;
         }
 
+        public Criteria andVersionIsNull() {
+            addCriterion("version is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andVersionIsNotNull() {
+            addCriterion("version is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andVersionEqualTo(Integer value) {
+            addCriterion("version =", value, "version");
+            return (Criteria) this;
+        }
+
+        public Criteria andVersionNotEqualTo(Integer value) {
+            addCriterion("version <>", value, "version");
+            return (Criteria) this;
+        }
+
+        public Criteria andVersionGreaterThan(Integer value) {
+            addCriterion("version >", value, "version");
+            return (Criteria) this;
+        }
+
+        public Criteria andVersionGreaterThanOrEqualTo(Integer value) {
+            addCriterion("version >=", value, "version");
+            return (Criteria) this;
+        }
+
+        public Criteria andVersionLessThan(Integer value) {
+            addCriterion("version <", value, "version");
+            return (Criteria) this;
+        }
+
+        public Criteria andVersionLessThanOrEqualTo(Integer value) {
+            addCriterion("version <=", value, "version");
+            return (Criteria) this;
+        }
+
+        public Criteria andVersionIn(List<Integer> values) {
+            addCriterion("version in", values, "version");
+            return (Criteria) this;
+        }
+
+        public Criteria andVersionNotIn(List<Integer> values) {
+            addCriterion("version not in", values, "version");
+            return (Criteria) this;
+        }
+
+        public Criteria andVersionBetween(Integer value1, Integer value2) {
+            addCriterion("version between", value1, value2, "version");
+            return (Criteria) this;
+        }
+
+        public Criteria andVersionNotBetween(Integer value1, Integer value2) {
+            addCriterion("version not between", value1, value2, "version");
+            return (Criteria) this;
+        }
+
         public Criteria andIdLikeInsensitive(String value) {
             addCriterion("upper(id) like", value.toUpperCase(), "id");
             return (Criteria) this;
@@ -681,6 +811,11 @@ public class UcUserBasicExample {
 
         public Criteria andEmailLikeInsensitive(String value) {
             addCriterion("upper(email) like", value.toUpperCase(), "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnglishNameLikeInsensitive(String value) {
+            addCriterion("upper(english_name) like", value.toUpperCase(), "englishName");
             return (Criteria) this;
         }
     }

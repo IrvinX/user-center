@@ -37,6 +37,11 @@ public class UcUserBasic implements Serializable {
     /**
      * 
      */
+    private String englishName;
+
+    /**
+     * 
+     */
     private Integer gender;
 
     /**
@@ -47,23 +52,24 @@ public class UcUserBasic implements Serializable {
     /**
      * 
      */
-    private String englishName;
+    private Integer version;
 
     /**
      * uc_user_basic
      */
     private static final long serialVersionUID = 1L;
 
-    public UcUserBasic(String id, String name, Integer age, Date birth, String mobile, String email, Integer gender, Integer status, String englishName) {
+    public UcUserBasic(String id, String name, Integer age, Date birth, String mobile, String email, String englishName, Integer gender, Integer status, Integer version) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.birth = birth;
         this.mobile = mobile;
         this.email = email;
+        this.englishName = englishName;
         this.gender = gender;
         this.status = status;
-        this.englishName = englishName;
+        this.version = version;
     }
 
     public UcUserBasic() {
@@ -168,6 +174,22 @@ public class UcUserBasic implements Serializable {
 
     /**
      * 
+     * @return english_name 
+     */
+    public String getEnglishName() {
+        return englishName;
+    }
+
+    /**
+     * 
+     * @param englishName 
+     */
+    public void setEnglishName(String englishName) {
+        this.englishName = englishName == null ? null : englishName.trim();
+    }
+
+    /**
+     * 
      * @return gender 
      */
     public Integer getGender() {
@@ -200,18 +222,18 @@ public class UcUserBasic implements Serializable {
 
     /**
      * 
-     * @return english_name 
+     * @return version 
      */
-    public String getEnglishName() {
-        return englishName;
+    public Integer getVersion() {
+        return version;
     }
 
     /**
      * 
-     * @param englishName 
+     * @param version 
      */
-    public void setEnglishName(String englishName) {
-        this.englishName = englishName == null ? null : englishName.trim();
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
     @Override
@@ -226,9 +248,10 @@ public class UcUserBasic implements Serializable {
         sb.append(", birth=").append(birth);
         sb.append(", mobile=").append(mobile);
         sb.append(", email=").append(email);
+        sb.append(", englishName=").append(englishName);
         sb.append(", gender=").append(gender);
         sb.append(", status=").append(status);
-        sb.append(", englishName=").append(englishName);
+        sb.append(", version=").append(version);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

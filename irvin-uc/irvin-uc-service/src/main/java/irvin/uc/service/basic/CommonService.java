@@ -1,4 +1,4 @@
-package irvin.uc.service;
+package irvin.uc.service.basic;
 
 import irvin.api.domain.Module;
 import irvin.api.domain.Role;

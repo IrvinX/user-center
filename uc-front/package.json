@@ -1,0 +1,59 @@
+{
+  "name": "uc-front",
+  "version": "1.0.0",
+  "description": "It is a demo of testing react-router v4's code spliting",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo welcome to my world!",
+    "dev": "npm run open-browser && webpack-dev-server --config webpack/dev.js --host 0.0.0.0 --hot --inline --color --progress --watch",
+    "open-browser": "opener http://localhost:9000/dist/",
+    "lint": "eslint src/"
+  },
+  "keywords": [
+    "boilerplate",
+    "webpack",
+    "react"
+  ],
+  "author": "xiii",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^8.0.0",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-import": "^1.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "bundle-loader": "^0.5.5",
+    "css-loader": "^0.28.0",
+    "eslint": "^4.7.2",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.3.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^0.11.1",
+    "html-webpack-plugin": "^2.28.0",
+    "mockjs": "^1.0.1-beta3",
+    "opener": "^1.4.3",
+    "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "dependencies": {
+    "antd": "^2.13.10",
+    "g2": "^2.3.0",
+    "g2-react": "^1.2.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router": "^4.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/irvinx/user-center.git"
+  }
+}

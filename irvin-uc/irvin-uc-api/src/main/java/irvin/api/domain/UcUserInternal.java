@@ -19,14 +19,20 @@ public class UcUserInternal implements Serializable {
     private Integer status;
 
     /**
+     * 
+     */
+    private Integer version;
+
+    /**
      * uc_user_internal
      */
     private static final long serialVersionUID = 1L;
 
-    public UcUserInternal(String id, String userBasicId, Integer status) {
+    public UcUserInternal(String id, String userBasicId, Integer status, Integer version) {
         this.id = id;
         this.userBasicId = userBasicId;
         this.status = status;
+        this.version = version;
     }
 
     public UcUserInternal() {
@@ -81,6 +87,22 @@ public class UcUserInternal implements Serializable {
         this.status = status;
     }
 
+    /**
+     * 
+     * @return version 
+     */
+    public Integer getVersion() {
+        return version;
+    }
+
+    /**
+     * 
+     * @param version 
+     */
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -90,6 +112,7 @@ public class UcUserInternal implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", userBasicId=").append(userBasicId);
         sb.append(", status=").append(status);
+        sb.append(", version=").append(version);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -8,7 +8,7 @@
 
     <!--指定特定数据库的jdbc驱动jar包的位置 -->
     <classPathEntry
-            location="src\test\mysql-connector-java-5.1.44-bin.jar"/>
+            location="src/test/mysql-connector-java-5.1.44-bin.jar"/>
 
     <context id="oracle" targetRuntime="MyBatis3">
 
@@ -27,8 +27,8 @@
 
         <!--jdbc的数据库连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/user_center"
-                        userId="root" password="****">
+                        connectionURL="jdbc:mysql://114.67.136.228:3306/user_center"
+                        userId="root" password="fGRIZww7tjpB^o%$">
             <property name="remarksReporting" value="true"></property>
         </jdbcConnection>
 
@@ -84,9 +84,9 @@
         <table tableName="uc_role_permission"/>
         <table tableName="uc_user_basic">
             <columnOverride column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <columnOverride column="englishName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <columnOverride column="english_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
         </table>
-        <table tableName="uc_user_extens"/>
+        <table tableName="uc_user_extends"/>
         <table tableName="uc_user_external"/>
         <table tableName="uc_user_internal"/>
         <table tableName="uc_user_oauth"/>

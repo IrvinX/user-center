@@ -24,15 +24,21 @@ public class UcRolePermission implements Serializable {
     private Integer status;
 
     /**
+     * 
+     */
+    private Integer version;
+
+    /**
      * uc_role_permission
      */
     private static final long serialVersionUID = 1L;
 
-    public UcRolePermission(String id, String roleId, String permissionId, Integer status) {
+    public UcRolePermission(String id, String roleId, String permissionId, Integer status, Integer version) {
         this.id = id;
         this.roleId = roleId;
         this.permissionId = permissionId;
         this.status = status;
+        this.version = version;
     }
 
     public UcRolePermission() {
@@ -103,6 +109,22 @@ public class UcRolePermission implements Serializable {
         this.status = status;
     }
 
+    /**
+     * 
+     * @return version 
+     */
+    public Integer getVersion() {
+        return version;
+    }
+
+    /**
+     * 
+     * @param version 
+     */
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -113,6 +135,7 @@ public class UcRolePermission implements Serializable {
         sb.append(", roleId=").append(roleId);
         sb.append(", permissionId=").append(permissionId);
         sb.append(", status=").append(status);
+        sb.append(", version=").append(version);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

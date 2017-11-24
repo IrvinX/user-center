@@ -2,7 +2,7 @@ package irvin.api.domain;
 
 import java.io.Serializable;
 
-public class UcUserExtens implements Serializable {
+public class UcUserExtends implements Serializable {
     /**
      * 主键
      */
@@ -29,19 +29,25 @@ public class UcUserExtens implements Serializable {
     private Integer type;
 
     /**
-     * uc_user_extens
+     * 
+     */
+    private Integer version;
+
+    /**
+     * uc_user_extends
      */
     private static final long serialVersionUID = 1L;
 
-    public UcUserExtens(String id, String password, String salt, String userBasicId, Integer type) {
+    public UcUserExtends(String id, String password, String salt, String userBasicId, Integer type, Integer version) {
         this.id = id;
         this.password = password;
         this.salt = salt;
         this.userBasicId = userBasicId;
         this.type = type;
+        this.version = version;
     }
 
-    public UcUserExtens() {
+    public UcUserExtends() {
         super();
     }
 
@@ -125,6 +131,22 @@ public class UcUserExtens implements Serializable {
         this.type = type;
     }
 
+    /**
+     * 
+     * @return version 
+     */
+    public Integer getVersion() {
+        return version;
+    }
+
+    /**
+     * 
+     * @param version 
+     */
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -136,6 +158,7 @@ public class UcUserExtens implements Serializable {
         sb.append(", salt=").append(salt);
         sb.append(", userBasicId=").append(userBasicId);
         sb.append(", type=").append(type);
+        sb.append(", version=").append(version);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -1,12 +1,13 @@
 package irvin.uc.dao;
 
 import irvin.api.domain.UcRolePermission;
+import irvin.uc.common.domain.UcRolePermissionExample;
 import irvin.uc.common.domain.UcRolePermissionExample.Criteria;
 import irvin.uc.common.domain.UcRolePermissionExample.Criterion;
-import irvin.uc.common.domain.UcRolePermissionExample;
+import org.apache.ibatis.jdbc.SQL;
+
 import java.util.List;
 import java.util.Map;
-import org.apache.ibatis.jdbc.SQL;
 
 public class UcRolePermissionSqlProvider {
 
@@ -27,23 +28,27 @@ public class UcRolePermissionSqlProvider {
     public String insertSelective(UcRolePermission record) {
         SQL sql = new SQL();
         sql.INSERT_INTO("uc_role_permission");
-        
+
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getRoleId() != null) {
             sql.VALUES("role_id", "#{roleId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getPermissionId() != null) {
             sql.VALUES("permission_id", "#{permissionId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getStatus() != null) {
             sql.VALUES("status", "#{status,jdbcType=INTEGER}");
         }
-        
+
+        if (record.getVersion() != null) {
+            sql.VALUES("version", "#{version,jdbcType=INTEGER}");
+        }
+
         return sql.toString();
     }
 
@@ -57,39 +62,44 @@ public class UcRolePermissionSqlProvider {
         sql.SELECT("role_id");
         sql.SELECT("permission_id");
         sql.SELECT("status");
+        sql.SELECT("version");
         sql.FROM("uc_role_permission");
         applyWhere(sql, example, false);
-        
+
         if (example != null && example.getOrderByClause() != null) {
             sql.ORDER_BY(example.getOrderByClause());
         }
-        
+
         return sql.toString();
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
         UcRolePermission record = (UcRolePermission) parameter.get("record");
         UcRolePermissionExample example = (UcRolePermissionExample) parameter.get("example");
-        
+
         SQL sql = new SQL();
         sql.UPDATE("uc_role_permission");
-        
+
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getRoleId() != null) {
             sql.SET("role_id = #{record.roleId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getPermissionId() != null) {
             sql.SET("permission_id = #{record.permissionId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getStatus() != null) {
             sql.SET("status = #{record.status,jdbcType=INTEGER}");
         }
-        
+
+        if (record.getVersion() != null) {
+            sql.SET("version = #{record.version,jdbcType=INTEGER}");
+        }
+
         applyWhere(sql, example, true);
         return sql.toString();
     }
@@ -97,12 +107,13 @@ public class UcRolePermissionSqlProvider {
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
         sql.UPDATE("uc_role_permission");
-        
+
         sql.SET("id = #{record.id,jdbcType=VARCHAR}");
         sql.SET("role_id = #{record.roleId,jdbcType=VARCHAR}");
         sql.SET("permission_id = #{record.permissionId,jdbcType=VARCHAR}");
         sql.SET("status = #{record.status,jdbcType=INTEGER}");
-        
+        sql.SET("version = #{record.version,jdbcType=INTEGER}");
+
         UcRolePermissionExample example = (UcRolePermissionExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
@@ -111,21 +122,25 @@ public class UcRolePermissionSqlProvider {
     public String updateByPrimaryKeySelective(UcRolePermission record) {
         SQL sql = new SQL();
         sql.UPDATE("uc_role_permission");
-        
+
         if (record.getRoleId() != null) {
             sql.SET("role_id = #{roleId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getPermissionId() != null) {
             sql.SET("permission_id = #{permissionId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getStatus() != null) {
             sql.SET("status = #{status,jdbcType=INTEGER}");
         }
-        
+
+        if (record.getVersion() != null) {
+            sql.SET("version = #{version,jdbcType=INTEGER}");
+        }
+
         sql.WHERE("id = #{id,jdbcType=VARCHAR}");
-        
+
         return sql.toString();
     }
 
@@ -133,7 +148,7 @@ public class UcRolePermissionSqlProvider {
         if (example == null) {
             return;
         }
-        
+
         String parmPhrase1;
         String parmPhrase1_th;
         String parmPhrase2;
@@ -155,7 +170,7 @@ public class UcRolePermissionSqlProvider {
             parmPhrase3 = "#{oredCriteria[%d].allCriteria[%d].value[%d]}";
             parmPhrase3_th = "#{oredCriteria[%d].allCriteria[%d].value[%d],typeHandler=%s}";
         }
-        
+
         StringBuilder sb = new StringBuilder();
         List<Criteria> oredCriteria = example.getOredCriteria();
         boolean firstCriteria = true;
@@ -167,7 +182,7 @@ public class UcRolePermissionSqlProvider {
                 } else {
                     sb.append(" or ");
                 }
-                
+
                 sb.append('(');
                 List<Criterion> criterions = criteria.getAllCriteria();
                 boolean firstCriterion = true;
@@ -178,14 +193,14 @@ public class UcRolePermissionSqlProvider {
                     } else {
                         sb.append(" and ");
                     }
-                    
+
                     if (criterion.isNoValue()) {
                         sb.append(criterion.getCondition());
                     } else if (criterion.isSingleValue()) {
                         if (criterion.getTypeHandler() == null) {
                             sb.append(String.format(parmPhrase1, criterion.getCondition(), i, j));
                         } else {
-                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j,criterion.getTypeHandler()));
+                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j, criterion.getTypeHandler()));
                         }
                     } else if (criterion.isBetweenValue()) {
                         if (criterion.getTypeHandler() == null) {
@@ -216,7 +231,7 @@ public class UcRolePermissionSqlProvider {
                 sb.append(')');
             }
         }
-        
+
         if (sb.length() > 0) {
             sql.WHERE(sb.toString());
         }

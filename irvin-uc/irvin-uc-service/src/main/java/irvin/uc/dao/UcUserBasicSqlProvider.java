@@ -1,12 +1,13 @@
 package irvin.uc.dao;
 
 import irvin.api.domain.UcUserBasic;
+import irvin.uc.common.domain.UcUserBasicExample;
 import irvin.uc.common.domain.UcUserBasicExample.Criteria;
 import irvin.uc.common.domain.UcUserBasicExample.Criterion;
-import irvin.uc.common.domain.UcUserBasicExample;
+import org.apache.ibatis.jdbc.SQL;
+
 import java.util.List;
 import java.util.Map;
-import org.apache.ibatis.jdbc.SQL;
 
 public class UcUserBasicSqlProvider {
 
@@ -27,68 +28,47 @@ public class UcUserBasicSqlProvider {
     public String insertSelective(UcUserBasic record) {
         SQL sql = new SQL();
         sql.INSERT_INTO("uc_user_basic");
-        
+
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getName() != null) {
             sql.VALUES("name", "#{name,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getAge() != null) {
             sql.VALUES("age", "#{age,jdbcType=INTEGER}");
         }
-        
+
         if (record.getBirth() != null) {
             sql.VALUES("birth", "#{birth,jdbcType=DATE}");
         }
-        
+
         if (record.getMobile() != null) {
             sql.VALUES("mobile", "#{mobile,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getEmail() != null) {
             sql.VALUES("email", "#{email,jdbcType=VARCHAR}");
         }
-        
+
+        if (record.getEnglishName() != null) {
+            sql.VALUES("english_name", "#{englishName,jdbcType=VARCHAR}");
+        }
+
         if (record.getGender() != null) {
             sql.VALUES("gender", "#{gender,jdbcType=INTEGER}");
         }
-        
+
         if (record.getStatus() != null) {
             sql.VALUES("status", "#{status,jdbcType=INTEGER}");
         }
-        
-        if (record.getEnglishName() != null) {
-            sql.VALUES("english_name", "#{englishName,jdbcType=LONGVARCHAR}");
-        }
-        
-        return sql.toString();
-    }
 
-    public String selectByExampleWithBLOBs(UcUserBasicExample example) {
-        SQL sql = new SQL();
-        if (example != null && example.isDistinct()) {
-            sql.SELECT_DISTINCT("id");
-        } else {
-            sql.SELECT("id");
+        if (record.getVersion() != null) {
+            sql.VALUES("version", "#{version,jdbcType=INTEGER}");
         }
-        sql.SELECT("name");
-        sql.SELECT("age");
-        sql.SELECT("birth");
-        sql.SELECT("mobile");
-        sql.SELECT("email");
-        sql.SELECT("gender");
-        sql.SELECT("status");
-        sql.SELECT("english_name");
-        sql.FROM("uc_user_basic");
-        applyWhere(sql, example, false);
-        
-        if (example != null && example.getOrderByClause() != null) {
-            sql.ORDER_BY(example.getOrderByClause());
-        }
-        
+
         return sql.toString();
     }
 
@@ -104,80 +84,67 @@ public class UcUserBasicSqlProvider {
         sql.SELECT("birth");
         sql.SELECT("mobile");
         sql.SELECT("email");
+        sql.SELECT("english_name");
         sql.SELECT("gender");
         sql.SELECT("status");
+        sql.SELECT("version");
         sql.FROM("uc_user_basic");
         applyWhere(sql, example, false);
-        
+
         if (example != null && example.getOrderByClause() != null) {
             sql.ORDER_BY(example.getOrderByClause());
         }
-        
+
         return sql.toString();
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
         UcUserBasic record = (UcUserBasic) parameter.get("record");
         UcUserBasicExample example = (UcUserBasicExample) parameter.get("example");
-        
+
         SQL sql = new SQL();
         sql.UPDATE("uc_user_basic");
-        
+
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getName() != null) {
             sql.SET("name = #{record.name,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getAge() != null) {
             sql.SET("age = #{record.age,jdbcType=INTEGER}");
         }
-        
+
         if (record.getBirth() != null) {
             sql.SET("birth = #{record.birth,jdbcType=DATE}");
         }
-        
+
         if (record.getMobile() != null) {
             sql.SET("mobile = #{record.mobile,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getEmail() != null) {
             sql.SET("email = #{record.email,jdbcType=VARCHAR}");
         }
-        
+
+        if (record.getEnglishName() != null) {
+            sql.SET("english_name = #{record.englishName,jdbcType=VARCHAR}");
+        }
+
         if (record.getGender() != null) {
             sql.SET("gender = #{record.gender,jdbcType=INTEGER}");
         }
-        
+
         if (record.getStatus() != null) {
             sql.SET("status = #{record.status,jdbcType=INTEGER}");
         }
-        
-        if (record.getEnglishName() != null) {
-            sql.SET("english_name = #{record.englishName,jdbcType=LONGVARCHAR}");
-        }
-        
-        applyWhere(sql, example, true);
-        return sql.toString();
-    }
 
-    public String updateByExampleWithBLOBs(Map<String, Object> parameter) {
-        SQL sql = new SQL();
-        sql.UPDATE("uc_user_basic");
-        
-        sql.SET("id = #{record.id,jdbcType=VARCHAR}");
-        sql.SET("name = #{record.name,jdbcType=VARCHAR}");
-        sql.SET("age = #{record.age,jdbcType=INTEGER}");
-        sql.SET("birth = #{record.birth,jdbcType=DATE}");
-        sql.SET("mobile = #{record.mobile,jdbcType=VARCHAR}");
-        sql.SET("email = #{record.email,jdbcType=VARCHAR}");
-        sql.SET("gender = #{record.gender,jdbcType=INTEGER}");
-        sql.SET("status = #{record.status,jdbcType=INTEGER}");
-        sql.SET("english_name = #{record.englishName,jdbcType=LONGVARCHAR}");
-        
-        UcUserBasicExample example = (UcUserBasicExample) parameter.get("example");
+        if (record.getVersion() != null) {
+            sql.SET("version = #{record.version,jdbcType=INTEGER}");
+        }
+
         applyWhere(sql, example, true);
         return sql.toString();
     }
@@ -185,16 +152,18 @@ public class UcUserBasicSqlProvider {
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
         sql.UPDATE("uc_user_basic");
-        
+
         sql.SET("id = #{record.id,jdbcType=VARCHAR}");
         sql.SET("name = #{record.name,jdbcType=VARCHAR}");
         sql.SET("age = #{record.age,jdbcType=INTEGER}");
         sql.SET("birth = #{record.birth,jdbcType=DATE}");
         sql.SET("mobile = #{record.mobile,jdbcType=VARCHAR}");
         sql.SET("email = #{record.email,jdbcType=VARCHAR}");
+        sql.SET("english_name = #{record.englishName,jdbcType=VARCHAR}");
         sql.SET("gender = #{record.gender,jdbcType=INTEGER}");
         sql.SET("status = #{record.status,jdbcType=INTEGER}");
-        
+        sql.SET("version = #{record.version,jdbcType=INTEGER}");
+
         UcUserBasicExample example = (UcUserBasicExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
@@ -203,41 +172,45 @@ public class UcUserBasicSqlProvider {
     public String updateByPrimaryKeySelective(UcUserBasic record) {
         SQL sql = new SQL();
         sql.UPDATE("uc_user_basic");
-        
+
         if (record.getName() != null) {
             sql.SET("name = #{name,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getAge() != null) {
             sql.SET("age = #{age,jdbcType=INTEGER}");
         }
-        
+
         if (record.getBirth() != null) {
             sql.SET("birth = #{birth,jdbcType=DATE}");
         }
-        
+
         if (record.getMobile() != null) {
             sql.SET("mobile = #{mobile,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getEmail() != null) {
             sql.SET("email = #{email,jdbcType=VARCHAR}");
         }
-        
+
+        if (record.getEnglishName() != null) {
+            sql.SET("english_name = #{englishName,jdbcType=VARCHAR}");
+        }
+
         if (record.getGender() != null) {
             sql.SET("gender = #{gender,jdbcType=INTEGER}");
         }
-        
+
         if (record.getStatus() != null) {
             sql.SET("status = #{status,jdbcType=INTEGER}");
         }
-        
-        if (record.getEnglishName() != null) {
-            sql.SET("english_name = #{englishName,jdbcType=LONGVARCHAR}");
+
+        if (record.getVersion() != null) {
+            sql.SET("version = #{version,jdbcType=INTEGER}");
         }
-        
+
         sql.WHERE("id = #{id,jdbcType=VARCHAR}");
-        
+
         return sql.toString();
     }
 
@@ -245,7 +218,7 @@ public class UcUserBasicSqlProvider {
         if (example == null) {
             return;
         }
-        
+
         String parmPhrase1;
         String parmPhrase1_th;
         String parmPhrase2;
@@ -267,7 +240,7 @@ public class UcUserBasicSqlProvider {
             parmPhrase3 = "#{oredCriteria[%d].allCriteria[%d].value[%d]}";
             parmPhrase3_th = "#{oredCriteria[%d].allCriteria[%d].value[%d],typeHandler=%s}";
         }
-        
+
         StringBuilder sb = new StringBuilder();
         List<Criteria> oredCriteria = example.getOredCriteria();
         boolean firstCriteria = true;
@@ -279,7 +252,7 @@ public class UcUserBasicSqlProvider {
                 } else {
                     sb.append(" or ");
                 }
-                
+
                 sb.append('(');
                 List<Criterion> criterions = criteria.getAllCriteria();
                 boolean firstCriterion = true;
@@ -290,14 +263,14 @@ public class UcUserBasicSqlProvider {
                     } else {
                         sb.append(" and ");
                     }
-                    
+
                     if (criterion.isNoValue()) {
                         sb.append(criterion.getCondition());
                     } else if (criterion.isSingleValue()) {
                         if (criterion.getTypeHandler() == null) {
                             sb.append(String.format(parmPhrase1, criterion.getCondition(), i, j));
                         } else {
-                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j,criterion.getTypeHandler()));
+                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j, criterion.getTypeHandler()));
                         }
                     } else if (criterion.isBetweenValue()) {
                         if (criterion.getTypeHandler() == null) {
@@ -328,7 +301,7 @@ public class UcUserBasicSqlProvider {
                 sb.append(')');
             }
         }
-        
+
         if (sb.length() > 0) {
             sql.WHERE(sb.toString());
         }

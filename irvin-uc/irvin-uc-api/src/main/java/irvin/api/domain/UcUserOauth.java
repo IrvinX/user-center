@@ -29,16 +29,22 @@ public class UcUserOauth implements Serializable {
     private Integer status;
 
     /**
+     * 
+     */
+    private Integer version;
+
+    /**
      * uc_user_oauth
      */
     private static final long serialVersionUID = 1L;
 
-    public UcUserOauth(String id, String userBasicId, Integer accountType, String account, Integer status) {
+    public UcUserOauth(String id, String userBasicId, Integer accountType, String account, Integer status, Integer version) {
         this.id = id;
         this.userBasicId = userBasicId;
         this.accountType = accountType;
         this.account = account;
         this.status = status;
+        this.version = version;
     }
 
     public UcUserOauth() {
@@ -125,6 +131,22 @@ public class UcUserOauth implements Serializable {
         this.status = status;
     }
 
+    /**
+     * 
+     * @return version 
+     */
+    public Integer getVersion() {
+        return version;
+    }
+
+    /**
+     * 
+     * @param version 
+     */
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -136,6 +158,7 @@ public class UcUserOauth implements Serializable {
         sb.append(", accountType=").append(accountType);
         sb.append(", account=").append(account);
         sb.append(", status=").append(status);
+        sb.append(", version=").append(version);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

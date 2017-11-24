@@ -1,57 +1,62 @@
 package irvin.uc.dao;
 
-import irvin.api.domain.UcUserExtens;
-import irvin.uc.common.domain.UcUserExtensExample.Criteria;
-import irvin.uc.common.domain.UcUserExtensExample.Criterion;
-import irvin.uc.common.domain.UcUserExtensExample;
-import java.util.List;
-import java.util.Map;
+import irvin.api.domain.UcUserExtends;
+import irvin.uc.common.domain.UcUserExtendsExample;
+import irvin.uc.common.domain.UcUserExtendsExample.Criteria;
+import irvin.uc.common.domain.UcUserExtendsExample.Criterion;
 import org.apache.ibatis.jdbc.SQL;
 
-public class UcUserExtensSqlProvider {
+import java.util.List;
+import java.util.Map;
 
-    public String countByExample(UcUserExtensExample example) {
+public class UcUserExtendsSqlProvider {
+
+    public String countByExample(UcUserExtendsExample example) {
         SQL sql = new SQL();
-        sql.SELECT("count(*)").FROM("uc_user_extens");
+        sql.SELECT("count(*)").FROM("uc_user_extends");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String deleteByExample(UcUserExtensExample example) {
+    public String deleteByExample(UcUserExtendsExample example) {
         SQL sql = new SQL();
-        sql.DELETE_FROM("uc_user_extens");
+        sql.DELETE_FROM("uc_user_extends");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String insertSelective(UcUserExtens record) {
+    public String insertSelective(UcUserExtends record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("uc_user_extens");
-        
+        sql.INSERT_INTO("uc_user_extends");
+
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getPassword() != null) {
             sql.VALUES("password", "#{password,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getSalt() != null) {
             sql.VALUES("salt", "#{salt,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getUserBasicId() != null) {
             sql.VALUES("user_basic_id", "#{userBasicId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getType() != null) {
             sql.VALUES("type", "#{type,jdbcType=INTEGER}");
         }
-        
+
+        if (record.getVersion() != null) {
+            sql.VALUES("version", "#{version,jdbcType=INTEGER}");
+        }
+
         return sql.toString();
     }
 
-    public String selectByExample(UcUserExtensExample example) {
+    public String selectByExample(UcUserExtendsExample example) {
         SQL sql = new SQL();
         if (example != null && example.isDistinct()) {
             sql.SELECT_DISTINCT("id");
@@ -62,92 +67,102 @@ public class UcUserExtensSqlProvider {
         sql.SELECT("salt");
         sql.SELECT("user_basic_id");
         sql.SELECT("type");
-        sql.FROM("uc_user_extens");
+        sql.SELECT("version");
+        sql.FROM("uc_user_extends");
         applyWhere(sql, example, false);
-        
+
         if (example != null && example.getOrderByClause() != null) {
             sql.ORDER_BY(example.getOrderByClause());
         }
-        
+
         return sql.toString();
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
-        UcUserExtens record = (UcUserExtens) parameter.get("record");
-        UcUserExtensExample example = (UcUserExtensExample) parameter.get("example");
-        
+        UcUserExtends record = (UcUserExtends) parameter.get("record");
+        UcUserExtendsExample example = (UcUserExtendsExample) parameter.get("example");
+
         SQL sql = new SQL();
-        sql.UPDATE("uc_user_extens");
-        
+        sql.UPDATE("uc_user_extends");
+
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getPassword() != null) {
             sql.SET("password = #{record.password,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getSalt() != null) {
             sql.SET("salt = #{record.salt,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getUserBasicId() != null) {
             sql.SET("user_basic_id = #{record.userBasicId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getType() != null) {
             sql.SET("type = #{record.type,jdbcType=INTEGER}");
         }
-        
+
+        if (record.getVersion() != null) {
+            sql.SET("version = #{record.version,jdbcType=INTEGER}");
+        }
+
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
-        sql.UPDATE("uc_user_extens");
-        
+        sql.UPDATE("uc_user_extends");
+
         sql.SET("id = #{record.id,jdbcType=VARCHAR}");
         sql.SET("password = #{record.password,jdbcType=VARCHAR}");
         sql.SET("salt = #{record.salt,jdbcType=VARCHAR}");
         sql.SET("user_basic_id = #{record.userBasicId,jdbcType=VARCHAR}");
         sql.SET("type = #{record.type,jdbcType=INTEGER}");
-        
-        UcUserExtensExample example = (UcUserExtensExample) parameter.get("example");
+        sql.SET("version = #{record.version,jdbcType=INTEGER}");
+
+        UcUserExtendsExample example = (UcUserExtendsExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(UcUserExtens record) {
+    public String updateByPrimaryKeySelective(UcUserExtends record) {
         SQL sql = new SQL();
-        sql.UPDATE("uc_user_extens");
-        
+        sql.UPDATE("uc_user_extends");
+
         if (record.getPassword() != null) {
             sql.SET("password = #{password,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getSalt() != null) {
             sql.SET("salt = #{salt,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getUserBasicId() != null) {
             sql.SET("user_basic_id = #{userBasicId,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getType() != null) {
             sql.SET("type = #{type,jdbcType=INTEGER}");
         }
-        
+
+        if (record.getVersion() != null) {
+            sql.SET("version = #{version,jdbcType=INTEGER}");
+        }
+
         sql.WHERE("id = #{id,jdbcType=VARCHAR}");
-        
+
         return sql.toString();
     }
 
-    protected void applyWhere(SQL sql, UcUserExtensExample example, boolean includeExamplePhrase) {
+    protected void applyWhere(SQL sql, UcUserExtendsExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
         }
-        
+
         String parmPhrase1;
         String parmPhrase1_th;
         String parmPhrase2;
@@ -169,7 +184,7 @@ public class UcUserExtensSqlProvider {
             parmPhrase3 = "#{oredCriteria[%d].allCriteria[%d].value[%d]}";
             parmPhrase3_th = "#{oredCriteria[%d].allCriteria[%d].value[%d],typeHandler=%s}";
         }
-        
+
         StringBuilder sb = new StringBuilder();
         List<Criteria> oredCriteria = example.getOredCriteria();
         boolean firstCriteria = true;
@@ -181,7 +196,7 @@ public class UcUserExtensSqlProvider {
                 } else {
                     sb.append(" or ");
                 }
-                
+
                 sb.append('(');
                 List<Criterion> criterions = criteria.getAllCriteria();
                 boolean firstCriterion = true;
@@ -192,14 +207,14 @@ public class UcUserExtensSqlProvider {
                     } else {
                         sb.append(" and ");
                     }
-                    
+
                     if (criterion.isNoValue()) {
                         sb.append(criterion.getCondition());
                     } else if (criterion.isSingleValue()) {
                         if (criterion.getTypeHandler() == null) {
                             sb.append(String.format(parmPhrase1, criterion.getCondition(), i, j));
                         } else {
-                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j,criterion.getTypeHandler()));
+                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j, criterion.getTypeHandler()));
                         }
                     } else if (criterion.isBetweenValue()) {
                         if (criterion.getTypeHandler() == null) {
@@ -230,7 +245,7 @@ public class UcUserExtensSqlProvider {
                 sb.append(')');
             }
         }
-        
+
         if (sb.length() > 0) {
             sql.WHERE(sb.toString());
         }

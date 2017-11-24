@@ -19,6 +19,11 @@ public class UcRole implements Serializable {
     private Integer status;
 
     /**
+     * 
+     */
+    private Integer version;
+
+    /**
      * 角色名
      */
     private String name;
@@ -28,10 +33,11 @@ public class UcRole implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
-    public UcRole(String id, String expression, Integer status, String name) {
+    public UcRole(String id, String expression, Integer status, Integer version, String name) {
         this.id = id;
         this.expression = expression;
         this.status = status;
+        this.version = version;
         this.name = name;
     }
 
@@ -88,6 +94,22 @@ public class UcRole implements Serializable {
     }
 
     /**
+     * 
+     * @return version 
+     */
+    public Integer getVersion() {
+        return version;
+    }
+
+    /**
+     * 
+     * @param version 
+     */
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
+    /**
      * 角色名
      * @return name 角色名
      */
@@ -112,6 +134,7 @@ public class UcRole implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", expression=").append(expression);
         sb.append(", status=").append(status);
+        sb.append(", version=").append(version);
         sb.append(", name=").append(name);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
