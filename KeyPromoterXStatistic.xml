@@ -49,6 +49,14 @@
           <Count>2</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Rerun 'BillDataTest.RKDInsertTest'">
+        <Item>
+          <IdeaActionID>Rerun</IdeaActionID>
+          <ShortCut>'⌘R'</ShortCut>
+          <Description>Rerun 'BillDataTest.RKDInsertTest'</Description>
+          <Count>2</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Rerun 'KafkaSenderTest.send'">
         <Item>
           <IdeaActionID>Rerun</IdeaActionID>
@@ -95,6 +103,14 @@
           <ShortCut>'⌘4'</ShortCut>
           <Description>Run Dashboard</Description>
           <Count>4</Count>
+        </Item>
+      </Statistic>
+      <Statistic Action="Stop 'BillDataTest.RKDInsertTest'">
+        <Item>
+          <IdeaActionID>Stop</IdeaActionID>
+          <ShortCut>'⌘F2'</ShortCut>
+          <Description>Stop 'BillDataTest.RKDInsertTest'</Description>
+          <Count>2</Count>
         </Item>
       </Statistic>
       <Statistic Action="Stop 'KafkaSenderTest.send'">
