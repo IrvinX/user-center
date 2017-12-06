@@ -9,6 +9,14 @@
           <Count>5</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Copy Reference">
+        <Item>
+          <IdeaActionID>CopyReference</IdeaActionID>
+          <ShortCut>'⌥⇧⌘C'</ShortCut>
+          <Description>Copy Reference</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Declaration">
         <Item>
           <IdeaActionID>GotoDeclaration</IdeaActionID>
