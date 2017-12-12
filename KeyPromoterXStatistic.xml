@@ -22,7 +22,7 @@
           <IdeaActionID>GotoDeclaration</IdeaActionID>
           <ShortCut>'⌘B' or '⌘Button1 Click' or 'Button2 Click'</ShortCut>
           <Description>Declaration</Description>
-          <Count>231</Count>
+          <Count>234</Count>
         </Item>
       </Statistic>
       <Statistic Action="Delete...">
@@ -38,7 +38,7 @@
           <IdeaActionID>HideAllWindows</IdeaActionID>
           <ShortCut>'⇧⌘F12'</ShortCut>
           <Description>Hide All Windows</Description>
-          <Count>3</Count>
+          <Count>4</Count>
         </Item>
       </Statistic>
       <Statistic Action="Paste Simple">
@@ -97,6 +97,14 @@
           <Count>11</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Rerun 'SampleCassandraApplication'">
+        <Item>
+          <IdeaActionID>Rerun</IdeaActionID>
+          <ShortCut>'⌘R'</ShortCut>
+          <Description>Rerun 'SampleCassandraApplication'</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Rerun 'StartSpringBootMain (1)'">
         <Item>
           <IdeaActionID>Rerun</IdeaActionID>
@@ -110,7 +118,7 @@
           <IdeaActionID>HideAllWindows</IdeaActionID>
           <ShortCut>'⇧⌘F12'</ShortCut>
           <Description>Restore Windows</Description>
-          <Count>1</Count>
+          <Count>2</Count>
         </Item>
       </Statistic>
       <Statistic Action="Resume Program">
@@ -126,7 +134,7 @@
           <IdeaActionID>ChangesView.Revert</IdeaActionID>
           <ShortCut>'⌥⌘Z'</ShortCut>
           <Description>Revert...</Description>
-          <Count>22</Count>
+          <Count>23</Count>
         </Item>
       </Statistic>
       <Statistic Action="Run 'CodeApplication'">
@@ -142,6 +150,14 @@
           <IdeaActionID>RunClass</IdeaActionID>
           <ShortCut>'⌃⇧R'</ShortCut>
           <Description>Run 'ObjectServiceApplica...'</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
+      <Statistic Action="Run 'SampleCassandraAppli...'">
+        <Item>
+          <IdeaActionID>RunClass</IdeaActionID>
+          <ShortCut>'⌃⇧R'</ShortCut>
+          <Description>Run 'SampleCassandraAppli...'</Description>
           <Count>1</Count>
         </Item>
       </Statistic>
@@ -199,6 +215,14 @@
           <ShortCut>'⌘F2'</ShortCut>
           <Description>Stop 'KafkaSenderTest.send'</Description>
           <Count>7</Count>
+        </Item>
+      </Statistic>
+      <Statistic Action="Stop 'SampleCassandraApplication'">
+        <Item>
+          <IdeaActionID>Stop</IdeaActionID>
+          <ShortCut>'⌘F2'</ShortCut>
+          <Description>Stop 'SampleCassandraApplication'</Description>
+          <Count>2</Count>
         </Item>
       </Statistic>
       <Statistic Action="Stop 'UCApplication'">
