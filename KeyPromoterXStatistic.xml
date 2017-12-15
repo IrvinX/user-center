@@ -46,7 +46,7 @@
           <IdeaActionID>GotoDeclaration</IdeaActionID>
           <ShortCut>'⌘B' or '⌘Button1 Click' or 'Button2 Click'</ShortCut>
           <Description>Declaration</Description>
-          <Count>266</Count>
+          <Count>270</Count>
         </Item>
       </Statistic>
       <Statistic Action="Delete...">
@@ -206,7 +206,7 @@
           <IdeaActionID>RunClass</IdeaActionID>
           <ShortCut>'⌃⇧R'</ShortCut>
           <Description>Run 'ObjectServiceApplica...'</Description>
-          <Count>1</Count>
+          <Count>2</Count>
         </Item>
       </Statistic>
       <Statistic Action="Run 'SampleCassandraAppli...'">
@@ -238,7 +238,7 @@
           <IdeaActionID>ActivateRunDashboardToolWindow</IdeaActionID>
           <ShortCut>'⌘4'</ShortCut>
           <Description>Run Dashboard</Description>
-          <Count>9</Count>
+          <Count>14</Count>
         </Item>
       </Statistic>
       <Statistic Action="Show Dependencies...">
@@ -310,7 +310,7 @@
           <IdeaActionID>ActivateTerminalToolWindow</IdeaActionID>
           <ShortCut>'⌥F12'</ShortCut>
           <Description>Terminal</Description>
-          <Count>20</Count>
+          <Count>26</Count>
         </Item>
       </Statistic>
       <Statistic Action="Toggle Line Breakpoint">
