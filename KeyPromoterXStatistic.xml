@@ -78,7 +78,7 @@
           <IdeaActionID>ActivateProjectToolWindow</IdeaActionID>
           <ShortCut>'⌘1'</ShortCut>
           <Description>Project</Description>
-          <Count>7</Count>
+          <Count>8</Count>
         </Item>
       </Statistic>
       <Statistic Action="Refresh">
@@ -239,6 +239,14 @@
           <ShortCut>'⌘4'</ShortCut>
           <Description>Run Dashboard</Description>
           <Count>14</Count>
+        </Item>
+      </Statistic>
+      <Statistic Action="Scan keys">
+        <Item>
+          <IdeaActionID>ScanKeysAction</IdeaActionID>
+          <ShortCut>'⌘⏎'</ShortCut>
+          <Description>Scan keys</Description>
+          <Count>1</Count>
         </Item>
       </Statistic>
       <Statistic Action="Show Dependencies...">
