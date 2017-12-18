@@ -46,7 +46,7 @@
           <IdeaActionID>GotoDeclaration</IdeaActionID>
           <ShortCut>'⌘B' or '⌘Button1 Click' or 'Button2 Click'</ShortCut>
           <Description>Declaration</Description>
-          <Count>289</Count>
+          <Count>291</Count>
         </Item>
       </Statistic>
       <Statistic Action="Delete...">
@@ -119,6 +119,14 @@
           <ShortCut>'⌘R'</ShortCut>
           <Description>Rerun 'KafkaSenderTest.send'</Description>
           <Count>11</Count>
+        </Item>
+      </Statistic>
+      <Statistic Action="Rerun 'NotificationApplication'">
+        <Item>
+          <IdeaActionID>Rerun</IdeaActionID>
+          <ShortCut>'⌘R'</ShortCut>
+          <Description>Rerun 'NotificationApplication'</Description>
+          <Count>1</Count>
         </Item>
       </Statistic>
       <Statistic Action="Rerun 'Rerun Failed Tests'">
@@ -198,6 +206,14 @@
           <IdeaActionID>RunClass</IdeaActionID>
           <ShortCut>'⌃⇧R'</ShortCut>
           <Description>Run 'CodeApplication'</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
+      <Statistic Action="Run 'NotificationApplicat...'">
+        <Item>
+          <IdeaActionID>RunClass</IdeaActionID>
+          <ShortCut>'⌃⇧R'</ShortCut>
+          <Description>Run 'NotificationApplicat...'</Description>
           <Count>1</Count>
         </Item>
       </Statistic>
@@ -318,7 +334,7 @@
           <IdeaActionID>ActivateTerminalToolWindow</IdeaActionID>
           <ShortCut>'⌥F12'</ShortCut>
           <Description>Terminal</Description>
-          <Count>28</Count>
+          <Count>30</Count>
         </Item>
       </Statistic>
       <Statistic Action="Toggle Line Breakpoint">
