@@ -102,7 +102,7 @@
           <IdeaActionID>RunDashboard.RemoveConfiguration</IdeaActionID>
           <ShortCut>'⌦' or '⌫' or '⌘⌫'</ShortCut>
           <Description>Remove Configuration</Description>
-          <Count>2</Count>
+          <Count>3</Count>
         </Item>
       </Statistic>
       <Statistic Action="Remove Module">
@@ -230,7 +230,7 @@
           <IdeaActionID>RunClass</IdeaActionID>
           <ShortCut>'⌃⇧R'</ShortCut>
           <Description>Run 'NotificationApplicat...'</Description>
-          <Count>5</Count>
+          <Count>6</Count>
         </Item>
       </Statistic>
       <Statistic Action="Run 'ObjectServiceApplica...'">
@@ -263,14 +263,6 @@
           <ShortCut>'⌃⇧R'</ShortCut>
           <Description>Run 'UCApplication'</Description>
           <Count>2</Count>
-        </Item>
-      </Statistic>
-      <Statistic Action="Run Dashboard">
-        <Item>
-          <IdeaActionID>ActivateRunDashboardToolWindow</IdeaActionID>
-          <ShortCut>'⌘4'</ShortCut>
-          <Description>Run Dashboard</Description>
-          <Count>25</Count>
         </Item>
       </Statistic>
       <Statistic Action="Scan keys">
@@ -374,7 +366,7 @@
           <IdeaActionID>ActivateTerminalToolWindow</IdeaActionID>
           <ShortCut>'⌥F12'</ShortCut>
           <Description>Terminal</Description>
-          <Count>35</Count>
+          <Count>36</Count>
         </Item>
       </Statistic>
       <Statistic Action="Toggle Line Breakpoint">
@@ -409,6 +401,14 @@
           <ShortCut>'⌘4'</ShortCut>
           <Description>Run</Description>
           <Count>4</Count>
+        </Item>
+      </Statistic>
+      <Statistic Action="Run Dashboard">
+        <Item>
+          <IdeaActionID>ActivateRunDashboardToolWindow</IdeaActionID>
+          <ShortCut>'⌘4'</ShortCut>
+          <Description>Run Dashboard</Description>
+          <Count>26</Count>
         </Item>
       </Statistic>
     </option>
