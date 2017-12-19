@@ -38,7 +38,15 @@
           <IdeaActionID>ActivateDebugToolWindow</IdeaActionID>
           <ShortCut>'⌘5'</ShortCut>
           <Description>Debug</Description>
-          <Count>3</Count>
+          <Count>4</Count>
+        </Item>
+      </Statistic>
+      <Statistic Action="Debug 'IrvinNotificationApp...'">
+        <Item>
+          <IdeaActionID>DebugClass</IdeaActionID>
+          <ShortCut>'⌃⇧D'</ShortCut>
+          <Description>Debug 'IrvinNotificationApp...'</Description>
+          <Count>1</Count>
         </Item>
       </Statistic>
       <Statistic Action="Declaration">
@@ -113,6 +121,14 @@
           <Count>2</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Rerun 'IrvinNotificationApplication'">
+        <Item>
+          <IdeaActionID>Rerun</IdeaActionID>
+          <ShortCut>'⌘R'</ShortCut>
+          <Description>Rerun 'IrvinNotificationApplication'</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Rerun 'KafkaSenderTest.send'">
         <Item>
           <IdeaActionID>Rerun</IdeaActionID>
@@ -126,7 +142,7 @@
           <IdeaActionID>Rerun</IdeaActionID>
           <ShortCut>'⌘R'</ShortCut>
           <Description>Rerun 'NotificationApplication'</Description>
-          <Count>2</Count>
+          <Count>3</Count>
         </Item>
       </Statistic>
       <Statistic Action="Rerun 'Rerun Failed Tests'">
@@ -214,7 +230,7 @@
           <IdeaActionID>RunClass</IdeaActionID>
           <ShortCut>'⌃⇧R'</ShortCut>
           <Description>Run 'NotificationApplicat...'</Description>
-          <Count>3</Count>
+          <Count>4</Count>
         </Item>
       </Statistic>
       <Statistic Action="Run 'ObjectServiceApplica...'">
@@ -302,7 +318,7 @@
           <IdeaActionID>Stop</IdeaActionID>
           <ShortCut>'⌘F2'</ShortCut>
           <Description>Stop 'NotificationApplication'</Description>
-          <Count>3</Count>
+          <Count>4</Count>
         </Item>
       </Statistic>
       <Statistic Action="Stop 'SampleCassandraApplication'">
