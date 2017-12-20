@@ -62,7 +62,7 @@
           <IdeaActionID>GotoDeclaration</IdeaActionID>
           <ShortCut>'⌘B' or '⌘Button1 Click' or 'Button2 Click'</ShortCut>
           <Description>Declaration</Description>
-          <Count>315</Count>
+          <Count>316</Count>
         </Item>
       </Statistic>
       <Statistic Action="Delete...">
@@ -270,6 +270,14 @@
           <IdeaActionID>RunClass</IdeaActionID>
           <ShortCut>'⌃⇧R'</ShortCut>
           <Description>Run 'StartSpringBootMain ...'</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
+      <Statistic Action="Run Command">
+        <Item>
+          <IdeaActionID>RunCommandAction</IdeaActionID>
+          <ShortCut>'⌘⏎'</ShortCut>
+          <Description>Run Command</Description>
           <Count>1</Count>
         </Item>
       </Statistic>
