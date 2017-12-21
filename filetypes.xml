@@ -13,7 +13,6 @@
       <mapping ext="vw" type="DBN-SQL" />
       <mapping pattern="dockerignore" type="Docker file" />
       <mapping pattern=".gitkeep" type="PLAIN_TEXT" />
-      <mapping pattern="Dockerfile" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
 </application>
