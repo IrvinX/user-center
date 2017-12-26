@@ -1,6 +1,6 @@
 <application>
   <component name="GithubSettings">
-    <option name="VALID_GIT_AUTH" value="false" />
+    <option name="AUTH_TYPE" value="TOKEN" />
     <option name="CLONE_GIT_USING_SSH" value="true" />
   </component>
 </application>
