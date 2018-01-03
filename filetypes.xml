@@ -13,6 +13,7 @@
       <mapping ext="vw" type="DBN-SQL" />
       <mapping pattern="dockerignore" type="Docker file" />
       <mapping pattern=".gitkeep" type="PLAIN_TEXT" />
+      <mapping ext="factories" type="spring.factories" />
     </extensionMap>
   </component>
 </application>
