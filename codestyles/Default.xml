@@ -1,4 +1,4 @@
-<code_scheme name="Default" version="173">
+<code_scheme name="Default">
   <DBN-PSQL>
     <case-options enabled="false">
       <option name="KEYWORD_CASE" value="lower" />
