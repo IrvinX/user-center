@@ -1,0 +1,10 @@
+<templateSet group="Java">
+  <template name="jd" value="/**&#10; * @author $author$&#10; * @date Create in $time$ $date$&#10; * @description&#10; */" description="java doc" toReformat="false" toShortenFQNames="true">
+    <variable name="author" expression="user()" defaultValue="" alwaysStopAt="true" />
+    <variable name="time" expression="time()" defaultValue="" alwaysStopAt="true" />
+    <variable name="date" expression="date()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_COMMENT" value="true" />
+    </context>
+  </template>
+</templateSet>
