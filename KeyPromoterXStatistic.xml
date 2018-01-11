@@ -73,8 +73,28 @@
           <Count>1</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Version Control">
+        <Item>
+          <IdeaActionID>ActivateVersionControlToolWindow</IdeaActionID>
+          <ShortCut>'⌘9' or '⇧⌘9'</ShortCut>
+          <Description>Version Control</Description>
+          <Count>2</Count>
+        </Item>
+      </Statistic>
     </option>
     <option name="suppressed">
+      <Statistic Action="DB Browser">
+        <Item>
+          <IdeaActionID>ActivateDBBrowserToolWindow</IdeaActionID>
+          <Description>DB Browser</Description>
+        </Item>
+      </Statistic>
+      <Statistic Action="Key Promoter X">
+        <Item>
+          <IdeaActionID>ActivateKeyPromoterXToolWindow</IdeaActionID>
+          <Description>Key Promoter X</Description>
+        </Item>
+      </Statistic>
       <Statistic Action="Rerun 'WorkflowApplicationTests.test'">
         <Item>
           <IdeaActionID>Rerun</IdeaActionID>
