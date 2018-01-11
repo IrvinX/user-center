@@ -3,5 +3,9 @@
   <action id="ActivateRunDashboardToolWindow">
     <keyboard-shortcut first-keystroke="meta 3" />
   </action>
+  <action id="Debug" />
   <action id="FileChooser.GotoModule" />
+  <action id="RunDashboard.Debug">
+    <keyboard-shortcut first-keystroke="ctrl d" />
+  </action>
 </keymap>
