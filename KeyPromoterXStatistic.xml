@@ -62,7 +62,7 @@
           <IdeaActionID>Rerun</IdeaActionID>
           <ShortCut>'⌘R'</ShortCut>
           <Description>Rerun 'UserServiceTest.findUserOauthByAccount'</Description>
-          <Count>2</Count>
+          <Count>3</Count>
         </Item>
       </Statistic>
       <Statistic Action="Revert...">
