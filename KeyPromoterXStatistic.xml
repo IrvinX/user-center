@@ -57,6 +57,14 @@
           <Count>47</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Rerun 'UserServiceTest.findUserOauthByAccount'">
+        <Item>
+          <IdeaActionID>Rerun</IdeaActionID>
+          <ShortCut>'⌘R'</ShortCut>
+          <Description>Rerun 'UserServiceTest.findUserOauthByAccount'</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Revert...">
         <Item>
           <IdeaActionID>ChangesView.Revert</IdeaActionID>
