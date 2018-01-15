@@ -14,7 +14,7 @@
           <IdeaActionID>RunDashboard.Debug</IdeaActionID>
           <ShortCut>'⌃⇧F9'</ShortCut>
           <Description>Debug</Description>
-          <Count>3</Count>
+          <Count>5</Count>
         </Item>
       </Statistic>
       <Statistic Action="Evaluate Expression...">
@@ -71,6 +71,14 @@
           <ShortCut>'⌘R'</ShortCut>
           <Description>Rerun 'UserServiceTest.findUserOauthByAccount'</Description>
           <Count>16</Count>
+        </Item>
+      </Statistic>
+      <Statistic Action="Rerun in Debug Mode">
+        <Item>
+          <IdeaActionID>RunDashboard.Debug</IdeaActionID>
+          <ShortCut>'⌃D'</ShortCut>
+          <Description>Rerun in Debug Mode</Description>
+          <Count>1</Count>
         </Item>
       </Statistic>
       <Statistic Action="Revert...">
