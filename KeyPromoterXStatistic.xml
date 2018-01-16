@@ -9,6 +9,14 @@
           <Count>1</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Copy Reference">
+        <Item>
+          <IdeaActionID>CopyReference</IdeaActionID>
+          <ShortCut>'⌥⇧⌘C'</ShortCut>
+          <Description>Copy Reference</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Debug">
         <Item>
           <IdeaActionID>RunDashboard.Debug</IdeaActionID>
