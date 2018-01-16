@@ -49,6 +49,14 @@
           <Count>2</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Jump to Source">
+        <Item>
+          <IdeaActionID>EditSource</IdeaActionID>
+          <ShortCut>'⌘↓' or 'F4'</ShortCut>
+          <Description>Jump to Source</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Open Module Settings">
         <Item>
           <IdeaActionID>OpenModuleSettings</IdeaActionID>
