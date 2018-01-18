@@ -89,6 +89,14 @@
           <Count>60</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Rerun 'NotificationApplication'">
+        <Item>
+          <IdeaActionID>Rerun</IdeaActionID>
+          <ShortCut>'⌘R'</ShortCut>
+          <Description>Rerun 'NotificationApplication'</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Rerun 'UserServiceTest.findUserOauthByAccount'">
         <Item>
           <IdeaActionID>Rerun</IdeaActionID>
@@ -118,7 +126,7 @@
           <IdeaActionID>ChangesView.Revert</IdeaActionID>
           <ShortCut>'⌥⌘Z'</ShortCut>
           <Description>Revert...</Description>
-          <Count>8</Count>
+          <Count>9</Count>
         </Item>
       </Statistic>
       <Statistic Action="Run 'Application'">
