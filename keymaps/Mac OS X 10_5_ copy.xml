@@ -3,6 +3,9 @@
   <action id="ActivateRunDashboardToolWindow">
     <keyboard-shortcut first-keystroke="meta 3" />
   </action>
+  <action id="ActivateStatisticToolWindow">
+    <keyboard-shortcut first-keystroke="meta 0" />
+  </action>
   <action id="CloseAllEditorsButActive">
     <keyboard-shortcut first-keystroke="ctrl w" />
   </action>
