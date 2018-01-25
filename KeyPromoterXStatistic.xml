@@ -249,6 +249,14 @@
           <Count>1</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Statistic">
+        <Item>
+          <IdeaActionID>ActivateStatisticToolWindow</IdeaActionID>
+          <ShortCut>'⌘0'</ShortCut>
+          <Description>Statistic</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Stop 'GeneralViewTest'">
         <Item>
           <IdeaActionID>Stop</IdeaActionID>
