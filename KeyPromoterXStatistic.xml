@@ -254,7 +254,7 @@
           <IdeaActionID>ActivateStatisticToolWindow</IdeaActionID>
           <ShortCut>'⌘0'</ShortCut>
           <Description>Statistic</Description>
-          <Count>2</Count>
+          <Count>3</Count>
         </Item>
       </Statistic>
       <Statistic Action="Stop 'GeneralViewTest'">
