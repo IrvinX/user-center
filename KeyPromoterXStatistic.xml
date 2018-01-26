@@ -174,7 +174,7 @@
           <IdeaActionID>ChangesView.Revert</IdeaActionID>
           <ShortCut>'⌥⌘Z'</ShortCut>
           <Description>Revert...</Description>
-          <Count>19</Count>
+          <Count>28</Count>
         </Item>
       </Statistic>
       <Statistic Action="Run 'Application'">
