@@ -58,8 +58,12 @@
           <option name="url" value="https://gitee.com/youwenhua/ywh-sc-notification.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/dyc87112/SpringCloud-Learning.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/youwenhua" />
+    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/projects/gitDemo" />
   </component>
 </application>
