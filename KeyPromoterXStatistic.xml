@@ -57,12 +57,28 @@
           <Count>2</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Debug 'UCFApplication (1)'">
+        <Item>
+          <IdeaActionID>DebugClass</IdeaActionID>
+          <ShortCut>'⌃⇧D'</ShortCut>
+          <Description>Debug 'UCFApplication (1)'</Description>
+          <Count>2</Count>
+        </Item>
+      </Statistic>
+      <Statistic Action="Edit Configuration...">
+        <Item>
+          <IdeaActionID>RunDashboard.EditConfiguration</IdeaActionID>
+          <ShortCut>'⌘↓' or 'F4'</ShortCut>
+          <Description>Edit Configuration...</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Evaluate Expression...">
         <Item>
           <IdeaActionID>EvaluateExpression</IdeaActionID>
           <ShortCut>'⌥F8'</ShortCut>
           <Description>Evaluate Expression...</Description>
-          <Count>80</Count>
+          <Count>81</Count>
         </Item>
       </Statistic>
       <Statistic Action="Expand">
@@ -134,7 +150,7 @@
           <IdeaActionID>RunDashboard.RemoveConfiguration</IdeaActionID>
           <ShortCut>'⌦' or '⌫' or '⌘⌫'</ShortCut>
           <Description>Remove Configuration</Description>
-          <Count>1</Count>
+          <Count>3</Count>
         </Item>
       </Statistic>
       <Statistic Action="Rename...">
@@ -198,7 +214,7 @@
           <IdeaActionID>RunDashboard.Debug</IdeaActionID>
           <ShortCut>'⌃D'</ShortCut>
           <Description>Rerun in Debug Mode</Description>
-          <Count>13</Count>
+          <Count>14</Count>
         </Item>
       </Statistic>
       <Statistic Action="Restore Windows">
@@ -238,6 +254,14 @@
           <IdeaActionID>RunClass</IdeaActionID>
           <ShortCut>'⌃⇧R'</ShortCut>
           <Description>Run 'EurekaApplication'</Description>
+          <Count>2</Count>
+        </Item>
+      </Statistic>
+      <Statistic Action="Run 'GatewayApplication'">
+        <Item>
+          <IdeaActionID>RunClass</IdeaActionID>
+          <ShortCut>'⌃⇧R'</ShortCut>
+          <Description>Run 'GatewayApplication'</Description>
           <Count>1</Count>
         </Item>
       </Statistic>
@@ -278,7 +302,7 @@
           <IdeaActionID>RunClass</IdeaActionID>
           <ShortCut>'⌃⇧R'</ShortCut>
           <Description>Run 'UCApplication'</Description>
-          <Count>9</Count>
+          <Count>10</Count>
         </Item>
       </Statistic>
       <Statistic Action="Run Dashboard">
