@@ -65,6 +65,14 @@
           <Count>80</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Expand">
+        <Item>
+          <IdeaActionID>ExpandRegion</IdeaActionID>
+          <ShortCut>'⌘+' or '⌘='</ShortCut>
+          <Description>Expand</Description>
+          <Count>2</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Expression Type">
         <Item>
           <IdeaActionID>ExpressionTypeInfo</IdeaActionID>
