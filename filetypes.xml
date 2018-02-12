@@ -12,6 +12,7 @@
       <mapping ext="pkb" type="DBN-PSQL" />
       <mapping ext="vw" type="DBN-SQL" />
       <mapping pattern="dockerignore" type="Docker file" />
+      <mapping pattern="Dockerfile" type="PLAIN_TEXT" />
       <mapping pattern=".gitkeep" type="PLAIN_TEXT" />
       <mapping ext="pages" type="PLAIN_TEXT" />
       <mapping ext="factories" type="spring.factories" />
