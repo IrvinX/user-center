@@ -249,6 +249,14 @@
           <Count>16</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Rerun 'WorkflowApplication'">
+        <Item>
+          <IdeaActionID>Rerun</IdeaActionID>
+          <ShortCut>'⌘R'</ShortCut>
+          <Description>Rerun 'WorkflowApplication'</Description>
+          <Count>2</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Rerun in Debug Mode">
         <Item>
           <IdeaActionID>RunDashboard.Debug</IdeaActionID>
@@ -351,6 +359,14 @@
           <ShortCut>'⌃⇧R'</ShortCut>
           <Description>Run 'UCApplication'</Description>
           <Count>10</Count>
+        </Item>
+      </Statistic>
+      <Statistic Action="Run 'WorkflowApplication'">
+        <Item>
+          <IdeaActionID>RunClass</IdeaActionID>
+          <ShortCut>'⌃⇧R'</ShortCut>
+          <Description>Run 'WorkflowApplication'</Description>
+          <Count>3</Count>
         </Item>
       </Statistic>
       <Statistic Action="Run Dashboard">
