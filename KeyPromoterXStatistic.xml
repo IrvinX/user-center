@@ -201,6 +201,14 @@
           <Count>73</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Rerun">
+        <Item>
+          <IdeaActionID>RunDashboard.Run</IdeaActionID>
+          <ShortCut>'⌃R'</ShortCut>
+          <Description>Rerun</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Rerun 'AppTest.fkeyDicTest'">
         <Item>
           <IdeaActionID>Rerun</IdeaActionID>
@@ -366,7 +374,7 @@
           <IdeaActionID>RunClass</IdeaActionID>
           <ShortCut>'⌃⇧R'</ShortCut>
           <Description>Run 'UCApplication'</Description>
-          <Count>11</Count>
+          <Count>12</Count>
         </Item>
       </Statistic>
       <Statistic Action="Run 'WorkflowApplication'">
