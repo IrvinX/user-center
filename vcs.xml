@@ -72,6 +72,6 @@
         </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/youwenhua" />
+    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/projects/gitDemo" />
   </component>
 </application>
