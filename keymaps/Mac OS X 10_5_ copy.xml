@@ -13,9 +13,6 @@
     <keyboard-shortcut first-keystroke="shift d" />
   </action>
   <action id="FileChooser.GotoModule" />
-  <action id="Run">
-    <keyboard-shortcut first-keystroke="shift r" />
-  </action>
   <action id="RunDashboard.Debug">
     <keyboard-shortcut first-keystroke="ctrl d" />
   </action>
