@@ -9,9 +9,6 @@
   <action id="CloseAllEditorsButActive">
     <keyboard-shortcut first-keystroke="ctrl w" />
   </action>
-  <action id="Debug">
-    <keyboard-shortcut first-keystroke="shift d" />
-  </action>
   <action id="FileChooser.GotoModule" />
   <action id="RunDashboard.Debug">
     <keyboard-shortcut first-keystroke="ctrl d" />
