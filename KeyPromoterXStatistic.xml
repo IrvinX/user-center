@@ -294,7 +294,7 @@
           <IdeaActionID>RunDashboard.Debug</IdeaActionID>
           <ShortCut>'⌃D'</ShortCut>
           <Description>Rerun in Debug Mode</Description>
-          <Count>24</Count>
+          <Count>26</Count>
         </Item>
       </Statistic>
       <Statistic Action="Restore Windows">
@@ -406,7 +406,7 @@
           <IdeaActionID>ActivateRunDashboardToolWindow</IdeaActionID>
           <ShortCut>'⌘3'</ShortCut>
           <Description>Run Dashboard</Description>
-          <Count>37</Count>
+          <Count>38</Count>
         </Item>
       </Statistic>
       <Statistic Action="Show Diagram...">
