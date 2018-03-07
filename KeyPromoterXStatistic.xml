@@ -550,7 +550,7 @@
           <IdeaActionID>ActivateStructureToolWindow</IdeaActionID>
           <ShortCut>'⌘7'</ShortCut>
           <Description>Structure</Description>
-          <Count>2</Count>
+          <Count>3</Count>
         </Item>
       </Statistic>
       <Statistic Action="TODO">
