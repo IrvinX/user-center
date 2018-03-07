@@ -457,6 +457,14 @@
           <Count>2</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Stop 'GeneralViewTest.extractGenView'">
+        <Item>
+          <IdeaActionID>Stop</IdeaActionID>
+          <ShortCut>'⌘F2'</ShortCut>
+          <Description>Stop 'GeneralViewTest.extractGenView'</Description>
+          <Count>2</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Stop 'KafkaSenderTest.send1'">
         <Item>
           <IdeaActionID>Stop</IdeaActionID>
