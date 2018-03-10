@@ -54,7 +54,7 @@
           <IdeaActionID>RunDashboard.Debug</IdeaActionID>
           <ShortCut>'⌃⇧F9'</ShortCut>
           <Description>Debug</Description>
-          <Count>45</Count>
+          <Count>47</Count>
         </Item>
       </Statistic>
       <Statistic Action="Debug 'AppTest'">
@@ -342,7 +342,7 @@
           <IdeaActionID>ActivateRunToolWindow</IdeaActionID>
           <ShortCut>'⌘4'</ShortCut>
           <Description>Run</Description>
-          <Count>30</Count>
+          <Count>31</Count>
         </Item>
       </Statistic>
       <Statistic Action="Run 'Application'">
@@ -430,7 +430,7 @@
           <IdeaActionID>ActivateRunDashboardToolWindow</IdeaActionID>
           <ShortCut>'⌘3'</ShortCut>
           <Description>Run Dashboard</Description>
-          <Count>45</Count>
+          <Count>46</Count>
         </Item>
       </Statistic>
       <Statistic Action="Show Diagram...">
