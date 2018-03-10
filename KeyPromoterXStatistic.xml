@@ -9,6 +9,14 @@
           <Count>1</Count>
         </Item>
       </Statistic>
+      <Statistic Action="Add as Maven Project">
+        <Item>
+          <IdeaActionID>Maven.AddFileAsMavenProject</IdeaActionID>
+          <ShortCut>'⇧⌘M'</ShortCut>
+          <Description>Add as Maven Project</Description>
+          <Count>1</Count>
+        </Item>
+      </Statistic>
       <Statistic Action="Close Others">
         <Item>
           <IdeaActionID>CloseAllEditorsButActive</IdeaActionID>

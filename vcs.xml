@@ -86,8 +86,12 @@
           <option name="url" value="https://github.com/spring-guides/gs-spring-boot.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/IrvinX/user-center.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/projects/gitDemo" />
+    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/myspace" />
   </component>
 </application>
