@@ -10,6 +10,9 @@
     <keyboard-shortcut first-keystroke="ctrl w" />
   </action>
   <action id="FileChooser.GotoModule" />
+  <action id="Maven.AddFileAsMavenProject">
+    <keyboard-shortcut first-keystroke="shift meta m" />
+  </action>
   <action id="RunDashboard.Debug">
     <keyboard-shortcut first-keystroke="ctrl d" />
   </action>
