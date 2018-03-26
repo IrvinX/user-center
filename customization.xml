@@ -27,5 +27,20 @@
       <path value="Navigate" />
       <option name="myInitialPosition" value="-1" />
     </group>
+    <group value="RunMenu" is_group="true" action_type="-1" position="8">
+      <path value="root" />
+      <path value="Main menu" />
+      <option name="myInitialPosition" value="-1" />
+    </group>
+    <group value="BuildMenu" is_group="true" action_type="-1" position="7">
+      <path value="root" />
+      <path value="Main menu" />
+      <option name="myInitialPosition" value="-1" />
+    </group>
+    <group value="AnalyzeMenu" is_group="true" action_type="-1" position="5">
+      <path value="root" />
+      <path value="Main menu" />
+      <option name="myInitialPosition" value="-1" />
+    </group>
   </component>
 </application>
