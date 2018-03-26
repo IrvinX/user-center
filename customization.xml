@@ -1,10 +1,5 @@
 <application>
   <component name="com.intellij.ide.ui.customization.CustomActionsSchema">
-    <group value="OtherMenu" is_group="true" action_type="-1" position="15">
-      <path value="root" />
-      <path value="Main menu" />
-      <option name="myInitialPosition" value="-1" />
-    </group>
     <group value="studio.main.menu" is_group="true" action_type="-1" position="13">
       <path value="root" />
       <path value="Main menu" />
@@ -20,39 +15,16 @@
       <path value="Main menu" />
       <option name="myInitialPosition" value="-1" />
     </group>
-    <group value="ToolsMenu" is_group="true" action_type="-1" position="9">
+    <group value="GoToCodeGroup" is_group="true" action_type="-1" position="11">
       <path value="root" />
       <path value="Main menu" />
+      <path value="Navigate" />
       <option name="myInitialPosition" value="-1" />
     </group>
-    <group value="RunMenu" is_group="true" action_type="-1" position="8">
+    <group value="EditBookmarksGroup" is_group="true" action_type="-1" position="10">
       <path value="root" />
       <path value="Main menu" />
-      <option name="myInitialPosition" value="-1" />
-    </group>
-    <group value="BuildMenu" is_group="true" action_type="-1" position="7">
-      <path value="root" />
-      <path value="Main menu" />
-      <option name="myInitialPosition" value="-1" />
-    </group>
-    <group value="RefactoringMenu" is_group="true" action_type="-1" position="6">
-      <path value="root" />
-      <path value="Main menu" />
-      <option name="myInitialPosition" value="-1" />
-    </group>
-    <group value="AnalyzeMenu" is_group="true" action_type="-1" position="5">
-      <path value="root" />
-      <path value="Main menu" />
-      <option name="myInitialPosition" value="-1" />
-    </group>
-    <group value="CodeMenu" is_group="true" action_type="-1" position="4">
-      <path value="root" />
-      <path value="Main menu" />
-      <option name="myInitialPosition" value="-1" />
-    </group>
-    <group value="GoToMenu" is_group="true" action_type="-1" position="3">
-      <path value="root" />
-      <path value="Main menu" />
+      <path value="Navigate" />
       <option name="myInitialPosition" value="-1" />
     </group>
   </component>
