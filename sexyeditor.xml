@@ -2,7 +2,14 @@
   <component name="SexyEditor">
     <option name="configs">
       <list>
-        <BackgroundConfiguration />
+        <BackgroundConfiguration>
+          <option name="fileNames">
+            <array>
+              <option value="$USER_HOME$/Pictures/Celestial Being.jpg" />
+            </array>
+          </option>
+          <option name="position" value="4" />
+        </BackgroundConfiguration>
       </list>
     </option>
   </component>
