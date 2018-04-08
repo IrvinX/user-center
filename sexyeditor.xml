@@ -12,6 +12,7 @@
           <option name="position" value="4" />
           <option name="shrink" value="true" />
           <option name="shrinkValue" value="49" />
+          <option name="slideshow" value="true" />
         </BackgroundConfiguration>
       </list>
     </option>
