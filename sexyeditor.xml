@@ -8,7 +8,10 @@
               <option value="$USER_HOME$/Pictures/Celestial Being.jpg" />
             </array>
           </option>
+          <option name="opacity" value="0.05" />
           <option name="position" value="4" />
+          <option name="shrink" value="true" />
+          <option name="shrinkValue" value="49" />
         </BackgroundConfiguration>
       </list>
     </option>
