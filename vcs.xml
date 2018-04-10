@@ -126,8 +126,24 @@
           <option name="url" value="https://github.com/szerhusenBC/jwt-spring-security-demo.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://gaofang1@101.71.4.163:10080/backend/SpringBoot2.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://gaofang@101.71.4.163:10080/backend/SpringBoot2.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://101.71.4.163:10080/backend/SpringBoot2.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://101.71.4.163:10080" />
+          <option name="userName" value="gaofang" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/projects/gitDemo" />
+    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/toptimus" />
   </component>
 </application>
