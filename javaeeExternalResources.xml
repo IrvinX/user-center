@@ -1,0 +1,7 @@
+<application>
+  <component name="ExternalResourceManagerImpl">
+    <resource url="http://ehcache.org/ehcache.xsd" location="$USER_HOME$/Library/Caches/IntelliJIdea2018.1/extResources/39e8daee_ehcache.xsd" />
+    <resource url="http://mybatis.org/dtd/mybatis-3-config.dtd" location="$USER_HOME$/Library/Caches/IntelliJIdea2018.1/extResources/69c70a2f_mybatis-3-config.dtd" />
+    <resource url="http://mybatis.org/dtd/mybatis-3-mapper.dtd" location="$USER_HOME$/Library/Caches/IntelliJIdea2018.1/extResources/b36fadae_mybatis-3-mapper.dtd" />
+  </component>
+</application>
