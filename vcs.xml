@@ -158,6 +158,10 @@
           <option name="url" value="https://github.com/Brian415/xcrm.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/a466350665/smart.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="$USER_HOME$/WorkSpace" />
