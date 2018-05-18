@@ -198,8 +198,12 @@
           <option name="url" value="https://github.com/keets2012/microservice-integration.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/Brian415/xcrm-account-server.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/github" />
+    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/mtscrm" />
   </component>
 </application>
