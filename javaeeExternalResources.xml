@@ -3,5 +3,6 @@
     <resource url="http://ehcache.org/ehcache.xsd" location="$USER_HOME$/Library/Caches/IntelliJIdea2018.1/extResources/39e8daee_ehcache.xsd" />
     <resource url="http://mybatis.org/dtd/mybatis-3-config.dtd" location="$USER_HOME$/Library/Caches/IntelliJIdea2018.1/extResources/69c70a2f_mybatis-3-config.dtd" />
     <resource url="http://mybatis.org/dtd/mybatis-3-mapper.dtd" location="$USER_HOME$/Library/Caches/IntelliJIdea2018.1/extResources/b36fadae_mybatis-3-mapper.dtd" />
+    <resource url="http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" location="$USER_HOME$/Library/Caches/IntelliJIdea2018.1/extResources/2889bd79_svg11.dtd" />
   </component>
 </application>
