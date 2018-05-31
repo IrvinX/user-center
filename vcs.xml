@@ -206,6 +206,10 @@
           <option name="url" value="https://github.com/kolorobot/spring-boot-thymeleaf.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://gitee.com/didispace/config-repo-demo.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/github" />
