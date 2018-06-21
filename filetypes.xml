@@ -1,23 +1,24 @@
 <application>
   <component name="FileTypeManager" version="17">
     <extensionMap>
+      <mapping ext="tpe" type="DBN-PSQL" />
+      <mapping ext="tps" type="DBN-PSQL" />
+      <mapping ext="pks" type="DBN-PSQL" />
       <mapping ext="prc" type="DBN-PSQL" />
       <mapping ext="trg" type="DBN-PSQL" />
-      <mapping ext="tps" type="DBN-PSQL" />
+      <mapping ext="fnc" type="DBN-PSQL" />
       <mapping ext="tpb" type="DBN-PSQL" />
       <mapping ext="pkg" type="DBN-PSQL" />
-      <mapping ext="fnc" type="DBN-PSQL" />
-      <mapping ext="pks" type="DBN-PSQL" />
-      <mapping ext="tpe" type="DBN-PSQL" />
       <mapping ext="pkb" type="DBN-PSQL" />
       <mapping ext="vw" type="DBN-SQL" />
       <mapping pattern="dockerignore" type="Docker file" />
       <removed_mapping ext="form" type="GUI_DESIGNER_FORM" />
       <mapping ext="form" type="HTML" />
-      <mapping pattern=".gitkeep" type="PLAIN_TEXT" />
       <mapping pattern="a" type="PLAIN_TEXT" />
-      <mapping ext="pages" type="PLAIN_TEXT" />
+      <mapping pattern=".gitkeep" type="PLAIN_TEXT" />
       <mapping ext="graphqls" type="PLAIN_TEXT" />
+      <mapping ext="pages" type="PLAIN_TEXT" />
+      <mapping pattern="generatorConfigration" type="XML" />
       <mapping pattern=".bpmn" type="XML" />
       <mapping ext="bpmn" type="XML" />
       <mapping ext="factories" type="spring.factories" />
