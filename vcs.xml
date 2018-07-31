@@ -230,8 +230,12 @@
           <option name="url" value="https://github.com/guanzhenxing/java_interview_manual.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://gitee.com/youwenhua_group/blog.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/doc" />
+    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/youwenhua" />
   </component>
 </application>
