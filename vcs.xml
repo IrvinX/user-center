@@ -242,8 +242,12 @@
           <option name="url" value="https://gitee.com/youwenhua_group/WhereRU.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://gitee.com/zhima_job/pangu.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/youwenhua" />
+    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/myspace" />
   </component>
 </application>
