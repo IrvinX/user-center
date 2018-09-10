@@ -246,8 +246,12 @@
           <option name="url" value="https://gitee.com/zhima_job/pangu.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://gitee.com/MineData/minemap-cloud.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/myspace" />
+    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/cennavi" />
   </component>
 </application>
