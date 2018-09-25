@@ -254,8 +254,16 @@
           <option name="url" value="https://github.com/leongfeng/spring_boot.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://gitlab.navinfo.com/ncservers/nc-servers-bin.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://gitlab.navinfo.com" />
+          <option name="userName" value="gaofang@cennavi.com.cn" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/github" />
+    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/cennavi" />
   </component>
 </application>
