@@ -16,6 +16,7 @@
       <mapping ext="form" type="HTML" />
       <mapping pattern="a" type="PLAIN_TEXT" />
       <mapping pattern=".gitkeep" type="PLAIN_TEXT" />
+      <mapping ext="proto" type="PLAIN_TEXT" />
       <mapping ext="graphqls" type="PLAIN_TEXT" />
       <mapping ext="pages" type="PLAIN_TEXT" />
       <mapping pattern="generatorConfigration" type="XML" />
