@@ -278,8 +278,12 @@
           <option name="url" value="https://github.com/longfeizheng/security-oauth2.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://gitlab.navinfo.com/ncservers/map-matching-server.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/projects/github" />
+    <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/cennavi" />
   </component>
 </application>
