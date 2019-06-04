@@ -20,6 +20,7 @@
       <mapping ext="proto" type="PLAIN_TEXT" />
       <mapping ext="graphqls" type="PLAIN_TEXT" />
       <mapping ext="pages" type="PLAIN_TEXT" />
+      <removed_mapping ext="py" approved="true" type="Python" />
       <mapping pattern="generatorConfigration" type="XML" />
       <mapping pattern=".bpmn" type="XML" />
       <mapping ext="bpmn" type="XML" />
