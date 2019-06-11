@@ -302,6 +302,10 @@
           <option name="url" value="https://github.com/freewebsys/java-large-file-uploader-demo.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/kubernetes-client/java.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="$USER_HOME$/WorkSpace/projects/myspace" />
