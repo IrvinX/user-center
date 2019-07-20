@@ -8,5 +8,7 @@
   <component name="Registry">
     <entry key="debugger.watches.in.variables" value="false" />
     <entry key="git.explicit.commit.renames.prohibit.multiple.calls" value="false" />
+    <entry key="ide.balloon.shadow.size" value="0" />
+    <entry key="ide.mac.allowDarkWindowDecorations" value="true" />
   </component>
 </application>
