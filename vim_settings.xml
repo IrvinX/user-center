@@ -1,0 +1,40 @@
+<application>
+  <component name="VimSettings">
+    <state version="4" enabled="true" />
+    <globalmarks />
+    <filemarks>
+      <file name="$USER_HOME$/WorkSpace/cennavi/mineservice/mineservice/mm-lbs-service/src/main/java/com/cennavi/minemap/LBSApplication.java" timestamp="1563627526625">
+        <mark key="[" line="31" column="32" />
+        <mark key="]" line="31" column="31" />
+        <mark key="." line="31" column="31" />
+        <mark key="^" line="31" column="31" />
+      </file>
+      <file name="$USER_HOME$/WorkSpace/cennavi/mineservice/mineservice/mm-lbs-service/src/main/resources/application-stage.properties" timestamp="1563628068026" />
+    </filemarks>
+    <jumps />
+    <registers>
+      <register name="1" type="2">
+        <text encoding="base64">ICAgIEBCZWFuCg==</text>
+      </register>
+      <register name="&quot;" type="2">
+        <text encoding="base64">ICAgIEBCZWFuCg==</text>
+      </register>
+      <register name=":" type="4">
+        <text>27</text>
+      </register>
+    </registers>
+    <search>
+      <last-dir>0</last-dir>
+      <show-last>false</show-last>
+    </search>
+    <history>
+      <history-cmd>
+        <entry>27</entry>
+      </history-cmd>
+    </history>
+    <shortcut-conflicts />
+    <editor>
+      <key-repeat enabled="true" />
+    </editor>
+  </component>
+</application>
