@@ -3,7 +3,10 @@
     <option name="isContrastMode" value="true" />
     <option name="isHighContrast" value="true" />
     <option name="isWizardShown" value="true" />
+    <option name="overrideAccentColor" value="true" />
     <option name="pristineConfig" value="false" />
+    <option name="settingsSelectedTab" value="4" />
+    <option name="accentColor" value="ff9800" />
     <option name="selectedTheme" value="DARKER" />
     <option name="userId" value="-3b8133d0:16c0f5aac15:-8000" />
     <option name="version" value="3.10.0" />
